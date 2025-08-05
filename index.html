@@ -5,36 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mermaid Diagram</title>
     <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js"></script>
 </head>
 <body>
-    <h1>Mermaid Diagram</h1>
-    <div class="mermaid" id="mermaid-diagram"></div>
-
+    <div class="mermaid">
+        graph TD
+            A[Christmas] -->|Get money| B(Go shopping)
+            B --> C{Let me think}
+            C -->|One| D[Laptop]
+            C -->|Two| E[iPhone]
+            C -->|Three| F[fa:fa-car Car]
+    </div>
     <script>
-        const encodedData = "eNq1XIluG0mS_ZWEBh5LbZLWYflQ9xrQ5QNtuwVR3cYuGhgki0myRnWw65BMNwaYj9gv3C_Z9yIyq4oi7ZElt9xtmKyqPCLjePEiSn9uRPnYbRxsTAs7n5mLk98zg58HD8zrJB_ZxAyrRRJnUzPJC3OazWwWubE5scWleY8HzbmzYzuKk7haNE9exK4oD8xv8aiwWdUz47is4iyqTJQneVEOzAc8iRtklJGNLqdFXmdjcx1XMzMq4umsMpX7VBmLLysM1pcHMe8oL8YYe_B7ppOVWJwzw3-cJXVpJnGSHPzt9MXO6dO9XlkV-aU7-Nsr-fEf-9fxuJod7M4_9WTEg7_t7PLP8mBcvh_sxfHus6Ptuw922B1sd-fF01f3WNlRd7Dt7aPjkyd3H-y4O9jT7Wcnz49uO5heDkeA836bjeOreFxDW3iyQWX0epTYsjxxEzO3iVz1wpCf5Tn2OnPs809nBHMEZZkn9bQ3rGwVzdx1GLBZtp5895l3dRSP48z23uT5pIir3nvoY-IKu-gN6-LKxcki-9R7m0Vxhi_nFVT85qCqAd1BP8TZP-t03jtK7Gdnk95JnsxnReyyce_IjvI87Q2H5__4mBeX0NSV8VQJuuMNs_z60qZx7yyx1WJeV5977zCYzZwtsOBPcRpXee-9y6_HNnUrA6oiLA3YzN47rC-rxeXqQ3rgnSO8eHt6PjR_N-9OX59-8D6grEfqFN65KRYk1iimrZf5M44LF1Vxnpl35-23ao-bw0dy-4F57yrbhwrEGR3Ja-7iGI5kiqG2uk_x7s2hf-gULgXuJU9cH4JZUJZ_N6dRnuVpHJmfMVL3YTW0zUP_8DG8hckn5iy_dsWkTsyFs2n3frWlzSN__xBywdKGcxfFNoG74mRv4Ij6v9mkdsbLszOA2s_msR_gFR2YpSRgBH83F3B8Zew_ntkkPAkxdoROAUHu5sMvJ6fDGzL3wjN9czFz5tfsj9qVMt6IngD_7uzFW8bm7xvtl_z5CWap5v5fD-lP-9jaNDtI3KT68eHLG_eOXoZxfno8emk2fz3v4QxwukUcwbn3zCuIqNr6aVQ8vvlo_XJYp6ktFgc_Pa5fyoLrpIpTW_EQJg6iuHIMIJEzKa_ME2xtcGOU2erAo5fDS3gLc1Q4eznOr7MDrm35ph906SWUYvO9dQlVPDVHeVJtyd1m9_nOYPeBiWY2zkzC4CJqWOVm31S2mLpKIlJlZrhmYGN26npmVDNcZWVFj7Ewds41w5wLV5Y1lMtGRQ5bq7BXl7l0gYBl08GapZ1jOLP5y5UrsALMFla1t7fzwJRYCRRcl2GyGqYqQdCa3W1ZMqItV3pmC5ssPmOgUgSS5NHl1sAcmnlQ8CrPE4nRY5e4ihvkv-MS-sIPFiuPc7hALHQGaVbrlnoG78GT2nwLgz6Jy6KeU-X8inmseLLENc4Tw0agpFD0Syzk3TsRA0VU1jhyKC53AKPH6UOcc1ek8GiU5QAjxaXBf9akOmPP1BmEPQ4Wo4dgbDqXqRZ5XWD4Cs7GlH_UdnxTdUZrVacqoIBT6MUhxlyUcan7CGpuJjTZFOPaBCcciUcqjcNJLRCkCELiitMScJi3FX25yie1l82NOTSgCAseIx7gEyQkS6ZKGPdpnnPjscwychXGG4gwS13ggqIo43SeuAOMME_yRRvsxOleM-C1Qz4sw3xZnY7oGMvLRQGNcJWuU1ROFSVWFUW8LLjYDHoyx6BJkl9TLTAm1atwaY59UUly-BcYLqSmaj2TLfVgKdllT3RqaasTGpsYAc6Fp3e7o1kg3k6hLOvtuX55StlCbANxKO_zEsaRV9DlhdoHTbXvV3KYn4qLNZsYuQ3wxsdnzrBlrme5iWyG_-cxzjuGKVEYWDglSvzBLYmymhIGMl6xD4YAHPqnyM1VS7kWBxHLglYNudAFBQiiy4CsMQX9B6aOoSnYp5zTPK9UR7is1lS9e7qNTI8RgSqNkh_hLTP4qS_L91UeATC_gkGpy25sAvoCQd_YJs9-QW8T5cDf2EwFKA5bsPDl67a_pCKlyN0lgDF8kDY1chPGZ3qQKwmvJSAQco2kHKxZ6xEShH6RX5tDzAgDzEpdM_bsYZ2YNWfx89NmGoFi_WVVZ481kDT7nGB6GNI8scxnkJ3kBaEM3NNthN3gEIEH6leAS-FPijGxDZQb1nUtqEFtMsrTka1MXUmqJCafmzhNReOqGS9RiBQPXR4fVRdZImTHkxjbq0w-n-cFNsMRIhpFnSU4ZzHjmYUFj2uEqQhiXtGZx8ACnX38vrEVgIhgL4-p7wshwjgdCGGLanZX8KAWSZeLQDjL4YZcFgJatmgc6F-AJF5ntpz5wDfMk3hs9nf3B08erNX0AbLgEtCxEnDG47NiM1-GA2cF1BPA-YoI1xZ-ohM3QuwsveedUGRU_B4DjkCWmUvFqszO3mD_gZGz98bGWfcRp05huUkC1ZdvkDrEUytwgCqe8h_BOuuCn3SuUV1Am-YzW7ryq8hgSKPKXNLBBLAcePOygrsm5KZVCyqBw4DAYYAxDKzZjLrqChFUEUKQYIsJAurqteCmowd1Ye8V_YOGwvYL5BYSIHOJ6BpgZaGAidhMnY2oLTzUgd9pOqITY74TduoFw3WJ37F6qmM5ShMRajnu6hqCUDvnPjNcGMcMZ-N4AuOmI5XzolEzIsmqOH0087IZ1Qs-SIcpagYTcS06IovSl1XfcL6MOJ9cVFch5DSog447B8qdIM_kdkZOUCMiUlFndFpqbFi9YJzrGI7q4VQyTDijLM8eKsCBVOa5JjsyHWBV9P2QwKvCTmOmPGGDhXf_3oTKLhboARhf99-cqZIlMQ71RgiWM-riBH7ZAURiYtwEsaZldEuStUGpqCGPZi3d6Vo-QCbECYlbITMgX4wcJOaWdADKwyO9njkEfxuT6ZKwGpS1x4NO1e0haMxhtJU-Iuq6boFv9PybUNlQClwDlJ-4jgPqakozsdQ-bNoBvasOQ8tt1x6C9toEejkmLBCvhNXWjKHekr87Vrll_B8taItO8e5clSM4HsPHNYEgnMmhM5XaDdKJuJwtxH5kl-tk6bMYMyQwbCZfSpeJPuYIdQo4Mjdl-Or4GoaDmPvEOlViGuzLgDrXzcukETqRyMkD5urUH2e0B2xgHiyAO5Z99vj1OHcC4maBteVl2R-lYKdIg-FkfOYl6Dlo7pJRYNEj-Lvyznjo0JQBEb1X5qeLh8T5Wl37FFnYQ8mtU1IelJXPsYiGoJhIbk3j-MRP2oxsYwKrKm6DdNZwL1-hXgLzcgsKqp0neJn7QqglbyUQ6iN0CdCHdnBbBPVH7ZzEqGW4ElD4Gu_8HTDTGTLoypapxwZfBUxUDqHc6I8Z8eOSeB0h_9J9GTZdwAvirgYu0e1aqtl06gTN7O6_aDAF7ZyYpJMUqFKJjwfYd9T_Rzt4QBzfKhJBDGVuQwqAPIwAu0RCNNEnnP5XodJJweg4nFmIbqsxCcnzhV0auyuLpQs4e7SHVRzDlSF3r8IadLUdegHReu5pKRUXXA2j370AUdA3n21ENpm7ZGDeYNp_5iOPj5Aew3tOFmKueqKKVbAdZCTMTRRI-qR6Ertk_H___t-ROCrbsAjWXLrFMkQRUkHxMh7gKXk2gsekuKulgxLJhBSAZSKaDtcBbQBmwjomsXeKhcMSYQUNdTLAebhAijRpRpkntYyJnXYZkLitazDCfx9Ac9Jg2QtsuY1lS6lTrOc-4vonWluA5NycusILpZ0QLjAQlNiJjdNyfeAaCRlXrg1aD8tlyqOjcA-9pT30onVXcCdiJZHDcceZN65-OcsrCWNqZX9l9I8i3Kgb8YcopGbaWPhEoVYHFKyTyYXF7I_PnZYu_ICHsGdfxVSYw3iuhDXFgc0GL6JJVxOMVOuJEoHwYZNye5O3tMp55ygqzh_HrvSLcAgpEySuigvFAdTJGJqyZHo9YXFwmd-Qpfo2OsCL8L6hrAvPJJKRcPpGLiCAglHQA-tRoBaH6WLHylTnf0VF4VVMkve4y9yzLGSeP9kePH3SDTU2-EVRiSZnF_enlLsTEMQKgoQTsamQhJ2vQudO3COVyWd_y5HaL5bC3-6TF8_IBbQLaUoSsO-jw-OfzfkvH0NV4elSVYG8mFjNbtkNe4RjfWRDstx12rsc594A4fXfkAQY-5VJNEvtJ_PmrGemcKEqBy5MUh1PgVXAyW4s8aWsiyufcjRgVpMOnnJIYOlnvsT5fFPM84opCfalBoMGqxa1pLwTyHAKidILDjzm7mTnsMMqpF_9Ku97-B0GlnyyDPS6pibdWhE9v2xNvRALTFVFiK45-lWdsCBNBxPB6Q6IRBW4aV2HB5f5dLU565XIWsqttXCGysJex8FHsLrR0LCmwqZZm5giNfg-UY5pxaucUujX8zVJ8lKqEXLklrBXrj5x-Lue30hgJvR9QdAzSyIVX0H7FNjV88FaGoEHJRo1VImsD7waAsPoYqKSujnhHkvlzGKND3WpKvmNXv6bwp84m6FC6AsNQUfk6nT17-uSx9iy62Mg_zi6lMMMh3urpcpkHxEo-meey8FYHYAyzJVtSq3yPJLvav7ZHI-KVytcDE6ZEkdlz9DHYR8Z4bjlqtK0ztydY6Kmk5pH1lmMZCeExkDprSSNsMIpHcyKdvyHSNjtDblvOOyOpTFxOGyC4rdkdzVwaYlMAEckMQbOKkEu1YfcmdiUQLsRK9SRo4l972xPQ9KrBFFCKLMTyLXNb4Qr39l7Rnqa6kBHoL5tgIgVBWIayoHNfzWunFpG09NFGJynPexLaj6vi3lewi--dhQoGVZhAf8AVJfQAgNLjLRMqJsd5Tn_WbF-zepb4a7h64WMoX_JzZPdB0J5MuMvtB7sqdtruCTETgZpyJmsCuB2ca_w01UE8tDkO8jw2hIn-oP7FCU1RZAsfmBApN26YAWeWX-b-TgN1MqVdQ-9TutEDp0g0Nen4XtprkhmpEAfzdrau8inhCMBqndeUpSI5ExSNBBav6DdpgJGmQpRVo2CuVLvbhB0DqlOCzt27fQlWyriZEzSRKvaU2eFC1LQ0SpwnF3h3Bh3FbXUWSoOmolhVRdZuVRQa9AE9kUpIYYvJL0uHSBF5NqSzDqNu010M__daT_Anum-NS-dWMHhjPJ0zOEQxOE1V6VNQMk4l8ANTxHE7lvR5fnr_ntaxrQtfsEmW28sAsb1DqAgVA1EqpyDtL1IAejODpnn4QWkTIEeCKGP0_DARLZRYmqjRyKiw4DHEh_i1p_7uooeNRuySIkLfUhWooTrTF1COPT4yGvVlkaWooBOXtkVUvyWtODhl2nBw0ALrm8u6xRT2wa8-4YMZSB5pH5AinvNuWwefgLYiusUgUQqEyP2e_TMMYzAFWOppl3gK6hkPc575rc6QQSPkSd-XFxhVxm-u5ghrrgiSuw1vj_P4ZwS_rV1q9jRxChfFQR6jrUg6OtTJSleVYEFAK2FD6LPg2L046xfYipfOY2AvOIIKhLs6V6-VtIa9hfPMf2hho9CyHhpdvD8ODB3nc3ZZJVAfRpV89V6v9zGgba-8xETqlGe1aLsnp8j6p471h5kP8TljX9WVlAO6qKwgmNwBnkOif9CGDCsnEt4VukcnrZyN3rwXufJeGtggs6TAQlKSAl3fbmvFkG9NU4UqdgkCTusXcpNPvdUok1THJWF960CFEuxq3EbuqGN6uFwI_kXOtxOKRUW32n2oq-BghOc5_6ZQmvlFB9MuWcmtUt8L1JhrlmGgrBZiaEeLWR2cadNhyWCC_66nsUSxqp83mePeHDNolWQz9292RlSXxslYQFjNq7qGrz6KhBQ5_VtcLKtDd7XM9yoMnYLBbfmVw4bdmXSpkcjrWxq7HXif9htSET4_VHkeV3OsOwOgJzV-H53Z_vFg7bJre2KfLaev1D4YPYADc5gDUxKvtYKqURNTzGjdiCtpS-X8ehFPIZTel0jyK7yHAPzPhSsaHSfgDRT1hrbampHxH5jJdR4ej_v1mpBILVFW-PQomB9OFCgpS1Sl9LoV2e0HmEgcATSu1H79sE1Rm1HZV6MwsKVeA41gdhXcTJXY5VJ_PkmMTGKp1PGf2XB9ChvJKOKUoRaVUDbduVpS4xUbxh39bLSJj16MxtVdH_2rj0HKxQANaflu5vC7Y8rNd-2mS9eaboEOoeiIO46SdK-kRrwrSpwhqlQUWXKwFQ0LbY8yDwUhzH7j0qNLVXaJtLixztHPPAkDkg5VIBFusJm3dlTvsunU89NN25YY8ctAVj7sSGE7usYl5ml1Tb22ybah4ZIkmOVZQfNMJ8FBqiKOvprEuuwWOV5vKchR1CaPa3Ii4buPNl-2rjI08PjNxKtAAF44jPPtpa2qY50idiAXpYVxveAhb7JnuIYtnpI8gttDxVLp8BC8P6X2t7bjjF64FheroDxdD1nU-9cotZ824HsYcaEhqYvDN8djfurJS9JKDuzxpnUeiJFoAw9iCk3PQQrcerqE24RTyRW_Kl4jNt3TSyb-9HNCoc2EHeKKEB-5AMZVnAQ7QmGPmHf4Uyyr2Tarltie1tc3t3Iz-jhAiJsXpC5W3p19OX06iikV7d8F6fTeRFam-7detHtkfLsnO9f_RZ6TpLdLM_6N3p-kfb-aJjEa6M3rbjpBKJfYEff7fzJl0r5Yf0PyxsQftNqDAkOQ-YVkMDwqqlz6sZxHhU-5z5qUyXjO8TY6k9LYY4tfdPatKap0jy8yYH1XTgmkuYYo2p7nWL1cWGlri70mrS_sd206UTTnMnzAm_yUhr1fV1Ke8w8wvGianLLKG8VVOJZp59PmyoLX_KQbEs_WumnUybKMzXI76Z8vYduXactg6B7dIH9fNJfbeNuWzLvbGEXIXaG92o8CRKEIEjsGxu6_UuF927o9uN0LOIb25EOjbwn49t9SGUsv0EicLDh6SEd3JjcywzCmj0OE9AJmysW_QS4LjG_nquKP2L_8aHW3UIfr_TlJyRGqBg3cJ32_0INp0jYwzY2d_b2tx9srclQNDPZHeyXSMmc-7zc1yOFYUCMWPa9LBPfFEVJJKHQLx0JeEgiVMoGJK1EIoTESTcP_vVcNh79Ucer77HcKmgeSm-95xOlxM5Crc-dhOBvyz0nZ8O7QNswehQ4TgqrpS3psUIU7BFzbd3ZuI7vErnaj81Lufe1pGagVVO6fcKeyZs52t-v3eZsihE2Z177bOVetvOKr0D7XsfAD7VdyM0e1LQm0u_HTimbYCOsTwfKNthThzObY0x5u6_T998GorUGV87YzKLlAenrZuiQVFaaXBkN2KMmia5vICtz7bsIPWN8Fci_bEH95dsIJW7zhrfQ_oKQpN_j7R-mQq54PLTXkhAda95Vl54G1Pd5Ju2bOrYplK45stuBqeMvg6njAKb-03vJnYjx3UhrvvbxnxnrV0kO6CHM9OvCTuDamJ29cUVUJ85OkBNU0WDrtmxzg6roQ0b-VRRmKbZIFn1hQAP3fD82mSmWdDIQMh0rSGJJEClA5XQiem5ISd8h9hVLjQUZf2uBWJcWkB7t7T9ouWHPI5Nz9GZDM2vocA4BlF81XKkwvvnEc5HyKzRk2LipVvk6qSdxJtKlpnCNfHvZVXwfR6ifjDQ-fHjKVukWCd6-sFd22Fnui26InJEYcdMTClg1p3S6yOquBiadEB4dyqkK_dozn12Rh-95BndgZf1vSbi33usw3r_fiY9F1C2CU2hf7vFvJDM978Dce_n58Ish9H3Ppkjq3wFS86FE8wyCxrGLynuIo2voC8EE9xZc_eajHWjzm7OtmzDH05Lytmg0y-MGGnUoUdlw53Rj5lBs7NZerIZtp-9nZddp0h4UnMYuFKU0yEo6X3d7I33CMmbBn9CJmpwLVJKJpYmIr7vw1TWNp3fWU20cDG2bj0XsnztvP3ybq2-c_bu3H35---G1fva_8Kbfb9_cXbkQonYYw_9eG14KLd8rFzzXsPJ9t2EhjHfYXm4ot5UrLT-9cqlTJdVr-vdRZ5khnV25EhD-yoUGoIRVHnceujFf55K3ho3exrSIxxsHVVG73kbKMhY_bvzJJ37fYKHM_b5xgH8CvF7SXfwLz8xt9j95nobHpJa9cTCBxeBTPUf4dSexhdtsb5EEWSDxxsHuzraMsXHw58anjYP-zs6zncHT3SfbL3aePX-6t72319tY4Pv9FzuDF9vPXzx5sv_iKf77V2_js0y7O3j-_Nn2k-c7-0-f7WO0Z0_-9f9r3Haj";
-
-        function base64ToUint8Array(base64) {
-            const binaryString = atob(base64.replace(/_/g, '/').replace(/-/g, '+'));
-            const len = binaryString.length;
-            const bytes = new Uint8Array(len);
-            for (let i = 0; i < len; i++) {
-                bytes[i] = binaryString.charCodeAt(i);
+        mermaid.initialize({ startOnLoad: true });
+        const getMermaidCodeFromUrl = () => {
+            const hash = window.location.hash.substring(1);
+            if (hash.startsWith('pako:')) {
+                const encoded = hash.substring(5);
+                try {
+                    const pako = window.pako;
+                    const decoded = pako.inflate(Uint8Array.from(atob(encoded.replace(/_/g, '/').replace(/-/g, '+')), c => c.charCodeAt(0)), { to: 'string' });
+                    const json = JSON.parse(decoded);
+                    return json.code;
+                } catch (e) {
+                    console.error('Failed to decode mermaid diagram from URL', e);
+                    return 'graph TD\n    A[Error decoding diagram] --> B{Check console for details}';
+                }
             }
-            return bytes;
+            return 'graph TD\n    A[No diagram in URL] --> B{Share a diagram to see it here}';
         }
 
-        try {
-            const uint8array = base64ToUint8Array(encodedData);
-            const decompressed = pako.inflate(uint8array, { to: 'string' });
-            const mermaidContainer = document.getElementById('mermaid-diagram');
-            mermaid.render('graph', decompressed, (svgCode) => {
-                mermaidContainer.innerHTML = svgCode;
-            });
-        } catch (err) {
-            console.error('Error processing mermaid data:', err);
-            document.getElementById('mermaid-diagram').innerText = 'Error rendering diagram.';
+        const renderMermaid = async () => {
+            const code = getMermaidCodeFromUrl();
+            const mermaidDiv = document.querySelector('.mermaid');
+            const { svg } = await mermaid.render('mermaid-graph', code);
+            mermaidDiv.innerHTML = svg;
         }
+
+        // Load pako from CDN
+        const pakoScript = document.createElement('script');
+        pakoScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/pako/2.0.4/pako.min.js';
+        pakoScript.onload = () => {
+            renderMermaid();
+        };
+        document.head.appendChild(pakoScript);
+
     </script>
 </body>
 </html>
