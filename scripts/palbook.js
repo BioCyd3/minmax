@@ -1,7 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM loaded, checking data:', typeof data !== 'undefined' ? data.length : 'data not found');
+    
     const grid = document.getElementById('pal-grid');
     const searchBar = document.getElementById('search-bar');
     const filters = { type: null, rarity: null, searchTerm: '' };
+    
+    // Check if data exists
+    if (typeof data === 'undefined') {
+        console.error('Data not loaded! Check if palbook-data.js is loading properly.');
+        grid.innerHTML = '<p style="color: red; text-align: center; padding: 2rem;">Error: Palmon data not loaded. Check console for details.</p>';
+        return;
+    }
     
     // Create live region for screen reader announcements
     const liveRegion = document.createElement('div');
@@ -159,9 +168,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Initial render
+    console.log('Starting initial render with', data.length, 'Palmon');
     const tierOrderMap = { 'S': 0, 'A': 1, 'B': 2, 'C': 3, 'D': 4, 'F': 5 };
     data.sort((a, b) => tierOrderMap[a.Tier] - tierOrderMap[b.Tier] || a['Hero Name'].localeCompare(b['Hero Name']));
-    grid.innerHTML = data.map(createPalCard).join('');
+    
+    const cardsHTML = data.map(createPalCard).join('');
+    console.log('Generated HTML length:', cardsHTML.length);
+    grid.innerHTML = cardsHTML;
+    console.log('Grid populated with', grid.children.length, 'cards');
     
     // Setup keyboard navigation for cards
     setupCardKeyboardNavigation();
