@@ -2669,4 +2669,271 @@ a {
   margin: 0;
   word-wrap: break-word;
   overflow-wrap: break-word;
+}/* TEXT COL
+OR READABILITY FIXES */
+
+/* Ensure all text has sufficient contrast */
+body {
+  color: #ffffff !important;
+  background-color: var(--color-bg);
+}
+
+/* Fix main text colors for better readability */
+p, span, div, li {
+  color: #ffffff !important;
+}
+
+/* Fix heading colors */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-secondary-400) !important;
+}
+
+/* Fix muted text to be more readable */
+.color-text-muted,
+.pal-slot span,
+.lore-subtitle,
+.page-description,
+.feature-description {
+  color: #cccccc !important;
+}
+
+/* Fix type colors for better contrast */
+.pal-type.earth {
+  background: #8b6f47 !important;
+  color: #ffffff !important;
+}
+
+.pal-type.fire {
+  background: #e55039 !important;
+  color: #ffffff !important;
+}
+
+.pal-type.water {
+  background: #3c6382 !important;
+  color: #ffffff !important;
+}
+
+.pal-type.electricity {
+  background: #f39c12 !important;
+  color: #000000 !important;
+}
+
+/* Fix lore content type colors */
+.lore-content h3.type-earth {
+  color: #d4af37 !important;
+}
+
+.lore-content h3.type-fire {
+  color: #ff6b6b !important;
+}
+
+.lore-content h3.type-water {
+  color: #74b9ff !important;
+}
+
+.lore-content h3.type-electricity {
+  color: #fdcb6e !important;
+}
+
+/* Fix principle text */
+.principle p {
+  color: #ffffff !important;
+}
+
+/* Fix intro text */
+.intro p {
+  color: #ffffff !important;
+}
+
+/* Fix strategy and substitution text */
+.strategy p,
+.substitutions p {
+  color: #ffffff !important;
+}
+
+/* Fix pal slot text */
+.pal-slot strong {
+  color: #ffffff !important;
+}
+
+.pal-slot .pal-info strong {
+  color: #ffffff !important;
+}
+
+.pal-slot .pal-info span {
+  color: #cccccc !important;
+}
+
+/* Fix team composition text */
+.team-comp p {
+  color: #ffffff !important;
+}
+
+/* Fix lore text */
+.lore-text {
+  color: #ffffff !important;
+}
+
+/* Fix explanation text */
+.explanation {
+  color: #ffffff !important;
+}
+
+/* Fix roles and jobs text */
+.roles-jobs p {
+  color: #ffffff !important;
+}
+
+/* Fix skills text */
+.skills li {
+  color: #ffffff !important;
+}
+
+/* Fix search results text */
+.search-results-count {
+  color: #cccccc !important;
+}
+
+/* Fix filter group labels */
+.filter-group-label {
+  color: #ffffff !important;
+}
+
+/* Fix budget options text */
+.budget-options li {
+  color: #ffffff !important;
+}
+
+/* Fix solution list text */
+.solution-list li {
+  color: #ffffff !important;
+}
+
+/* Fix threat analysis text */
+.threat-analysis {
+  color: #ffffff !important;
+}
+
+/* Fix legend text */
+.legend-section li {
+  color: #ffffff !important;
+}
+
+/* Fix tier badge text - ensure white text on colored backgrounds */
+.tier-badge {
+  color: #ffffff !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Fix tier label text */
+.tier-label {
+  color: #ffffff !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Fix nav link text */
+.nav-link {
+  color: #ffffff !important;
+}
+
+.nav-link.active {
+  color: #ffffff !important;
+}
+
+/* Fix mobile nav text */
+.mobile-nav .nav-link {
+  color: #ffffff !important;
+}
+
+/* Fix logo text */
+.logo {
+  color: #ffffff !important;
+}
+
+/* Fix button text */
+.btn {
+  color: #ffffff !important;
+}
+
+.filter-btn {
+  color: #ffffff !important;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  color: #ffffff !important;
+}
+
+/* Fix card text */
+.card {
+  color: #ffffff !important;
+}
+
+.feature-card {
+  color: #ffffff !important;
+}
+
+.pal-card {
+  color: #ffffff !important;
+}
+
+/* Fix pal name text */
+.pal-name {
+  color: #ffffff !important;
+}
+
+/* Fix feature title */
+.feature-title {
+  color: #ffffff !important;
+}
+
+/* Fix team card headings */
+.team-card h3 {
+  color: var(--color-secondary-400) !important;
+}
+
+.team-card h4 {
+  color: var(--color-secondary-400) !important;
+}
+
+/* Fix counter card text */
+.counter-card {
+  color: #ffffff !important;
+}
+
+/* Fix strategy guide text */
+.strategy-guide {
+  color: #ffffff !important;
+}
+
+/* Ensure all text in containers is readable */
+.container * {
+  color: inherit;
+}
+
+/* Fix any remaining text color issues */
+* {
+  color: inherit;
+}
+
+/* Override any problematic inherited colors */
+main {
+  color: #ffffff;
+}
+
+section {
+  color: #ffffff;
+}
+
+article {
+  color: #ffffff;
+}
+
+/* Fix footer text */
+.footer {
+  color: #cccccc !important;
+}
+
+.footer p {
+  color: #cccccc !important;
 }
