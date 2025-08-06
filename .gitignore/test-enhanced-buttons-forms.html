@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Buttons and Forms Test - Palmon World</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .demo-section {
+            margin: var(--space-8) 0;
+            padding: var(--space-6);
+            background-color: var(--color-surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border);
+        }
+        
+        .demo-section h2 {
+            color: var(--color-secondary-500);
+            margin-bottom: var(--space-4);
+            font-size: var(--font-size-xl);
+        }
+        
+        .demo-section h3 {
+            color: var(--color-text);
+            margin: var(--space-4) 0 var(--space-2) 0;
+            font-size: var(--font-size-lg);
+        }
+        
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-4);
+            margin: var(--space-4) 0;
+        }
+        
+        .demo-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-3);
+            margin: var(--space-4) 0;
+        }
+        
+        .demo-form {
+            max-width: 500px;
+            margin: var(--space-4) 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Enhanced Buttons and Forms Test</h1>
+        <p>Testing all the enhanced button and form element styling with interactive states and feedback.</p>
+
+        <!-- Button Variants Section -->
+        <div class="demo-section">
+            <h2>Button Variants</h2>
+            
+            <h3>Primary Buttons</h3>
+            <div class="demo-buttons">
+                <button class="btn btn-primary btn-xs">Extra Small</button>
+                <button class="btn btn-primary btn-sm">Small</button>
+                <button class="btn btn-primary btn-md">Medium</button>
+                <button class="btn btn-primary btn-lg">Large</button>
+                <button class="btn btn-primary btn-xl">Extra Large</button>
+            </div>
+            
+            <h3>Button States</h3>
+            <div class="demo-buttons">
+                <button class="btn btn-primary">Default</button>
+                <button class="btn btn-secondary">Secondary</button>
+                <button class="btn btn-outline">Outline</button>
+                <button class="btn btn-ghost">Ghost</button>
+                <button class="btn btn-success">Success</button>
+                <button class="btn btn-warning">Warning</button>
+                <button class="btn btn-error">Error</button>
+                <button class="btn btn-primary" disabled>Disabled</button>
+            </div>
+            
+            <h3>Loading States</h3>
+            <div class="demo-buttons">
+                <button class="btn btn-primary btn-loading">Loading Primary</button>
+                <button class="btn btn-secondary btn-loading">Loading Secondary</button>
+                <button class="btn btn-outline btn-loading">Loading Outline</button>
+            </div>
+            
+            <h3>Special Buttons</h3>
+            <div class="demo-buttons">
+                <button class="btn btn-primary btn-pill">Pill Button</button>
+                <button class="btn btn-secondary btn-rounded">Rounded</button>
+                <button class="btn btn-primary btn-block">Block Button</button>
+                <button class="btn btn-secondary btn-with-badge">
+                    With Badge
+                    <span class="badge">3</span>
+                </button>
+            </div>
+            
+            <h3>Icon Buttons</h3>
+            <div class="demo-buttons">
+                <button class="btn btn-primary btn-icon btn-sm">🔍</button>
+                <button class="btn btn-secondary btn-icon">⚙️</button>
+                <button class="btn btn-outline btn-icon btn-lg">❤️</button>
+            </div>
+            
+            <h3>Interactive Feedback</h3>
+            <div class="demo-buttons">
+                <button class="btn btn-primary btn-pulse">Pulse Animation</button>
+                <button class="btn btn-secondary btn-bounce">Bounce on Hover</button>
+                <button class="btn btn-success btn-success-feedback" onclick="this.classList.add('btn-success-feedback'); setTimeout(() => this.classList.remove('btn-success-feedback'), 600)">Success Feedback</button>
+                <button class="btn btn-error btn-error-feedback" onclick="this.classList.add('btn-error-feedback'); setTimeout(() => this.classList.remove('btn-error-feedback'), 600)">Error Feedback</button>
+            </div>
+        </div>
+
+        <!-- Filter Buttons Section -->
+        <div class="demo-section">
+            <h2>Enhanced Filter System</h2>
+            
+            <div class="filter-controls-enhanced">
+                <div class="filter-group">
+                    <span class="filter-group-label">Type Filters:</span>
+                    <button class="filter-btn type-earth" onclick="toggleFilter(this)">
+                        Earth <span class="count-badge">12</span>
+                    </button>
+                    <button class="filter-btn type-fire" onclick="toggleFilter(this)">
+                        Fire <span class="count-badge">8</span>
+                    </button>
+                    <button class="filter-btn type-water" onclick="toggleFilter(this)">
+                        Water <span class="count-badge">15</span>
+                    </button>
+                    <button class="filter-btn type-electricity" onclick="toggleFilter(this)">
+                        Electric <span class="count-badge">6</span>
+                    </button>
+                </div>
+                
+                <div class="filter-group">
+                    <span class="filter-group-label">Rarity Filters:</span>
+                    <button class="filter-btn rarity-ur" onclick="toggleFilter(this)">
+                        UR <span class="count-badge">3</span>
+                    </button>
+                    <button class="filter-btn rarity-ssr" onclick="toggleFilter(this)">
+                        SSR <span class="count-badge">7</span>
+                    </button>
+                    <button class="filter-btn rarity-sr" onclick="toggleFilter(this)">
+                        SR <span class="count-badge">12</span>
+                    </button>
+                </div>
+                
+                <div class="filter-group">
+                    <button class="filter-btn reset" onclick="resetAllFilters()">Reset All</button>
+                    <button class="filter-btn loading" onclick="simulateLoading(this)">Apply Filters</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Elements Section -->
+        <div class="demo-section">
+            <h2>Enhanced Form Elements</h2>
+            
+            <h3>Search Inputs</h3>
+            <div class="demo-form">
+                <div class="search-container">
+                    <input type="text" placeholder="Enhanced search with icon..." class="search-input">
+                </div>
+                
+                <div class="search-input-with-icon">
+                    <input type="text" placeholder="Search with built-in icon..." class="search-input">
+                </div>
+                
+                <div class="search-results-count">Found 24 results</div>
+                <div class="search-results-count no-results">No results found</div>
+            </div>
+            
+            <h3>Form Inputs with States</h3>
+            <div class="demo-form">
+                <div class="form-field">
+                    <label class="form-label">Default Input</label>
+                    <input type="text" class="form-input" placeholder="Enter text...">
+                </div>
+                
+                <div class="form-field success">
+                    <label class="form-label">Success State</label>
+                    <input type="text" class="form-input success" value="Valid input" readonly>
+                    <span class="form-field-icon">✓</span>
+                    <div class="form-help">This input is valid!</div>
+                </div>
+                
+                <div class="form-field error">
+                    <label class="form-label">Error State</label>
+                    <input type="text" class="form-input error" value="Invalid input">
+                    <span class="form-field-icon">⚠️</span>
+                    <div class="form-error">This field is required</div>
+                </div>
+                
+                <div class="form-field warning">
+                    <label class="form-label">Warning State</label>
+                    <input type="text" class="form-input warning" value="Needs attention">
+                    <span class="form-field-icon">⚠️</span>
+                    <div class="form-help">Please double-check this value</div>
+                </div>
+                
+                <div class="form-field">
+                    <label class="form-label">Loading State</label>
+                    <input type="text" class="form-input loading" placeholder="Processing..." readonly>
+                </div>
+            </div>
+            
+            <h3>Floating Labels</h3>
+            <div class="demo-form">
+                <div class="form-field-floating">
+                    <input type="text" class="form-input" placeholder=" ">
+                    <label class="form-label">Floating Label</label>
+                </div>
+                
+                <div class="form-field-floating">
+                    <input type="email" class="form-input" placeholder=" ">
+                    <label class="form-label">Email Address</label>
+                </div>
+            </div>
+            
+            <h3>Toggle Switch</h3>
+            <div class="demo-form">
+                <div class="form-check">
+                    <label class="form-toggle">
+                        <input type="checkbox">
+                        <span class="form-toggle-slider"></span>
+                    </label>
+                    <span class="form-check-label">Enable notifications</span>
+                </div>
+                
+                <div class="form-check">
+                    <label class="form-toggle">
+                        <input type="checkbox" checked>
+                        <span class="form-toggle-slider"></span>
+                    </label>
+                    <span class="form-check-label">Dark mode (enabled)</span>
+                </div>
+            </div>
+            
+            <h3>Form Progress</h3>
+            <div class="demo-form">
+                <div class="form-progress">
+                    <div class="form-progress-bar" style="width: 60%"></div>
+                </div>
+                <p>Form completion: 60%</p>
+            </div>
+            
+            <h3>Form Steps</h3>
+            <div class="demo-form">
+                <div class="form-steps">
+                    <div class="form-step completed">
+                        <div class="form-step-number">1</div>
+                        <div class="form-step-label">Personal Info</div>
+                    </div>
+                    <div class="form-step completed">
+                        <div class="form-step-number">2</div>
+                        <div class="form-step-label">Preferences</div>
+                    </div>
+                    <div class="form-step active">
+                        <div class="form-step-number">3</div>
+                        <div class="form-step-label">Review</div>
+                    </div>
+                    <div class="form-step">
+                        <div class="form-step-number">4</div>
+                        <div class="form-step-label">Complete</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Button Groups Section -->
+        <div class="demo-section">
+            <h2>Button Groups</h2>
+            
+            <h3>Horizontal Button Group</h3>
+            <div class="btn-group">
+                <button class="btn btn-outline">Left</button>
+                <button class="btn btn-outline">Center</button>
+                <button class="btn btn-outline">Right</button>
+            </div>
+            
+            <h3>Filter Button Group</h3>
+            <div class="btn-group">
+                <button class="btn btn-filter active">All</button>
+                <button class="btn btn-filter">Active</button>
+                <button class="btn btn-filter">Inactive</button>
+            </div>
+        </div>
+
+        <!-- Floating Action Button -->
+        <button class="btn btn-secondary btn-fab" title="Scroll to top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+            ↑
+        </button>
+    </div>
+
+    <script>
+        function toggleFilter(button) {
+            button.classList.toggle('active');
+        }
+        
+        function resetAllFilters() {
+            document.querySelectorAll('.filter-btn:not(.reset)').forEach(btn => {
+                btn.classList.remove('active');
+            });
+        }
+        
+        function simulateLoading(button) {
+            button.classList.add('loading');
+            button.textContent = 'Applying...';
+            
+            setTimeout(() => {
+                button.classList.remove('loading');
+                button.textContent = 'Apply Filters';
+                button.classList.add('btn-success-feedback');
+                
+                setTimeout(() => {
+                    button.classList.remove('btn-success-feedback');
+                }, 600);
+            }, 2000);
+        }
+        
+        // Demo: Simulate form progress
+        let progress = 0;
+        const progressBar = document.querySelector('.form-progress-bar');
+        const progressText = document.querySelector('.demo-form p');
+        
+        setInterval(() => {
+            progress = (progress + 10) % 110;
+            if (progressBar && progressText) {
+                progressBar.style.width = progress + '%';
+                progressText.textContent = `Form completion: ${progress}%`;
+            }
+        }, 1000);
+        
+        // Demo: Search loading state
+        const searchInputs = document.querySelectorAll('.search-input');
+        searchInputs.forEach(input => {
+            input.addEventListener('input', function() {
+                if (this.value.length > 2) {
+                    this.classList.add('loading');
+                    setTimeout(() => {
+                        this.classList.remove('loading');
+                    }, 1500);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

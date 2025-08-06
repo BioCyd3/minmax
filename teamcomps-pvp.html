@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PvP Team Compositions Guide</title>
+    
+    <!-- Critical CSS for above-the-fold content -->
+    <link rel="stylesheet" href="css/critical.css">
+    
+    <!-- Preload optimized bundle -->
+    <link rel="preload" href="css/optimized-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/optimized-bundle.css"></noscript>
+    
+    <!-- Font optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+</head>
+<body>
+
+    <header class="header">
+        <a href="./index.html" class="logo">
+            <img src="./images/game_logo.png" alt="Palmon World Logo">
+            <h1>Palmon World</h1>
+        </a>
+        
+        <nav class="nav" aria-label="Main navigation">
+            <a href="./index.html" class="nav-link">Home</a>
+            <a href="./tierlist.html" class="nav-link">Tier List</a>
+            <a href="./palbook.html" class="nav-link">Palbook</a>
+            <a href="./synergy.html" class="nav-link">Synergy Guide</a>
+            <a href="./teamcomps-pve.html" class="nav-link">PvE Comps</a>
+            <a href="./teamcomps-pvp.html" class="nav-link active">PvP Comps</a>
+            <a href="./counters.html" class="nav-link">Counters</a>
+            <a href="./lore.html" class="nav-link">Lore</a>
+        </nav>
+        
+        <button class="mobile-nav-toggle" aria-label="Toggle mobile navigation" aria-expanded="false" aria-controls="mobile-nav">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+    </header>
+    
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+        <button class="mobile-nav-close" aria-label="Close mobile navigation">×</button>
+        <a href="./index.html" class="nav-link" style="--index: 0">Home</a>
+        <a href="./tierlist.html" class="nav-link" style="--index: 1">Tier List</a>
+        <a href="./palbook.html" class="nav-link" style="--index: 2">Palbook</a>
+        <a href="./synergy.html" class="nav-link" style="--index: 3">Synergy Guide</a>
+        <a href="./teamcomps-pve.html" class="nav-link" style="--index: 4">PvE Comps</a>
+        <a href="./teamcomps-pvp.html" class="nav-link" style="--index: 5">PvP Comps</a>
+        <a href="./counters.html" class="nav-link" style="--index: 6">Counters</a>
+        <a href="./lore.html" class="nav-link" style="--index: 7">Lore</a>
+    </nav>
+
+    <main class="container">
+        <h1>PvP Team Composition Guide</h1>
+        
+        <section class="intro">
+            <h2>PvP Team Building Principles</h2>
+            <p>Player vs. Player (PvP) is a brutal, fast-paced arena where victory is often decided in the opening moments. The best teams are built to execute a flawless strategy that cripples the opponent before they can react.</p>
+            
+            <div class="principles">
+                <div class="principle">
+                    <h3>First Strike Wins</h3>
+                    <p>The primary goal is to eliminate one or more key enemy Pals (especially their damage dealers) as quickly as possible. Burst damage and backline assassins are king.</p>
+                </div>
+                <div class="principle">
+                    <h3>Team-Wide Dominance</h3>
+                    <p>Global passives are the most powerful abilities in PvP. <strong>Statchew's</strong> damage reduction and <strong>Barkplug's</strong> defense shred create an immediate, insurmountable advantage.</p>
+                </div>
+                <div class="principle">
+                    <h3>Surgical Control</h3>
+                    <p>Random stuns are unreliable. You need targeted crowd control that can lock down the single biggest threat on the enemy team, like <strong>Snowkami's</strong> Freeze or <strong>Hoofrit's</strong> backline stun.</p>
+                </div>
+                <div class="principle">
+                    <h3>Survivability Through Disruption</h3>
+                    <p>You don't survive PvP with healing. You survive by making your frontline too tanky to kill (<strong>Statchew</strong>), by dodging attacks (<strong>Abuzzinian</strong>), or by killing the enemy before they kill you.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="intro">
+            <h2>PvP Meta Analysis</h2>
+            <p>The PvP meta is defined by speed, burst damage, and team-wide advantages. These compositions represent different approaches to dominating the competitive arena.</p>
+            
+            <div class="principles">
+                <div class="principle">
+                    <h3>Meta Tyrants</h3>
+                    <p>The undisputed best teams featuring the most powerful UR combinations that set the competitive standard.</p>
+                </div>
+                <div class="principle">
+                    <h3>Specialized Strategies</h3>
+                    <p>Teams built around specific tactics like backline assassination or crowd control dominance.</p>
+                </div>
+                <div class="principle">
+                    <h3>Counter Strategies</h3>
+                    <p>Anti-meta approaches designed to disrupt common strategies through superior control and disruption.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Comp 1 -->
+        <article class="team-comp">
+            <h3 data-tier="S">Team 1: The Meta Tyrants (S-Tier Standard)</h3>
+            <p>This is the undisputed best team in the game. It combines the two most broken defensive and offensive passives with the most lethal assassins. This composition has no weakness and sets the standard by which all other PvP teams are measured.</p>
+            
+            <div class="team-layout">
+                <div class="team-row">
+                    <h4>Front Row (2)</h4>
+                    <ul class="pal-list">
+                        <li><strong>Statchew (UR)</strong><span>Role: Unkillable Anchor, Team DR</span></li>
+                        <li><strong>Barkplug (UR)</strong><span>Role: Offensive Anchor, Team DEF Shred</span></li>
+                    </ul>
+                </div>
+                <div class="team-row">
+                    <h4>Back Row (3)</h4>
+                    <ul class="pal-list">
+                        <li><strong>Hoofrit (UR)</strong><span>Role: Backline Assassin, Anti-DPS</span></li>
+                        <li><strong>Lucidina (UR)</strong><span>Role: Single-Target Executioner</span></li>
+                        <li><strong>Abuzzinian (UR)</strong><span>Role: Dodge Tank, Multi-Target Paralysis</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="strategy-section">
+                <h4>Strategy Breakdown</h4>
+                <p>The match starts with your front row taking 20% less damage and the entire enemy team having 20% less defense. This is a massive, un-counterable advantage. Your game plan is simple: Hoofrit uses his Rage Skill to one-shot the enemy's squishy backline. Lucidina uses her Rage Skill to one-shot their tankiest front-liner. Abuzzinian uses his Rage Skill to paralyze whoever is left, preventing them from fighting back. It's a clinical, overwhelming victory.</p>
+                
+                <h4>How to Counter</h4>
+                <div class="budget-options">
+                    <p>You don't counter this team with a budget team. The only way to beat it is with a mirror match or a specialized CC-heavy team that gets lucky. To build a budget version:</p>
+                    <ul>
+                        <li>Replace <strong>Statchew</strong> with <strong>Platyputz (SSR)</strong>. He's the next best tank.</li>
+                        <li>There is no replacement for <strong>Barkplug's</strong> unique debuff. Use another tough front-liner like <strong>Dolphriend (UR)</strong> or <strong>Hoofrit (UR)</strong>.</li>
+                        <li>Replace <strong>Lucidina/Hoofrit</strong> with <strong>Snowkami (SSR)</strong> for targeted Freeze control.</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <!-- Team Comp 2 -->
+        <article class="team-comp">
+            <h3 data-tier="A">Team 2: The Backline Executioners</h3>
+            <p>This team's strategy is pure, unadulterated aggression. It sacrifices some of the god-tier tankiness of the meta team to focus everything on one goal: annihilating the enemy's back row in the first five seconds of the fight. If the enemy's damage dealers are dead, you can't lose.</p>
+            
+            <div class="team-layout">
+                <div class="team-row">
+                    <h4>Front Row (2)</h4>
+                    <ul class="pal-list">
+                        <li><strong>Hoofrit (UR)</strong><span>Role: CORE Backline Assassin</span></li>
+                        <li><strong>Dolphriend (UR)</strong><span>Role: Tanky Brawler, Frontline Stun</span></li>
+                    </ul>
+                </div>
+                <div class="team-row">
+                    <h4>Back Row (3)</h4>
+                    <ul class="pal-list">
+                        <li><strong>Lucidina (UR)</strong><span>Role: Secondary Assassin</span></li>
+                        <li><strong>Snowkami (SSR)</strong><span>Role: High-Priority Freeze/Assassin</span></li>
+                        <li><strong>Mantleray (UR)</strong><span>Role: High-RNG Burst Damage</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="strategy-section">
+                <h4>Strategy Breakdown</h4>
+                <p>The moment the fight starts, you have three primary threats. Hoofrit immediately charges his skill to nuke the enemy's back row. Snowkami targets their most dangerous Pal (like an enemy Lucidina or Hoofrit) and freezes them, taking them out of the fight. Lucidina targets their second-biggest threat and deletes them. Dolphriend tanks and stuns whoever is in front of him. Mantleray provides extra damage pressure. It's a high-risk, high-reward strategy that aims to win before the enemy can mount a defense.</p>
+                
+                <h4>Budget / Alternative Options</h4>
+                <div class="budget-options">
+                    <p>The core of this team is having multiple, high-impact assassins.</p>
+                    <ul>
+                        <li><strong>Hoofrit</strong> is essential and has no true replacement. His backline targeting is unique.</li>
+                        <li>Replace <strong>Dolphriend</strong> with another durable front-liner like <strong>Platyputz (SSR)</strong> or <strong>Statchew (UR)</strong> if you have him.</li>
+                        <li>Replace <strong>Lucidina/Mantleray</strong> with other strong single-target nukers like <strong>Squeezel (SSR)</strong> or <strong>Bruiseberry (SSR)</strong>.</li>
+                        <li><strong>Snowkami (SSR)</strong> is a core component and relatively accessible.</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <!-- Team Comp 3 -->
+        <article class="team-comp">
+            <h3 data-tier="A">Team 3: The "No-Fun-Allowed" Control Squad</h3>
+            <p>This team is designed to be as infuriating as possible to fight against. It wins not through overwhelming burst damage, but by systematically disabling the enemy team with a chain of Crowd Control (CC) effects, preventing them from ever using their powerful Rage Skills.</p>
+            
+            <div class="team-layout">
+                <div class="team-row">
+                    <h4>Front Row (2)</h4>
+                    <ul class="pal-list">
+                        <li><strong>Statchew (UR)</strong><span>Role: Tank Anchor, Team DR</span></li>
+                        <li><strong>Dolphriend (UR)</strong><span>Role: Tanky Stun-bot</span></li>
+                    </ul>
+                </div>
+                <div class="team-row">
+                    <h4>Back Row (3)</h4>
+                    <ul class="pal-list">
+                        <li><strong>Abuzzinian (UR)</strong><span>Role: CORE - Multi-Target Paralysis</span></li>
+                        <li><strong>Snowkami (SSR)</strong><span>Role: CORE - Single-Target Freeze</span></li>
+                        <li><strong>Baboom (UR)</strong><span>Role: DPS & Single-Target Stun</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="strategy-section">
+                <h4>Strategy Breakdown</h4>
+                <p>The goal is to lock down the enemy team completely. Statchew ensures your team survives the initial enemy salvo. Then, your CC chain begins: Snowkami freezes their biggest damage threat. Dolphriend stuns the tank opposite him. Abuzzinian paralyzes up to three enemies, disabling their Rage Skills. Baboom follows up with another stun on any remaining threat. While the enemy team is disabled, your Pals slowly pick them apart. It's a slow, methodical, and soul-crushing victory.</p>
+                
+                <h4>Budget / Alternative Options</h4>
+                <div class="budget-options">
+                    <p>This team relies on having multiple sources of reliable CC.</p>
+                    <ul>
+                        <li>Replace <strong>Statchew/Dolphriend</strong> with <strong>Platyputz (SSR)</strong>. You need a tanky front line to survive long enough for your CC to land.</li>
+                        <li><strong>Abuzzinian</strong> and <strong>Snowkami</strong> are the core of the strategy. Abuzzinian is a UR, but Snowkami is a very high-value SSR.</li>
+                        <li>Replace <strong>Baboom</strong> with another Pal that has CC, although his stun is one of the best. A fast-charging DPS can also work here to help kill the controlled targets faster.</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <section class="intro">
+            <h2>Mastering PvP Strategy</h2>
+            <p>Success in PvP requires more than just copying meta teams. Understanding when and how to use each strategy is crucial for climbing the competitive ladder.</p>
+            
+            <div class="principles">
+                <div class="principle">
+                    <h3>Know Your Matchups</h3>
+                    <p>Each team composition has strengths and weaknesses. Learn to identify enemy strategies and adapt your approach accordingly.</p>
+                </div>
+                <div class="principle">
+                    <h3>Timing is Everything</h3>
+                    <p>PvP battles are won in the first few seconds. Practice your opening sequences and learn optimal skill timing for maximum impact.</p>
+                </div>
+                <div class="principle">
+                    <h3>Adapt and Evolve</h3>
+                    <p>The meta constantly shifts as new Pals are released and balance changes occur. Stay flexible and ready to adjust your strategies.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <p>&copy; 2024 Palmon World. All rights reserved.</p>
+    </footer>
+
+    <!-- Load performance optimization script first -->
+    <script src="scripts/performance.js"></script>
+    <script src="scripts/navigation.js"></script>
+    
+    <!-- Lazy load animations script -->
+    <script>
+        // Lazy load animations script after initial render
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            setTimeout(() => {
+                const script = document.createElement('script');
+                script.src = 'scripts/animations.js';
+                script.async = true;
+                document.head.appendChild(script);
+            }, 200);
+        }
+    </script>
+</body>
+</html>

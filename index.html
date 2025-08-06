@@ -3,322 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mermaid Diagram: Pal Tier List</title>
-    <style>
-        body {
-            background-color: #1e1e1e;
-            color: #f0f0f0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 2rem;
-            box-sizing: border-box;
-        }
-        /* Style for the Mermaid container itself */
-        .mermaid {
-            width: 100%;
-            max-width: 2400px; /* Adjust if your diagram is wider */
-        }
+    <title>Palmon World - Your Ultimate Guide</title>
+    
+    <!-- Critical CSS inlined for above-the-fold content -->
+    <style data-critical>
+        /* Critical CSS - Above-the-fold content only */
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        html{line-height:1.15;-webkit-text-size-adjust:100%}
+        body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background-color:#1a1a2e;color:#e0e0e0;line-height:1.6}
+        :root{--color-bg:#1a1a2e;--color-surface:#16213e;--color-primary-500:#0f3460;--color-primary-700:#0a2749;--color-primary-800:#081f3a;--color-primary-900:#051220;--color-secondary-400:#f05670;--color-secondary-500:#e94560;--color-secondary-600:#d63851;--color-text:#e0e0e0;--color-border:#4a4a6a;--color-border-light:#5a5a7a;--space-2:0.5rem;--space-3:0.75rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-12:3rem;--space-16:4rem;--space-24:6rem;--font-size-base:1rem;--font-size-lg:1.125rem;--font-size-xl:1.25rem;--font-size-2xl:1.5rem;--font-size-3xl:1.875rem;--font-size-4xl:2.25rem;--font-size-6xl:3.75rem;--font-weight-medium:500;--font-weight-semibold:600;--font-weight-bold:700;--font-weight-extrabold:800;--line-height-tight:1.25;--line-height-relaxed:1.625;--radius-lg:0.75rem;--radius-xl:1rem;--radius-2xl:1.5rem;--radius-full:9999px;--shadow-lg:0 10px 15px -3px rgb(0 0 0 / 0.1);--shadow-xl:0 20px 25px -5px rgb(0 0 0 / 0.1);--shadow-2xl:0 25px 50px -12px rgb(0 0 0 / 0.25);--duration-150:150ms;--duration-200:200ms;--duration-300:300ms;--duration-500:500ms;--ease-out:cubic-bezier(0,0,0.2,1)}
+        .container{max-width:1200px;margin:0 auto;padding:0 var(--space-4)}
+        .header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(26,26,46,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--color-border);padding:var(--space-4) var(--space-6);display:flex;align-items:center;justify-content:space-between}
+        .logo{display:flex;align-items:center;gap:var(--space-3);text-decoration:none;color:var(--color-text);font-weight:var(--font-weight-bold);font-size:var(--font-size-xl)}
+        .logo img{height:40px;width:auto}
+        .nav{display:flex;gap:var(--space-2)}
+        .nav-link{padding:var(--space-2) var(--space-4);border-radius:var(--radius-full);text-decoration:none;color:var(--color-text);font-weight:var(--font-weight-medium);transition:all var(--duration-200) var(--ease-out);background:transparent;border:1px solid transparent}
+        .nav-link:hover,.nav-link:focus{background:rgba(233,69,96,0.1);border-color:var(--color-secondary-500);color:var(--color-secondary-400)}
+        .mobile-nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:var(--space-2);color:var(--color-text)}
+        .hamburger{display:flex;flex-direction:column;gap:4px}
+        .hamburger span{width:24px;height:2px;background:currentColor;transition:all var(--duration-300) var(--ease-out)}
+        .hero{position:relative;padding:var(--space-24) var(--space-6);margin-top:var(--space-8);margin-bottom:var(--space-16);background:linear-gradient(135deg,var(--color-primary-900) 0%,var(--color-primary-700) 50%,var(--color-primary-800) 100%);border-radius:var(--radius-2xl);overflow:hidden;box-shadow:var(--shadow-2xl);border:1px solid var(--color-border-light)}
+        .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 20% 80%,rgba(233,69,96,0.15) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(15,52,96,0.15) 0%,transparent 50%),linear-gradient(135deg,rgba(0,0,0,0.3) 0%,rgba(15,52,96,0.2) 100%);z-index:1}
+        .hero-content{position:relative;z-index:2;text-align:center;max-width:800px;margin:0 auto}
+        .hero-title{font-size:clamp(var(--font-size-3xl),5vw,var(--font-size-6xl));color:#fff;text-shadow:2px 2px 8px rgba(0,0,0,0.8);margin-bottom:var(--space-6);font-weight:var(--font-weight-extrabold);line-height:var(--line-height-tight);background:linear-gradient(135deg,#fff 0%,rgba(233,69,96,0.9) 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-fill-color:transparent;position:relative}
+        .hero-title::after{content:'Welcome to Palmon World';position:absolute;top:0;left:0;right:0;color:#fff;text-shadow:2px 2px 8px rgba(0,0,0,0.8);z-index:-1;background:none;-webkit-background-clip:initial;-webkit-text-fill-color:initial}
+        .hero-subtitle{font-size:clamp(var(--font-size-lg),2.5vw,var(--font-size-2xl));color:rgba(255,255,255,0.9);text-shadow:1px 1px 4px rgba(0,0,0,0.7);max-width:600px;margin:0 auto var(--space-8) auto;line-height:var(--line-height-relaxed);font-weight:var(--font-weight-medium)}
+        .hero-cta{display:flex;gap:var(--space-4);justify-content:center;align-items:center;flex-wrap:wrap;margin-top:var(--space-8)}
+        .btn{display:inline-flex;align-items:center;gap:var(--space-2);padding:var(--space-4) var(--space-6);border-radius:var(--radius-full);font-weight:var(--font-weight-semibold);font-size:var(--font-size-base);text-decoration:none;transition:all var(--duration-300) var(--ease-out);position:relative;overflow:hidden;border:2px solid transparent;backdrop-filter:blur(8px);box-shadow:var(--shadow-lg);min-width:140px;justify-content:center;cursor:pointer}
+        .btn-primary{background:linear-gradient(135deg,var(--color-secondary-500),var(--color-secondary-600));color:#fff;border-color:var(--color-secondary-400);text-shadow:1px 1px 2px rgba(0,0,0,0.3)}
+        .btn-secondary{background:linear-gradient(135deg,rgba(255,255,255,0.1),rgba(255,255,255,0.05));color:#fff;border-color:rgba(255,255,255,0.3);text-shadow:1px 1px 2px rgba(0,0,0,0.3)}
+        .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+        @media (max-width:768px){.nav{display:none}.mobile-nav-toggle{display:block}.hero{padding:var(--space-16) var(--space-4);margin-bottom:var(--space-12);border-radius:var(--radius-xl)}.hero-title{font-size:clamp(var(--font-size-2xl),4vw,var(--font-size-4xl));margin-bottom:var(--space-5)}.hero-subtitle{font-size:clamp(var(--font-size-base),2vw,var(--font-size-xl));margin-bottom:var(--space-6)}.hero-cta{flex-direction:column;gap:var(--space-3);align-items:stretch}.btn{padding:var(--space-3) var(--space-5);font-size:var(--font-size-base)}}
+        @media (max-width:640px){.hero{padding:var(--space-12) var(--space-4);margin-top:var(--space-6);margin-bottom:var(--space-10);border-radius:var(--radius-lg)}.hero-title{font-size:clamp(var(--font-size-xl),3.5vw,var(--font-size-3xl));margin-bottom:var(--space-4)}.hero-subtitle{font-size:clamp(var(--font-size-sm),1.8vw,var(--font-size-lg));margin-bottom:var(--space-5)}}
     </style>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/optimized-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/optimized-bundle.css"></noscript>
+    
+    <!-- Font loading optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
 </head>
 <body>
 
-    <div class="mermaid">
-        graph TD
-            %% Global Styling for Enhanced Dark Mode Readability
-            %% Tiers: Vibrant, distinct colors. Nodes: Dark background with bright text and tier-colored borders.
+    <header class="header">
+        <a href="./index.html" class="logo">
+            <img src="./images/game_logo.png" alt="Palmon World Logo">
+            <h1>Palmon World</h1>
+        </a>
         
-            style S_Plus fill:#E91E63,stroke:#FFFFFF,stroke-width:2px,color:#121212
-            style S_Tier fill:#9C27B0,stroke:#FFFFFF,stroke-width:2px,color:#121212
-            style A_Tier fill:#2196F3,stroke:#FFFFFF,stroke-width:2px,color:#121212
-            style B_Tier fill:#00BCD4,stroke:#FFFFFF,stroke-width:2px,color:#121212
-            style C_Tier fill:#607D8B,stroke:#FFFFFF,stroke-width:2px,color:#FFFFFF
+        <nav class="nav" aria-label="Main navigation">
+            <a href="./index.html" class="nav-link">Home</a>
+            <a href="./tierlist.html" class="nav-link">Tier List</a>
+            <a href="./palbook.html" class="nav-link">Palbook</a>
+            <a href="./synergy.html" class="nav-link">Synergy Guide</a>
+            <a href="./teamcomps-pve.html" class="nav-link">PvE Comps</a>
+            <a href="./teamcomps-pvp.html" class="nav-link">PvP Comps</a>
+            <a href="./counters.html" class="nav-link">Counters</a>
+            <a href="./lore.html" class="nav-link">Lore</a>
+        </nav>
         
-            %% Individual Node Styling
-            classDef palNode fill:#222222,stroke-width:3px,color:#F5F5F5
-            class Barkplug,Statchew palNode,stroke:#E91E63
-            class Lucidina,Hoofrit,Mantleray,Surveilynx,Incineraptor palNode,stroke:#9C27B0
-            class Ninjump,Blazeal,Dolphriend,Baboom,SSR_Workers palNode,stroke:#2196F3
-            class Snowkami,Platyputz,Lendanear,Maximito,Meowdame palNode,stroke:#00BCD4
-            class SR_Workers,Auktyke palNode,stroke:#607D8B
-        
-            %% TIERS & LEGEND
-            subgraph Legend and Tiers
-                direction LR
-                S_Plus(S+ Tier: Meta-Defining Game Changers)
-                S_Tier(S Tier: Elite Role-Players & Economic Kings)
-                A_Tier(A Tier: Core of Powerful Teams)
-                B_Tier(B Tier: Strong Specialists & High-Value Workers)
-                C_Tier(C Tier: Foundational & Transitional Pals)
-            end
-        
-            %% S+ TIER NODES
-            subgraph S+ Tier - The Unquestionable Best
-                Barkplug("
-                    <div style='text-align:left;'>
-                    <b>Barkplug</b> (UR, Electricity, Front)<br/>
-                    <u>Summary:</u> The ultimate offensive force multiplier.
-                    <hr/>
-                    <b>Skill Breakdown:</b>
-                    * <b>Basic (Maelstrom Bolt):</b> 281.2% chain lightning to 5 targets. Not high damage, but constantly applies pressure across the enemy team.
-                    * <b>Rage (Overcharge):</b> 2331% single-target nuke with a 20% chance to Paralyze (skill lock). A powerful tool for deleting or disabling a priority threat.
-                    * <b>Passive (Ion Disruption):</b> The reason for its S+ rank. ALL enemies suffer -20% Defense, permanently. This is a massive, unconditional damage amp for your entire squad.
-                    <br/>
-                    <b>Strategic Analysis:</b> Barkplug fundamentally changes every fight it enters. Its passive makes every other damage dealer on your team exponentially better. The strategy is simple: deploy Barkplug, and watch your team's damage numbers skyrocket. Its Rage skill is the cherry on top, allowing you to remove a problematic enemy healer, tank, or damage dealer from the equation.
-                    <br/>
-                    <b>Synergies:</b>
-                    * <u>Everyone.</u> Most notably with high-damage AoE Pals (<b>Mantleray, Blazeal</b>) who can capitalize on the team-wide defense shred.
-                    * Works exceptionally well with single-target nukers (<b>Lucidina</b>) to ensure their overkill potential on priority targets.
-                    <br/>
-                    <b>Counters & Weaknesses:</b>
-                    * <u>Focus Fire:</u> Barkplug is not exceptionally tanky. A coordinated assault with single-target damage dealers can eliminate it before its value snowballs.
-                    * <u>Back-row Assassins:</u> <b>Hoofrit</b> can target and potentially stun/kill Barkplug if it's placed incorrectly.
-                    <br/>
-                    <b>Economic Value:</b> Standard Charging worker. Its combat utility is so immense that using it for work is a significant opportunity cost unless you have duplicates.
-                    </div>
-                ")
-        
-                Statchew("
-                    <div style='text-align:left;'>
-                    <b>Statchew</b> (UR, Earth, Front)<br/>
-                    <u>Summary:</u> The ultimate defensive anchor, enabling any strategy.
-                    <hr/>
-                    <b>Skill Breakdown:</b>
-                    * <b>Basic (Gnash):</b> Solid 525.4% single-target damage. Respectable for a tank.
-                    * <b>Rage (Protective Roar):</b> Debuffs enemy front-row, making them deal 13.5% less damage for 5s. Excellent for mitigating incoming damage during enemy burst phases.
-                    * <b>Passive (Sentinel):</b> The cornerstone of its power. All allied front-row Pals take -20% damage. This is a constant, powerful defensive aura.
-                    <br/>
-                    <b>Strategic Analysis:</b> Statchew's role is to make your front line unbreakable. The combination of its passive aura and active debuff creates a wall that is incredibly difficult for most teams to breach. This buys invaluable time for your back-line damage dealers to execute their strategy without fear of being overrun. It enables otherwise 'glass cannon' team compositions to function.
-                    <br/>
-                    <b>Synergies:</b>
-                    * <u>Fragile Back-liners:</u> Protects high-damage, low-HP Pals like <b>Lucidina</b> and <b>Mantleray</b>, allowing them to fire at will.
-                    * <u>Bruisers:</u> Pals like <b>Dolphriend</b> or <b>Baboom</b> become incredibly durable when paired with Statchew, forming an impenetrable front.
-                    * <u>Healers:</u> <b>Lendanear</b>'s healing becomes far more effective on a front line that is already taking reduced damage.
-                    <br/>
-                    <b>Counters & Weaknesses:</b>
-                    * <u>Back-row Assassins:</u> <b>Hoofrit</b> bypasses the protected front row entirely to hit your squishy back line.
-                    * <u>Defense Shred:</u> <b>Barkplug</b> can partially negate Statchew's tankiness by reducing its defense.
-                    * <u>Overwhelming AoE:</u> While it protects the front, it does nothing for the back row against massive AoE like <b>Mantleray</b>'s bombs.
-                    <br/>
-                    <b>Economic Value:</b> A standard Mining worker. Its role as the game's premier tank makes it far too valuable for manual labor.
-                    </div>
-                ")
-            end
-        
-            %% S TIER NODES
-            subgraph S Tier - Elite Role-Players & Economic Kings
-                Lucidina("
-                    <div style='text-align:left;'>
-                    <b>Lucidina</b> (UR, Water, Back)<br/>
-                    <u>Summary:</u> The queen of single-target elimination.
-                    <hr/>
-                    <b>Skill Breakdown:</b>
-                    * <b>Basic (Phantasm):</b> 525.4% single-target damage. A strong and consistent poke.
-                    * <b>Rage (Torment):</b> Deals a staggering 2590% damage to one target and makes them receive +10% more damage. This is a death sentence for almost any Pal.
-                    * <b>Passive (Dream Shadow):</b> A simple but devastating +30% Crit Rate. This makes her damage output consistently high.
-                    <br/>
-                    <b>Strategic Analysis:</b> Lucidina is a scalpel. Her job is to identify the single most important enemy on the field—be it a healer, a key damage dealer, or a tank—and remove them. The damage amplification on her Rage skill also benefits the rest of your team. She is the ultimate solution to problematic individual Pals.
-                    <br/>
-                    <b>Synergies:</b>
-                    * <u>Defensive Tanks:</u> <b>Statchew</b> is her best friend, keeping her safe while she aims.
-                    * <u>Debuffers:</u> <b>Barkplug</b>'s defense shred makes her 'Torment' skill even more certain to one-shot its target.
-                    <br/>
-                    <b>Counters & Weaknesses:</b>
-                    * <u>Back-row Access:</u> She is a prime target for <b>Hoofrit</b>.
-                    * <u>Taunt/Redirects:</u> Any ability that can force her to target a less valuable enemy will waste her powerful Rage skill.
-                    <br/>
-                    <b>Economic Value:</b> Watering. A combat monster that should be on the field, not at the well.
-                    </div>
-                ")
-        
-                Hoofrit("
-                    <div style='text-align:left;'>
-                    <b>Hoofrit</b> (UR, Fire, Front)<br/>
-                    <u>Summary:</u> The premier back-row assassin and team disruptor.
-                    <hr/>
-                    <b>Skill Breakdown:</b>
-                    * <b>Basic (Fiery Charge):</b> High 840.64% damage to a single enemy, making it a threatening presence even without Rage.
-                    * <b>Rage (Blazing Volley):</b> Deals 2497.5% damage to the enemy's BACK ROW with a 60% chance to stun for 2s. This is a game-winning skill.
-                    * <b>Passive (Hard-Horned):</b> +30% max HP, giving it the durability it needs to survive on the front line and execute its strategy.
-                    <br/>
-                    <b>Strategic Analysis:</b> Hoofrit breaks the standard rules of engagement. While most teams battle front-to-front, Hoofrit allows you to bypass the enemy tanks and directly attack their vulnerable core. Eliminating or stunning the enemy's key damage dealers or supports can win the fight before it truly begins.
-                    <br/>
-                    <b>Synergies:</b>
-                    * <u>AoE Follow-up:</u> Pals like <b>Mantleray</b> or <b>Blazeal</b> can clean up the back row after Hoofrit has softened them up.
-                    * <u>Front-line Support:</u> <b>Statchew</b> makes Hoofrit even tankier, ensuring it can use its Rage skill.
-                    <br/>
-                    <b>Counters & Weaknesses:</b>
-                    * <u>High Single-Target Burst:</u> Must be eliminated quickly before it can use its Rage skill.
-                    * <u>Well-Positioned Tanks:</u> Some formations can protect the back-line better than others, though none are immune.
-                    <br/>
-                    <b>Economic Value:</b> Mining. Its unique combat role is far too valuable to give up.
-                    </div>
-                ")
-        
-                Incineraptor("
-                    <div style='text-align:left;'>
-                    <b>Incineraptor</b> (SSR, Fire, Back)<br/>
-                    <u>Summary:</u> The undisputed king of long-term resource acceleration.
-                    <hr/>
-                    <b>Skill Breakdown:</b>
-                    * <b>Rage (Flamewing Dive):</b> A solid 1375% line AoE attack. Decent for an SSR.
-                    * <b>Passive (Eagle Eye):</b> Its S-Tier purpose. Generates high-quality intel quests and boosts treasure rewards by up to 42%. It literally creates wealth out of thin air.
-                    <br/>
-                    <b>Strategic Analysis:</b> Incineraptor's rank is based *exclusively* on its economic power. In a game about resource accumulation, no other Pal provides such a massive and sustained boost to your income of rare materials. It accelerates your ability to upgrade other Pals, buildings, and gear. It is a long-term investment with unmatched returns. Its combat ability is secondary but serviceable for an SSR.
-                    <br/>
-                    <b>Synergies:</b> Your entire account. The faster you get resources, the faster everything else grows.
-                    <br/>
-                    <b>Counters & Weaknesses:</b> In combat, it's a standard SSR back-liner. It's vulnerable to assassins and high burst.
-                    <br/>
-                    <b>Economic Value:</b> Its entire identity is to be the best economic Pal in the game through its unique passive. Its listed worker jobs (Smelting/Building) are irrelevant.
-                    </div>
-                ")
-            end
-        
-            %% A TIER NODES
-            subgraph A Tier - Core of Powerful Teams
-                SSR_Workers("
-                    <div style='text-align:left;'>
-                    <b>Elite SSR Workers</b><br/>
-                    (Axollium, Bruiseberry, Cerverdant, Terrastudo, Vulcanid, Wyvierno, Thunderclawd, Rotorlotor)
-                    <hr/>
-                    <b>Summary:</b> The engine of your base's economy. Each is best-in-slot for a critical resource.
-                    <br/>
-                    <b>Strategic Analysis:</b> This group's A-Tier ranking is for their unparalleled worker utility. Each provides a massive +60% bonus to output or speed for a key resource (Dreamium, Training, Wood, Ore, Steel, Temperite, Electricity, Gold). Building a powerful base and sustaining an endgame army is impossible without them. While their combat skills are decent for SSRs, their primary role is to be permanently assigned to their respective job, fueling your war machine. They are the foundation upon which a top-tier account is built.
-                    <br/>
-                    <b>Economic Value:</b> Pinnacle. They define the economy of the game.
-                    </div>
-                ")
-        
-                Dolphriend("
-                    <div style='text-align:left;'>
-                    <b>Dolphriend</b> (UR, Water, Front)<br/>
-                    <u>Summary:</u> A premier front-line bruiser with elite lockdown.
-                    <hr/>
-                    <b>Skill Breakdown:</b>
-                    * <b>Rage (Rush Wave):</b> A huge 2109% damage nuke with a 70% chance to stun for a long 3s. Perfect for deleting or disabling a single, high-value target.
-                    * <b>Passive (Tidal Guard):</b> +30% max HP. Makes it an extremely effective front-line damage sponge.
-                    <br/>
-                    <b>Strategic Analysis:</b> Dolphriend is the definition of a Bruiser. It can take a punch and dish one out. Its primary role is to absorb damage while identifying and neutralizing the enemy's biggest threat with its Rage skill. It's less about team-wide buffs and more about direct, impactful action.
-                    <br/>
-                    <b>Synergies:</b> <b>Statchew</b> for even more tankiness; <b>Barkplug</b> to ensure its Rage skill is a guaranteed kill.
-                    <br/>
-                    <b>Counters:</b> Swarms of smaller enemies can overwhelm it; its single-target focus can be a liability against wide teams.
-                    <br/>
-                    <b>Economic Value:</b> Logging. A top-tier combatant.
-                    </div>
-                ")
-        
-                Mantleray("
-                    <div style='text-align:left;'>
-                    <b>Mantleray</b> (UR, Electricity, Back)<br/>
-                    <u>Summary:</u> A relentless engine of AoE destruction.
-                    <hr/>
-                    <b>Skill Breakdown:</b>
-                    * <b>Rage (Electric Burst):</b> Fires 3 bombs for 1406% damage EACH. These can hit the same target, giving it massive single-target burst potential, or spread out to devastate an entire team.
-                    * <b>Passive (Stinging Spark):</b> +30% Crit Rate, ensuring its bombs hit hard and often.
-                    <br/>
-                    <b>Synergies:</b> <b>Barkplug</b>'s defense shred turns its bombs into tactical nukes. <b>Statchew</b> keeps it alive to launch more bombs.
-                    <br/>
-                    <b>Counters:</b> Back-row assassins (<b>Hoofrit</b>). Highly evasive single targets can cause some bombs to miss.
-                    <br/>
-                    <b>Economic Value:</b> Pure combat specialist.
-                    </div>
-                ")
-            end
-        
-            %% B TIER NODES
-            subgraph B Tier - Strong Specialists & High-Value Workers
-                Lendanear("
-                    <div style='text-align:left;'>
-                    <b>Lendanear</b> (SSR, Earth, Back)<br/>
-                    <u>Summary:</u> The best non-combat utility Pal; essential for reducing downtime.
-                    <hr/>
-                    <b>Strategic Analysis:</b> Lendanear's combat skills (a small damage reduction buff) are mediocre. Its B-Tier rank comes from its irreplaceable worker passive, <b>Tender Care</b>, which dramatically increases healing speed in the Hospital. This reduces the downtime of your core combat teams, allowing for more fighting, more farming, and faster progression. This strategic, out-of-combat utility is invaluable.
-                    <br/>
-                    <b>Economic Value:</b> Top-tier for its unique Hospital role.
-                    </div>
-                ")
-        
-                Snowkami("
-                    <div style='text-align:left;'>
-                    <b>Snowkami</b> (SSR, Water, Back)<br/>
-                    <u>Summary:</u> A very strong SSR damage dealer with valuable control.
-                    <hr/>
-                    <b>Strategic Analysis:</b> Snowkami is a great entry-level UR. Its +20% Attack passive is solid, and its Rage skill combines good damage (1350%) with a 70% chance for a 2.5s Freeze. This makes it a reliable damage dealer and controller that can fit into many teams until a top-tier UR is acquired.
-                    <br/>
-                    <b>Synergies:</b> Any standard team needing a solid back-line DPS.
-                    <br/>
-                    <b>Counters:</b> Standard counters for back-liners (assassins, AoE).
-                    <br/>
-                    <b>Economic Value:</b> Combat specialist.
-                    </div>
-                ")
-        
-                Platyputz("
-                    <div style='text-align:left;'>
-                    <b>Platyputz</b> (SSR, Water, Front)<br/>
-                    <u>Summary:</u> An excellent and accessible pure tank.
-                    <hr/>
-                    <b>Strategic Analysis:</b> For players without Statchew, Platyputz is a fantastic alternative. Its passive provides a personal -20% damage reduction, and its Rage skill shields a low-HP ally. It does the job of a tank—soaking damage and protecting allies—reliably and effectively.
-                    <br/>
-                    <b>Economic Value:</b> Logger/Sawing. Can be used for work if you have a better tank.
-                    </div>
-                ")
-            end
-        
-            %% C TIER NODES
-            subgraph C Tier - Foundational & Transitional Pals
-                SR_Workers("
-                    <div style='text-align:left;'>
-                    <b>All SR Workers</b><br/>
-                    (Flouffant, Graffitty, Herculeaf, etc.)<hr/>
-                    <b>Summary:</b> The essential backbone of an early-game economy.
-                    <br/>
-                    <b>Strategic Analysis:</b> These Pals are C-Tier in a late-game context, but S-Tier for a new player. The +35% resource bonus they provide is critical for getting your base off the ground. Their entire purpose is to fill worker slots effectively until you can acquire their direct SSR upgrades. They are a necessary and important step in progression.
-                    <br/>
-                    <b>Economic Value:</b> High in the early game, zero in the late game.
-                    </div>
-                ")
-        
-                Auktyke("
-                    <div style='text-align:left;'>
-                    <b>Auktyke</b> (SR, Water, Front)<br/>
-                    <u>Summary:</u> A starter tank for your very first combat team.
-                    <hr/>
-                    <b>Strategic Analysis:</b> Auktyke is notable for being one of the only SR Pals with a combat-focused passive (+15% HP). This makes it the default choice for a front-line tank in the earliest stages of the game. It serves its purpose of absorbing hits but should be replaced by any SSR or UR tank as soon as possible.
-                    <br/>
-                    <b>Economic Value:</b> Basic Watering/Analyzing worker.
-                    </div>
-                ")
-            end
-        
-        
-            %% LINKING
-            S_Plus --> Barkplug
-            S_Plus --> Statchew
-        
-            S_Tier --> Lucidina
-            S_Tier --> Hoofrit
-            S_Tier --> Incineraptor
-        
-            A_Tier --> Mantleray
-            A_Tier --> Dolphriend
-            A_Tier --> SSR_Workers
-            
-            B_Tier --> Lendanear
-            B_Tier --> Snowkami
-            B_Tier --> Platyputz
-        
-            C_Tier --> SR_Workers
-            C_Tier --> Auktyke
-    </div>
+        <button class="mobile-nav-toggle" aria-label="Toggle mobile navigation" aria-expanded="false" aria-controls="mobile-nav">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+    </header>
+    
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+        <button class="mobile-nav-close" aria-label="Close mobile navigation">×</button>
+        <a href="./index.html" class="nav-link" style="--index: 0">Home</a>
+        <a href="./tierlist.html" class="nav-link" style="--index: 1">Tier List</a>
+        <a href="./palbook.html" class="nav-link" style="--index: 2">Palbook</a>
+        <a href="./synergy.html" class="nav-link" style="--index: 3">Synergy Guide</a>
+        <a href="./teamcomps-pve.html" class="nav-link" style="--index: 4">PvE Comps</a>
+        <a href="./teamcomps-pvp.html" class="nav-link" style="--index: 5">PvP Comps</a>
+        <a href="./counters.html" class="nav-link" style="--index: 6">Counters</a>
+        <a href="./lore.html" class="nav-link" style="--index: 7">Lore</a>
+    </nav>
 
-    <script type="module">
-        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.js';
-        mermaid.initialize({ startOnLoad: true });
+    <main class="container" id="main-content">
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-content">
+                <h1 id="hero-title" class="hero-title">Welcome to Palmon World</h1>
+                <p class="hero-subtitle">Your ultimate resource for Palmon guides, tier lists, and team compositions.</p>
+                <div class="hero-cta">
+                    <a href="./palbook.html" class="btn btn-primary" aria-describedby="hero-subtitle">
+                        Explore Palbook
+                    </a>
+                    <a href="./tierlist.html" class="btn btn-secondary">
+                        View Tier Lists
+                    </a>
+                </div>
+            </div>
+            <div class="hero-decoration" aria-hidden="true"></div>
+        </section>
+
+        <section class="features" aria-labelledby="features-title">
+            <h2 id="features-title" class="sr-only">Key Features</h2>
+            <div class="features-grid">
+                <article class="feature-card" 
+                         tabindex="0" 
+                         aria-labelledby="feature-1-title"
+                         aria-describedby="feature-1-desc" 
+                         role="article">
+                    <div class="feature-icon" aria-hidden="true">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-label="Tier list icon">
+                            <path d="M9 12l2 2 4-4"/>
+                            <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
+                            <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/>
+                            <path d="M12 3c0 1-1 3-3 3s-3-2-3-3 1-3 3-3 3 2 3 3"/>
+                            <path d="M12 21c0-1-1-3-3-3s-3 2-3 3 1 3 3 3 3-2 3-3"/>
+                        </svg>
+                    </div>
+                    <h3 id="feature-1-title" class="feature-title">Comprehensive Tier Lists</h3>
+                    <p id="feature-1-desc" class="feature-description">Discover the best Pals for every situation with our in-depth tier lists, updated regularly based on the latest meta analysis.</p>
+                    <div class="feature-link">
+                        <a href="./tierlist.html" aria-label="View comprehensive tier lists">
+                            Explore Tiers
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M5 12h14"/>
+                                <path d="M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="feature-card" 
+                         tabindex="0" 
+                         aria-labelledby="feature-2-title"
+                         aria-describedby="feature-2-desc" 
+                         role="article">
+                    <div class="feature-icon" aria-hidden="true">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-label="Team building icon">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h3 id="feature-2-title" class="feature-title">Team Building Guides</h3>
+                    <p id="feature-2-desc" class="feature-description">Master the art of synergy and build unstoppable teams for both PvP and PvE content with our expert strategies and compositions.</p>
+                    <div class="feature-link">
+                        <a href="./teamcomps-pve.html" aria-label="View team building guides">
+                            Build Teams
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M5 12h14"/>
+                                <path d="M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+                
+                <article class="feature-card" 
+                         tabindex="0" 
+                         aria-labelledby="feature-3-title"
+                         aria-describedby="feature-3-desc" 
+                         role="article">
+                    <div class="feature-icon" aria-hidden="true">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" role="img" aria-label="Palbook icon">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                            <path d="M8 7h8"/>
+                            <path d="M8 11h8"/>
+                            <path d="M8 15h5"/>
+                        </svg>
+                    </div>
+                    <h3 id="feature-3-title" class="feature-title">Complete Palbook</h3>
+                    <p id="feature-3-desc" class="feature-description">Explore detailed information on every Pal, including their skills, stats, lore, and strategic applications in various game modes.</p>
+                    <div class="feature-link">
+                        <a href="./palbook.html" aria-label="Browse complete Palbook">
+                            Browse Pals
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M5 12h14"/>
+                                <path d="M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Palmon World. All rights reserved.</p>
+    </footer>
+
+    <!-- Load error handler first -->
+    <script src="scripts/error-handler.js"></script>
+    <!-- Load performance optimization script -->
+    <script src="scripts/performance.js"></script>
+    <script src="scripts/navigation.js"></script>
+    
+    <!-- Lazy load animations script -->
+    <script>
+        // Lazy load animations script after initial render
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            setTimeout(() => {
+                const script = document.createElement('script');
+                script.src = 'scripts/animations.js';
+                script.async = true;
+                document.head.appendChild(script);
+            }, 100);
+        }
+    </script>
+    <script>
+        // Add keyboard navigation for feature cards
+        document.addEventListener('DOMContentLoaded', () => {
+            const featureCards = document.querySelectorAll('.feature-card');
+            
+            featureCards.forEach((card, index) => {
+                // Add click handler for keyboard activation
+                card.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        const link = card.querySelector('.feature-link a');
+                        if (link) {
+                            window.location.href = link.href;
+                        }
+                    }
+                    
+                    // Arrow key navigation
+                    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                        e.preventDefault();
+                        const nextIndex = (index + 1) % featureCards.length;
+                        featureCards[nextIndex].focus();
+                    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                        e.preventDefault();
+                        const prevIndex = (index - 1 + featureCards.length) % featureCards.length;
+                        featureCards[prevIndex].focus();
+                    }
+                });
+                
+                // Remove onclick attribute and add proper click handler
+                card.removeAttribute('onclick');
+                card.addEventListener('click', () => {
+                    const link = card.querySelector('.feature-link a');
+                    if (link) {
+                        window.location.href = link.href;
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>

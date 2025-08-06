@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cross-Browser Testing - Palmon World</title>
+    
+    <!-- Load all CSS files for comprehensive testing -->
+    <link rel="stylesheet" href="css/critical.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/foundation/cross-browser.css">
+    
+    <!-- Browser detection and testing styles -->
+    <style>
+        /* Browser detection and feature support indicators */
+        .browser-info {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: var(--color-surface, #16213e);
+            border: 1px solid var(--color-border, #4a4a6a);
+            border-radius: var(--radius-md, 0.5rem);
+            padding: var(--space-3, 0.75rem);
+            font-size: var(--font-size-sm, 0.875rem);
+            color: var(--color-text, #e0e0e0);
+            z-index: 9999;
+            max-width: 300px;
+            box-shadow: var(--shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
+        }
+        
+        .feature-test {
+            margin: var(--space-4, 1rem) 0;
+            padding: var(--space-4, 1rem);
+            background: var(--color-surface, #16213e);
+            border: 1px solid var(--color-border, #4a4a6a);
+            border-radius: var(--radius-lg, 0.75rem);
+        }
+        
+        .feature-test h3 {
+            color: var(--color-secondary-500, #e94560);
+            margin-bottom: var(--space-3, 0.75rem);
+            font-size: var(--font-size-lg, 1.125rem);
+        }
+        
+        .test-result {
+            display: inline-block;
+            padding: var(--space-1, 0.25rem) var(--space-2, 0.5rem);
+            border-radius: var(--radius-sm, 0.25rem);
+            font-size: var(--font-size-sm, 0.875rem);
+            font-weight: var(--font-weight-medium, 500);
+            margin-right: var(--space-2, 0.5rem);
+            margin-bottom: var(--space-1, 0.25rem);
+        }
+        
+        .test-pass {
+            background: #10b981;
+            color: white;
+        }
+        
+        .test-fail {
+            background: #ef4444;
+            color: white;
+        }
+        
+        .test-partial {
+            background: #f59e0b;
+            color: white;
+        }
+        
+        /* Responsive test grid */
+        .responsive-test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-4, 1rem);
+            margin: var(--space-6, 1.5rem) 0;
+        }
+        
+        /* Touch target test */
+        .touch-target-test {
+            min-height: 44px;
+            min-width: 44px;
+            background: var(--color-secondary-500, #e94560);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md, 0.5rem);
+            padding: var(--space-3, 0.75rem);
+            cursor: pointer;
+            transition: all var(--duration-200, 200ms) var(--ease-out, cubic-bezier(0, 0, 0.2, 1));
+            margin: var(--space-2, 0.5rem);
+        }
+        
+        .touch-target-test:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
+        }
+        
+        /* Animation test */
+        .animation-test {
+            width: 50px;
+            height: 50px;
+            background: var(--color-secondary-500, #e94560);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            margin: var(--space-4, 1rem) auto;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        /* Reduced motion test */
+        @media (prefers-reduced-motion: reduce) {
+            .animation-test {
+                animation: none;
+                background: #10b981;
+            }
+        }
+        
+        /* High contrast test */
+        @media (prefers-contrast: high) {
+            .high-contrast-test {
+                border: 3px solid currentColor !important;
+                background: transparent !important;
+            }
+        }
+        
+        /* Print test styles */
+        @media print {
+            .print-test {
+                background: white !important;
+                color: black !important;
+                border: 2px solid black !important;
+            }
+            
+            .no-print {
+                display: none !important;
+            }
+        }
+        
+        /* Fallback indicator */
+        .fallback-indicator {
+            background: #f59e0b;
+            color: black;
+            padding: var(--space-2, 0.5rem);
+            border-radius: var(--radius-sm, 0.25rem);
+            font-size: var(--font-size-sm, 0.875rem);
+            display: none;
+        }
+        
+        /* Show fallback indicators for unsupported features */
+        @supports not (display: grid) {
+            .grid-fallback-indicator { display: inline-block; }
+        }
+        
+        @supports not (backdrop-filter: blur(10px)) {
+            .backdrop-fallback-indicator { display: inline-block; }
+        }
+        
+        @supports not (object-fit: cover) {
+            .object-fit-fallback-indicator { display: inline-block; }
+        }
+        
+        /* Browser-specific test styles */
+        .webkit-test {
+            -webkit-appearance: none;
+            background: linear-gradient(45deg, #e94560, #0f3460);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: var(--font-size-2xl, 1.5rem);
+            font-weight: var(--font-weight-bold, 700);
+        }
+        
+        /* Fallback for browsers that don't support background-clip: text */
+        @supports not (background-clip: text) {
+            .webkit-test {
+                background: none;
+                color: var(--color-secondary-500, #e94560);
+                -webkit-text-fill-color: initial;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Browser Information Panel -->
+    <div class="browser-info" id="browserInfo">
+        <strong>Browser Detection</strong><br>
+        <span id="browserName">Detecting...</span><br>
+        <span id="browserVersion">Version: Unknown</span><br>
+        <span id="deviceType">Device: Unknown</span><br>
+        <span id="screenSize">Screen: Unknown</span>
+    </div>
+
+    <!-- Header with Navigation -->
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="images/game_logo.png" alt="Palmon World Logo">
+                <span>Palmon World</span>
+            </a>
+            <nav class="nav">
+                <a href="#" class="nav-link active">Home</a>
+                <a href="#" class="nav-link">Palbook</a>
+                <a href="#" class="nav-link">Tier List</a>
+                <a href="#" class="nav-link">Teams</a>
+                <a href="#" class="nav-link">Synergy</a>
+            </nav>
+            <button class="mobile-nav-toggle" aria-label="Toggle mobile navigation">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+        </div>
+    </header>
+
+    <main class="container" style="margin-top: 100px;">
+        <h1>Cross-Browser Testing Suite</h1>
+        <p style="text-align: center; color: var(--color-text-muted, #a7a7a7); margin-bottom: var(--space-8, 2rem);">
+            This page tests all enhanced styling features across different browsers and devices.
+        </p>
+
+        <!-- CSS Feature Support Tests -->
+        <section class="feature-test">
+            <h3>CSS Feature Support</h3>
+            <div id="featureSupport">
+                <div class="test-result test-fail" id="gridSupport">CSS Grid: Testing...</div>
+                <div class="test-result test-fail" id="flexboxSupport">Flexbox: Testing...</div>
+                <div class="test-result test-fail" id="customPropsSupport">CSS Variables: Testing...</div>
+                <div class="test-result test-fail" id="backdropFilterSupport">Backdrop Filter: Testing...</div>
+                <div class="test-result test-fail" id="objectFitSupport">Object Fit: Testing...</div>
+                <div class="test-result test-fail" id="clampSupport">CSS Clamp: Testing...</div>
+                <div class="test-result test-fail" id="aspectRatioSupport">Aspect Ratio: Testing...</div>
+                <div class="test-result test-fail" id="gapSupport">Gap Property: Testing...</div>
+            </div>
+            
+            <!-- Fallback Indicators -->
+            <div style="margin-top: var(--space-4, 1rem);">
+                <div class="fallback-indicator grid-fallback-indicator">Grid fallback active</div>
+                <div class="fallback-indicator backdrop-fallback-indicator">Backdrop filter fallback active</div>
+                <div class="fallback-indicator object-fit-fallback-indicator">Object-fit fallback active</div>
+            </div>
+        </section>
+
+        <!-- Hero Section Test -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Cross-Browser Test</h1>
+                <p class="hero-subtitle">Testing enhanced styling across all major browsers and devices</p>
+                <div class="hero-cta">
+                    <a href="#" class="btn btn-primary">Primary Button</a>
+                    <a href="#" class="btn btn-secondary">Secondary Button</a>
+                </div>
+            </div>
+            <div class="hero-decoration"></div>
+        </section>
+
+        <!-- Responsive Grid Test -->
+        <section class="feature-test">
+            <h3>Responsive Grid System</h3>
+            <div class="responsive-test-grid">
+                <div class="card">
+                    <h4>Card 1</h4>
+                    <p>Testing responsive grid behavior on different screen sizes.</p>
+                </div>
+                <div class="card">
+                    <h4>Card 2</h4>
+                    <p>Cards should stack on mobile and arrange in grid on desktop.</p>
+                </div>
+                <div class="card">
+                    <h4>Card 3</h4>
+                    <p>Grid should use flexbox fallback for older browsers.</p>
+                </div>
+                <div class="card">
+                    <h4>Card 4</h4>
+                    <p>All cards should maintain consistent spacing and alignment.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Cards Test -->
+        <section class="features">
+            <h2>Enhanced Feature Cards</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Palbook</h3>
+                    <p class="feature-description">Complete database of all Pals with detailed information and filtering capabilities.</p>
+                    <div class="feature-link">
+                        <a href="#">Explore Palbook →</a>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Tier List</h3>
+                    <p class="feature-description">Comprehensive tier rankings for PvP and PvE content with detailed analysis.</p>
+                    <div class="feature-link">
+                        <a href="#">View Tier List →</a>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zM4 18v-6h2.5l6 8h3l-6.5-8.5L12 7H9.5L8 10.5 4 6v12z"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Team Builder</h3>
+                    <p class="feature-description">Build and optimize your team compositions with synergy analysis.</p>
+                    <div class="feature-link">
+                        <a href="#">Build Teams →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pal Cards Test -->
+        <section class="feature-test">
+            <h3>Pal Card Components</h3>
+            <div class="pal-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                <div class="pal-card rarity-sr">
+                    <div class="pal-image">
+                        <img src="images/Profile-Blazeal.png" alt="Blazeal">
+                    </div>
+                    <h4 class="pal-name">Blazeal</h4>
+                    <span class="pal-type fire">Fire</span>
+                    <p style="font-size: var(--font-size-sm, 0.875rem); color: var(--color-text-muted, #a7a7a7);">SR Rarity</p>
+                </div>
+                <div class="pal-card rarity-ssr">
+                    <div class="pal-image">
+                        <img src="images/Profile-Thunderclawd.png" alt="Thunderclawd">
+                    </div>
+                    <h4 class="pal-name">Thunderclawd</h4>
+                    <span class="pal-type electricity">Electricity</span>
+                    <p style="font-size: var(--font-size-sm, 0.875rem); color: var(--color-text-muted, #a7a7a7);">SSR Rarity</p>
+                </div>
+                <div class="pal-card rarity-ur">
+                    <div class="pal-image">
+                        <img src="images/Profile-Incineraptor.png" alt="Incineraptor">
+                    </div>
+                    <h4 class="pal-name">Incineraptor</h4>
+                    <span class="pal-type fire">Fire</span>
+                    <p style="font-size: var(--font-size-sm, 0.875rem); color: var(--color-text-muted, #a7a7a7);">UR Rarity</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Touch Target Test -->
+        <section class="feature-test">
+            <h3>Touch Target Optimization</h3>
+            <p>All interactive elements should meet minimum 44px touch target requirements:</p>
+            <div style="text-align: center; margin: var(--space-6, 1.5rem) 0;">
+                <button class="touch-target-test">Small Button</button>
+                <button class="touch-target-test" style="padding: var(--space-4, 1rem) var(--space-6, 1.5rem);">Medium Button</button>
+                <button class="touch-target-test" style="padding: var(--space-5, 1.25rem) var(--space-8, 2rem);">Large Button</button>
+            </div>
+        </section>
+
+        <!-- Animation and Motion Test -->
+        <section class="feature-test">
+            <h3>Animation and Motion</h3>
+            <div style="display: flex; align-items: center; gap: var(--space-6, 1.5rem); flex-wrap: wrap;">
+                <div>
+                    <p>Animation Test (respects reduced motion preference):</p>
+                    <div class="animation-test"></div>
+                </div>
+                <div>
+                    <p>Hover Effects Test:</p>
+                    <div class="card" style="width: 200px; cursor: pointer;">
+                        <h4>Hover Me</h4>
+                        <p>This card should lift on hover</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Typography and Text Rendering Test -->
+        <section class="feature-test">
+            <h3>Typography and Text Rendering</h3>
+            <div style="display: grid; gap: var(--space-4, 1rem);">
+                <div class="webkit-test">Gradient Text Test (WebKit)</div>
+                <div style="font-size: clamp(1rem, 3vw, 2rem); color: var(--color-text, #e0e0e0);">
+                    Responsive Text (CSS Clamp)
+                </div>
+                <div style="font-weight: var(--font-weight-light, 300); color: var(--color-text-muted, #a7a7a7);">
+                    Light weight text for readability testing
+                </div>
+                <div style="font-weight: var(--font-weight-bold, 700); color: var(--color-secondary-500, #e94560);">
+                    Bold text with accent color
+                </div>
+            </div>
+        </section>
+
+        <!-- Form Elements Test -->
+        <section class="feature-test">
+            <h3>Form Elements and Interactions</h3>
+            <div style="display: grid; gap: var(--space-4, 1rem); max-width: 500px;">
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search Pals..." aria-label="Search Pals">
+                </div>
+                <div class="filter-controls">
+                    <button class="filter-btn active">All</button>
+                    <button class="filter-btn">Fire</button>
+                    <button class="filter-btn">Water</button>
+                    <button class="filter-btn">Earth</button>
+                    <button class="filter-btn">Electricity</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accessibility Test -->
+        <section class="feature-test">
+            <h3>Accessibility Features</h3>
+            <div style="display: grid; gap: var(--space-4, 1rem);">
+                <div>
+                    <p><strong>Focus Indicators:</strong> Tab through interactive elements to test focus visibility.</p>
+                    <button class="btn btn-primary" style="margin-right: var(--space-3, 0.75rem);">Focusable Button 1</button>
+                    <button class="btn btn-secondary">Focusable Button 2</button>
+                </div>
+                <div class="high-contrast-test" style="padding: var(--space-4, 1rem); border: 1px solid var(--color-border, #4a4a6a);">
+                    <p><strong>High Contrast Mode:</strong> This content adapts to high contrast preferences.</p>
+                </div>
+                <div>
+                    <p><strong>Screen Reader Content:</strong></p>
+                    <span class="sr-only">This text is only visible to screen readers</span>
+                    <span>This text is visible to all users</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Performance Test -->
+        <section class="feature-test">
+            <h3>Performance Indicators</h3>
+            <div id="performanceMetrics">
+                <div class="test-result test-fail" id="loadTime">Page Load: Testing...</div>
+                <div class="test-result test-fail" id="renderTime">First Paint: Testing...</div>
+                <div class="test-result test-fail" id="interactiveTime">Interactive: Testing...</div>
+                <div class="test-result test-fail" id="cssSize">CSS Size: Testing...</div>
+            </div>
+        </section>
+
+        <!-- Print Test Section -->
+        <section class="feature-test print-test">
+            <h3>Print Optimization</h3>
+            <p>This section tests print-specific styles. Use your browser's print preview to verify:</p>
+            <ul>
+                <li>Background colors are removed</li>
+                <li>Text is black on white</li>
+                <li>Navigation elements are hidden</li>
+                <li>Content is optimized for paper</li>
+            </ul>
+            <div class="no-print" style="background: var(--color-secondary-500, #e94560); color: white; padding: var(--space-2, 0.5rem); border-radius: var(--radius-sm, 0.25rem);">
+                This element should be hidden in print
+            </div>
+        </section>
+    </main>
+
+    <!-- Load the comprehensive browser compatibility testing script -->
+    <script src="test-browser-compatibility.js"></script>
+    
+    <!-- Load the validation script -->
+    <script src="validate-cross-browser-implementation.js"></script>
+    
+    <!-- JavaScript for Browser Detection and Feature Testing -->
+    <script>
+        // Browser Detection
+        function detectBrowser() {
+            const browserInfo = document.getElementById('browserInfo');
+            const browserName = document.getElementById('browserName');
+            const browserVersion = document.getElementById('browserVersion');
+            const deviceType = document.getElementById('deviceType');
+            const screenSize = document.getElementById('screenSize');
+            
+            // Detect browser
+            const userAgent = navigator.userAgent;
+            let browser = 'Unknown';
+            let version = 'Unknown';
+            
+            if (userAgent.includes('Chrome') && !userAgent.includes('Edg')) {
+                browser = 'Chrome';
+                version = userAgent.match(/Chrome\/(\d+)/)?.[1] || 'Unknown';
+            } else if (userAgent.includes('Firefox')) {
+                browser = 'Firefox';
+                version = userAgent.match(/Firefox\/(\d+)/)?.[1] || 'Unknown';
+            } else if (userAgent.includes('Safari') && !userAgent.includes('Chrome')) {
+                browser = 'Safari';
+                version = userAgent.match(/Version\/(\d+)/)?.[1] || 'Unknown';
+            } else if (userAgent.includes('Edg')) {
+                browser = 'Edge';
+                version = userAgent.match(/Edg\/(\d+)/)?.[1] || 'Unknown';
+            } else if (userAgent.includes('MSIE') || userAgent.includes('Trident')) {
+                browser = 'Internet Explorer';
+                version = userAgent.match(/(?:MSIE |rv:)(\d+)/)?.[1] || 'Unknown';
+            }
+            
+            // Detect device type
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
+            const isTablet = /iPad|Android(?!.*Mobile)/i.test(userAgent);
+            let device = 'Desktop';
+            if (isMobile && !isTablet) device = 'Mobile';
+            else if (isTablet) device = 'Tablet';
+            
+            // Get screen size
+            const screen = `${window.screen.width}x${window.screen.height}`;
+            const viewport = `${window.innerWidth}x${window.innerHeight}`;
+            
+            browserName.textContent = browser;
+            browserVersion.textContent = `Version: ${version}`;
+            deviceType.textContent = `Device: ${device}`;
+            screenSize.textContent = `Screen: ${screen} | Viewport: ${viewport}`;
+        }
+        
+        // Feature Support Testing
+        function testFeatureSupport() {
+            const tests = {
+                gridSupport: () => CSS.supports('display', 'grid'),
+                flexboxSupport: () => CSS.supports('display', 'flex'),
+                customPropsSupport: () => CSS.supports('color', 'var(--test)'),
+                backdropFilterSupport: () => CSS.supports('backdrop-filter', 'blur(10px)'),
+                objectFitSupport: () => CSS.supports('object-fit', 'cover'),
+                clampSupport: () => CSS.supports('font-size', 'clamp(1rem, 2vw, 2rem)'),
+                aspectRatioSupport: () => CSS.supports('aspect-ratio', '1 / 1'),
+                gapSupport: () => CSS.supports('gap', '1rem')
+            };
+            
+            Object.entries(tests).forEach(([testId, testFn]) => {
+                const element = document.getElementById(testId);
+                const isSupported = testFn();
+                element.className = `test-result ${isSupported ? 'test-pass' : 'test-fail'}`;
+                element.textContent = element.textContent.replace('Testing...', isSupported ? 'Supported' : 'Not Supported');
+            });
+        }
+        
+        // Performance Testing
+        function testPerformance() {
+            const loadTime = document.getElementById('loadTime');
+            const renderTime = document.getElementById('renderTime');
+            const interactiveTime = document.getElementById('interactiveTime');
+            const cssSize = document.getElementById('cssSize');
+            
+            // Page load time
+            window.addEventListener('load', () => {
+                const loadTimeValue = performance.timing.loadEventEnd - performance.timing.navigationStart;
+                const loadClass = loadTimeValue < 3000 ? 'test-pass' : loadTimeValue < 5000 ? 'test-partial' : 'test-fail';
+                loadTime.className = `test-result ${loadClass}`;
+                loadTime.textContent = `Page Load: ${loadTimeValue}ms`;
+            });
+            
+            // First paint
+            if ('PerformancePaintTiming' in window) {
+                const paintEntries = performance.getEntriesByType('paint');
+                const firstPaint = paintEntries.find(entry => entry.name === 'first-paint');
+                if (firstPaint) {
+                    const paintClass = firstPaint.startTime < 1000 ? 'test-pass' : firstPaint.startTime < 2000 ? 'test-partial' : 'test-fail';
+                    renderTime.className = `test-result ${paintClass}`;
+                    renderTime.textContent = `First Paint: ${Math.round(firstPaint.startTime)}ms`;
+                }
+            }
+            
+            // Time to interactive (approximation)
+            setTimeout(() => {
+                const interactiveTimeValue = performance.now();
+                const interactiveClass = interactiveTimeValue < 2000 ? 'test-pass' : interactiveTimeValue < 4000 ? 'test-partial' : 'test-fail';
+                interactiveTime.className = `test-result ${interactiveClass}`;
+                interactiveTime.textContent = `Interactive: ${Math.round(interactiveTimeValue)}ms`;
+            }, 100);
+            
+            // CSS size estimation
+            const stylesheets = document.styleSheets;
+            let totalRules = 0;
+            try {
+                for (let i = 0; i < stylesheets.length; i++) {
+                    if (stylesheets[i].cssRules) {
+                        totalRules += stylesheets[i].cssRules.length;
+                    }
+                }
+                const sizeClass = totalRules < 500 ? 'test-pass' : totalRules < 1000 ? 'test-partial' : 'test-fail';
+                cssSize.className = `test-result ${sizeClass}`;
+                cssSize.textContent = `CSS Rules: ${totalRules}`;
+            } catch (e) {
+                cssSize.className = 'test-result test-partial';
+                cssSize.textContent = 'CSS Size: Cannot access';
+            }
+        }
+        
+        // Touch Target Testing
+        function testTouchTargets() {
+            const touchTargets = document.querySelectorAll('.touch-target-test');
+            touchTargets.forEach(target => {
+                const rect = target.getBoundingClientRect();
+                const minSize = 44;
+                const isValidSize = rect.width >= minSize && rect.height >= minSize;
+                
+                if (!isValidSize) {
+                    target.style.border = '2px solid #ef4444';
+                    target.title = `Touch target too small: ${Math.round(rect.width)}x${Math.round(rect.height)}px (minimum: ${minSize}x${minSize}px)`;
+                } else {
+                    target.style.border = '2px solid #10b981';
+                    target.title = `Touch target size OK: ${Math.round(rect.width)}x${Math.round(rect.height)}px`;
+                }
+            });
+        }
+        
+        // Responsive Testing
+        function testResponsive() {
+            const updateResponsiveInfo = () => {
+                const width = window.innerWidth;
+                let breakpoint = 'Desktop (1024px+)';
+                
+                if (width < 480) breakpoint = 'Mobile Small (< 480px)';
+                else if (width < 640) breakpoint = 'Mobile (< 640px)';
+                else if (width < 768) breakpoint = 'Mobile Large (< 768px)';
+                else if (width < 1024) breakpoint = 'Tablet (< 1024px)';
+                
+                // Update browser info with current breakpoint
+                const screenSize = document.getElementById('screenSize');
+                if (screenSize) {
+                    screenSize.textContent = `Screen: ${window.screen.width}x${window.screen.height} | Viewport: ${width}x${window.innerHeight} | ${breakpoint}`;
+                }
+            };
+            
+            window.addEventListener('resize', updateResponsiveInfo);
+            updateResponsiveInfo();
+        }
+        
+        // Initialize all tests
+        document.addEventListener('DOMContentLoaded', () => {
+            detectBrowser();
+            testFeatureSupport();
+            testPerformance();
+            testResponsive();
+            
+            // Test touch targets after a short delay to ensure layout is complete
+            setTimeout(testTouchTargets, 500);
+        });
+        
+        // Mobile navigation toggle
+        const mobileToggle = document.querySelector('.mobile-nav-toggle');
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', () => {
+                console.log('Mobile navigation toggle clicked - functionality would be implemented here');
+            });
+        }
+        
+        // Add click handlers for interactive elements
+        document.querySelectorAll('.touch-target-test').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.target.textContent = 'Clicked!';
+                setTimeout(() => {
+                    e.target.textContent = e.target.textContent.replace('Clicked!', 'Touch Target');
+                }, 1000);
+            });
+        });
+        
+        // Filter button interactions
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

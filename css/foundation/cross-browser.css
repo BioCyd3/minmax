@@ -1,0 +1,1066 @@
+/* Cross-Browser Compatibility and Fallbacks */
+
+/* CSS Custom Properties Fallbacks for IE11 and older browsers */
+:root {
+  /* Fallback values for browsers that don't support CSS custom properties */
+  color: #e0e0e0;
+  background-color: #1a1a2e;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Flexbox Fallbacks for IE10/11 */
+.flex-fallback {
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;             /* NEW, Spec - Firefox, Chrome, Opera */
+}
+
+.flex-direction-column-fallback {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+
+.flex-direction-row-fallback {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+.justify-content-center-fallback {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.justify-content-between-fallback {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+
+.align-items-center-fallback {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.flex-wrap-fallback {
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+/* CSS Grid Fallbacks */
+.grid-fallback {
+  display: -ms-grid; /* IE 10-11 */
+  display: grid;
+}
+
+/* For browsers that don't support CSS Grid, use flexbox */
+@supports not (display: grid) {
+  .grid-fallback {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  
+  .grid-fallback > * {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 300px;
+    -webkit-flex: 1 1 300px;
+    flex: 1 1 300px;
+    margin: 0.5rem;
+  }
+}
+
+/* Transform Fallbacks */
+.transform-fallback {
+  -webkit-transform: translateY(-4px);
+  -moz-transform: translateY(-4px);
+  -ms-transform: translateY(-4px);
+  -o-transform: translateY(-4px);
+  transform: translateY(-4px);
+}
+
+/* Transition Fallbacks */
+.transition-fallback {
+  -webkit-transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
+  -moz-transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
+  -ms-transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
+  -o-transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* Border Radius Fallbacks */
+.border-radius-fallback {
+  -webkit-border-radius: 0.75rem;
+  -moz-border-radius: 0.75rem;
+  border-radius: 0.75rem;
+}
+
+/* Box Shadow Fallbacks */
+.box-shadow-fallback {
+  -webkit-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* Backdrop Filter Fallbacks */
+.backdrop-filter-fallback {
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+/* For browsers that don't support backdrop-filter */
+@supports not (backdrop-filter: blur(12px)) {
+  .backdrop-filter-fallback {
+    background-color: rgba(26, 26, 46, 0.95);
+  }
+}
+
+/* Background Clip Fallbacks */
+.background-clip-text-fallback {
+  background: linear-gradient(135deg, #fff 0%, rgba(233, 69, 96, 0.9) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent; /* Standard fallback */
+}
+
+/* For browsers that don't support background-clip: text */
+@supports not (background-clip: text) {
+  .background-clip-text-fallback {
+    background: none;
+    color: #fff;
+    -webkit-text-fill-color: initial;
+  }
+}
+
+/* Object Fit Fallbacks */
+.object-fit-cover-fallback {
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+/* For browsers that don't support object-fit */
+@supports not (object-fit: cover) {
+  .object-fit-cover-fallback {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+/* Aspect Ratio Fallbacks */
+.aspect-ratio-fallback {
+  aspect-ratio: 1 / 1;
+}
+
+/* For browsers that don't support aspect-ratio */
+@supports not (aspect-ratio: 1 / 1) {
+  .aspect-ratio-fallback {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%; /* 1:1 aspect ratio */
+  }
+  
+  .aspect-ratio-fallback > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Clamp() Fallbacks */
+.clamp-fallback {
+  font-size: clamp(1.5rem, 5vw, 3.75rem);
+}
+
+/* For browsers that don't support clamp() */
+@supports not (font-size: clamp(1.5rem, 5vw, 3.75rem)) {
+  .clamp-fallback {
+    font-size: 1.5rem; /* Minimum value */
+  }
+  
+  @media (min-width: 768px) {
+    .clamp-fallback {
+      font-size: 2.5rem; /* Middle value */
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .clamp-fallback {
+      font-size: 3.75rem; /* Maximum value */
+    }
+  }
+}
+
+/* CSS Logical Properties Fallbacks */
+.margin-inline-fallback {
+  margin-inline: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.padding-inline-fallback {
+  padding-inline: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Gap Property Fallbacks for Flexbox */
+.gap-fallback {
+  gap: 1rem;
+}
+
+/* For browsers that don't support gap in flexbox */
+@supports not (gap: 1rem) {
+  .gap-fallback > * {
+    margin: 0.5rem;
+  }
+  
+  .gap-fallback {
+    margin: -0.5rem;
+  }
+}
+
+/* Scroll Behavior Fallbacks */
+.scroll-smooth-fallback {
+  scroll-behavior: smooth;
+}
+
+/* For browsers that don't support smooth scrolling */
+@supports not (scroll-behavior: smooth) {
+  .scroll-smooth-fallback {
+    /* JavaScript polyfill would be needed here */
+  }
+}
+
+/* CSS Filters Fallbacks */
+.filter-blur-fallback {
+  -webkit-filter: blur(40px);
+  filter: blur(40px);
+}
+
+/* For browsers that don't support CSS filters */
+@supports not (filter: blur(40px)) {
+  .filter-blur-fallback {
+    opacity: 0.3;
+  }
+}
+
+/* Position Sticky Fallbacks */
+.sticky-fallback {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+/* For browsers that don't support position: sticky */
+@supports not (position: sticky) {
+  .sticky-fallback {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+  }
+}
+
+/* CSS Variables Fallbacks for Critical Styles */
+.btn-primary-fallback {
+  background: #e94560; /* Fallback */
+  background: linear-gradient(135deg, var(--color-secondary-500, #e94560), var(--color-secondary-600, #d63851));
+  color: #fff;
+  border: 2px solid #f1708a; /* Fallback */
+  border-color: var(--color-secondary-400, #f1708a);
+}
+
+.card-fallback {
+  background: #16213e; /* Fallback */
+  background-color: var(--color-surface, #16213e);
+  border: 1px solid #4a4a6a; /* Fallback */
+  border-color: var(--color-border, #4a4a6a);
+  border-radius: 0.75rem; /* Fallback */
+  border-radius: var(--radius-lg, 0.75rem);
+  padding: 1.5rem; /* Fallback */
+  padding: var(--space-6, 1.5rem);
+}
+
+/* Internet Explorer Specific Fixes */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  /* IE10+ specific styles */
+  .ie-flex-fix {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+  }
+  
+  .ie-grid-fix {
+    display: -ms-grid;
+    -ms-grid-columns: 1fr 1fr 1fr;
+    -ms-grid-rows: auto;
+  }
+  
+  .ie-grid-fix > *:nth-child(1) { -ms-grid-column: 1; -ms-grid-row: 1; }
+  .ie-grid-fix > *:nth-child(2) { -ms-grid-column: 2; -ms-grid-row: 1; }
+  .ie-grid-fix > *:nth-child(3) { -ms-grid-column: 3; -ms-grid-row: 1; }
+}
+
+/* Safari Specific Fixes */
+@supports (-webkit-appearance: none) {
+  .safari-fix {
+    -webkit-appearance: none;
+  }
+  
+  /* Fix for Safari's handling of flexbox and height */
+  .safari-flex-height-fix {
+    min-height: 0;
+  }
+}
+
+/* Firefox Specific Fixes */
+@-moz-document url-prefix() {
+  /* Firefox-specific styles */
+  .firefox-fix {
+    -moz-appearance: none;
+  }
+}
+
+/* Chrome/Webkit Specific Fixes */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .webkit-fix {
+    -webkit-appearance: none;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .high-contrast-fallback {
+    border: 2px solid currentColor !important;
+    background: transparent !important;
+  }
+  
+  .high-contrast-text {
+    color: currentColor !important;
+    background: transparent !important;
+  }
+}
+
+/* Reduced Motion Fallbacks */
+@media (prefers-reduced-motion: reduce) {
+  .motion-safe-fallback {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .motion-safe-fallback:hover {
+    transform: none !important;
+  }
+}
+
+/* Print Media Fallbacks */
+@media print {
+  .print-fallback {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+    border: 1px solid black !important;
+  }
+  
+  .print-hide {
+    display: none !important;
+  }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .touch-fallback {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0.75rem 1rem;
+  }
+  
+  .touch-hover-disable:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+
+/* Legacy Browser Support Messages */
+.browser-support-message {
+  display: none;
+  background: #f59e0b;
+  color: #000;
+  padding: 1rem;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+/* Show message for very old browsers */
+@supports not (display: flex) {
+  .browser-support-message {
+    display: block;
+  }
+}
+
+/* Polyfill Indicators */
+.needs-polyfill {
+  /* Styles that indicate polyfills are needed */
+}
+
+/* Feature Detection Classes */
+.no-js .js-only {
+  display: none;
+}
+
+.js .no-js-only {
+  display: none;
+}
+
+/* CSS Feature Queries for Progressive Enhancement */
+@supports (display: grid) {
+  .supports-grid {
+    display: grid;
+  }
+  
+  /* Enhanced grid layouts for supported browsers */
+  .pal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-5, 1.25rem);
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-8, 2rem);
+  }
+  
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--space-8, 2rem);
+  }
+}
+
+@supports not (display: grid) {
+  .no-grid-support,
+  .pal-grid,
+  .features-grid,
+  .team-grid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin: -0.5rem;
+  }
+  
+  .no-grid-support > *,
+  .pal-grid > *,
+  .features-grid > *,
+  .team-grid > * {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 300px;
+    -webkit-flex: 1 1 300px;
+    flex: 1 1 300px;
+    margin: 0.5rem;
+    max-width: calc(100% - 1rem);
+  }
+}
+
+@supports (backdrop-filter: blur(10px)) {
+  .supports-backdrop-filter,
+  .header {
+    backdrop-filter: blur(12px);
+    background-color: rgba(26, 26, 46, 0.8);
+  }
+}
+
+@supports not (backdrop-filter: blur(10px)) {
+  .no-backdrop-filter,
+  .header {
+    background-color: rgba(26, 26, 46, 0.95);
+  }
+}
+
+@supports (object-fit: cover) {
+  .supports-object-fit img,
+  .pal-image img,
+  .tier-pal img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@supports not (object-fit: cover) {
+  .no-object-fit,
+  .pal-image,
+  .tier-pal {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .no-object-fit img,
+  .pal-image img,
+  .tier-pal img {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* CSS Clamp Fallbacks */
+@supports (font-size: clamp(1rem, 2vw, 2rem)) {
+  .hero-title {
+    font-size: clamp(var(--font-size-3xl, 1.875rem), 5vw, var(--font-size-6xl, 3.75rem));
+  }
+  
+  .hero-subtitle {
+    font-size: clamp(var(--font-size-lg, 1.125rem), 2.5vw, var(--font-size-2xl, 1.5rem));
+  }
+}
+
+@supports not (font-size: clamp(1rem, 2vw, 2rem)) {
+  .hero-title {
+    font-size: var(--font-size-3xl, 1.875rem);
+  }
+  
+  .hero-subtitle {
+    font-size: var(--font-size-lg, 1.125rem);
+  }
+  
+  @media (min-width: 768px) {
+    .hero-title {
+      font-size: var(--font-size-4xl, 2.25rem);
+    }
+    
+    .hero-subtitle {
+      font-size: var(--font-size-xl, 1.25rem);
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .hero-title {
+      font-size: var(--font-size-5xl, 3rem);
+    }
+    
+    .hero-subtitle {
+      font-size: var(--font-size-2xl, 1.5rem);
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .hero-title {
+      font-size: var(--font-size-6xl, 3.75rem);
+    }
+  }
+}
+
+/* Gap Property Fallbacks */
+@supports (gap: 1rem) {
+  .nav {
+    display: flex;
+    gap: var(--space-2, 0.5rem);
+  }
+  
+  .hero-cta {
+    display: flex;
+    gap: var(--space-4, 1rem);
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  
+  .filter-controls {
+    display: flex;
+    gap: var(--space-3, 0.75rem);
+    flex-wrap: wrap;
+  }
+}
+
+@supports not (gap: 1rem) {
+  .nav {
+    display: flex;
+    margin: -0.25rem;
+  }
+  
+  .nav > * {
+    margin: 0.25rem;
+  }
+  
+  .hero-cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: -0.5rem;
+  }
+  
+  .hero-cta > * {
+    margin: 0.5rem;
+  }
+  
+  .filter-controls {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -0.375rem;
+  }
+  
+  .filter-controls > * {
+    margin: 0.375rem;
+  }
+}
+
+/* Aspect Ratio Fallbacks */
+@supports (aspect-ratio: 1 / 1) {
+  .pal-image {
+    aspect-ratio: 1 / 1;
+    width: 120px;
+  }
+  
+  .tier-pal {
+    aspect-ratio: 1 / 1;
+    width: 60px;
+  }
+}
+
+@supports not (aspect-ratio: 1 / 1) {
+  .pal-image {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .tier-pal {
+    width: 60px;
+    height: 60px;
+  }
+}
+/*
+ Mobile-Specific Optimizations */
+@media (max-width: 768px) {
+  /* Ensure touch targets meet minimum size requirements */
+  .btn,
+  .nav-link,
+  .filter-btn,
+  .mobile-nav-toggle {
+    min-height: 44px;
+    min-width: 44px;
+    padding: var(--space-3, 0.75rem) var(--space-4, 1rem);
+  }
+  
+  /* Optimize text rendering on mobile */
+  body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  
+  /* Prevent zoom on input focus */
+  input[type="text"],
+  input[type="search"],
+  textarea,
+  select {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  /* Optimize scrolling performance */
+  .hero,
+  .card,
+  .feature-card,
+  .pal-card {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+  }
+}
+
+/* iOS Safari Specific Fixes */
+@supports (-webkit-appearance: none) and (not (appearance: none)) {
+  /* Fix for iOS Safari viewport units */
+  .hero {
+    min-height: calc(100vh - 100px);
+    min-height: calc(100dvh - 100px); /* Dynamic viewport height */
+  }
+  
+  /* Fix for iOS Safari button styling */
+  .btn,
+  button {
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: var(--radius-full, 9999px);
+  }
+  
+  /* Fix for iOS Safari input styling */
+  input[type="text"],
+  input[type="search"] {
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: var(--radius-full, 9999px);
+  }
+}
+
+/* Android Chrome Specific Fixes */
+@media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
+  /* Fix for Android Chrome address bar height changes */
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  
+  /* Optimize rendering performance */
+  .hero::before,
+  .hero::after {
+    will-change: transform, opacity;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+
+/* Edge/IE Specific Fixes */
+@supports (-ms-ime-align: auto) {
+  /* IE/Edge flexbox fixes */
+  .hero-cta {
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  
+  .nav {
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  
+  /* IE/Edge grid fallbacks */
+  .features-grid {
+    display: -ms-grid;
+    -ms-grid-columns: 1fr 2rem 1fr 2rem 1fr;
+    -ms-grid-rows: auto;
+  }
+  
+  .features-grid > *:nth-child(1) { -ms-grid-column: 1; }
+  .features-grid > *:nth-child(2) { -ms-grid-column: 3; }
+  .features-grid > *:nth-child(3) { -ms-grid-column: 5; }
+}
+
+/* Firefox Specific Fixes */
+@-moz-document url-prefix() {
+  /* Fix for Firefox flexbox behavior */
+  .hero-cta {
+    -moz-box-pack: center;
+    justify-content: center;
+  }
+  
+  /* Fix for Firefox button focus outline */
+  .btn::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+  }
+  
+  /* Fix for Firefox input styling */
+  input[type="text"]::-moz-placeholder,
+  input[type="search"]::-moz-placeholder {
+    color: var(--color-text-muted, #a7a7a7);
+    opacity: 1;
+  }
+}
+
+/* High DPI Display Optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  /* Optimize images for high DPI displays */
+  .pal-image img,
+  .tier-pal img,
+  .logo img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+  
+  /* Optimize borders for high DPI */
+  .card,
+  .feature-card,
+  .pal-card {
+    border-width: 0.5px;
+  }
+}
+
+/* Dark Mode Optimizations */
+@media (prefers-color-scheme: dark) {
+  /* Ensure proper contrast in dark mode */
+  :root {
+    --color-bg: #0a0a0f;
+    --color-surface: #12182e;
+    --color-text: #f0f0f0;
+    --color-text-muted: #b0b0b0;
+    --color-border: #3a3a5a;
+  }
+  
+  /* Optimize images for dark backgrounds */
+  .pal-image,
+  .tier-pal {
+    background-color: var(--color-primary-600, #0a2749);
+  }
+}
+
+/* Light Mode Fallbacks */
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-bg: #ffffff;
+    --color-surface: #f8fafc;
+    --color-text: #1a202c;
+    --color-text-muted: #4a5568;
+    --color-border: #e2e8f0;
+    --color-primary-500: #3182ce;
+    --color-secondary-500: #e53e3e;
+  }
+  
+  .hero {
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 50%, #e2e8f0 100%);
+    color: var(--color-text);
+  }
+  
+  .hero-title,
+  .hero-subtitle {
+    color: var(--color-text);
+    text-shadow: none;
+  }
+}
+
+/* Print Optimizations */
+@media print {
+  /* Optimize layout for printing */
+  .hero {
+    page-break-inside: avoid;
+    margin-bottom: 2rem;
+    padding: 2rem;
+  }
+  
+  .feature-card,
+  .card,
+  .pal-card {
+    page-break-inside: avoid;
+    margin-bottom: 1rem;
+  }
+  
+  /* Optimize typography for print */
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+  
+  h1 { font-size: 18pt; }
+  h2 { font-size: 16pt; }
+  h3 { font-size: 14pt; }
+  
+  /* Hide interactive elements */
+  .btn,
+  .nav,
+  .mobile-nav-toggle,
+  .filter-controls,
+  .hero-cta {
+    display: none !important;
+  }
+  
+  /* Optimize colors for print */
+  * {
+    background: white !important;
+    color: black !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* Keep essential borders */
+  .card,
+  .feature-card,
+  .pal-card {
+    border: 1px solid #000 !important;
+  }
+}
+
+/* Performance Optimizations */
+/* Reduce animations on low-end devices */
+@media (max-width: 480px) and (max-height: 800px) {
+  .hero::after,
+  .hero-decoration {
+    animation: none;
+    opacity: 0.3;
+  }
+  
+  .feature-card:hover,
+  .card:hover,
+  .pal-card:hover {
+    transform: none;
+  }
+  
+  .btn::before {
+    display: none;
+  }
+}
+
+/* Battery Saving Mode */
+@media (prefers-reduced-motion: reduce) {
+  /* Disable all animations and transitions */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  /* Remove hover effects */
+  .feature-card:hover,
+  .card:hover,
+  .pal-card:hover,
+  .btn:hover {
+    transform: none !important;
+    box-shadow: var(--shadow-sm, 0 1px 2px 0 rgba(0, 0, 0, 0.1)) !important;
+  }
+}
+
+/* Accessibility Enhancements */
+@media (prefers-contrast: high) {
+  /* High contrast mode adjustments */
+  :root {
+    --color-bg: #000000;
+    --color-surface: #000000;
+    --color-text: #ffffff;
+    --color-text-muted: #ffffff;
+    --color-border: #ffffff;
+    --color-primary-500: #ffffff;
+    --color-secondary-500: #ffffff;
+  }
+  
+  .btn,
+  .card,
+  .feature-card,
+  .pal-card {
+    border: 3px solid currentColor !important;
+    background: transparent !important;
+  }
+  
+  .hero {
+    background: #000000 !important;
+    border: 3px solid #ffffff !important;
+  }
+}
+
+/* Focus Management */
+.btn:focus,
+.nav-link:focus,
+.filter-btn:focus,
+input:focus,
+button:focus {
+  outline: 3px solid var(--color-secondary-500, #e94560);
+  outline-offset: 2px;
+}
+
+/* For browsers that don't support :focus-visible */
+@supports not selector(:focus-visible) {
+  .btn:focus,
+  .nav-link:focus,
+  .filter-btn:focus {
+    outline: 3px solid var(--color-secondary-500, #e94560);
+    outline-offset: 2px;
+  }
+}
+
+/* For browsers that support :focus-visible */
+@supports selector(:focus-visible) {
+  .btn:focus:not(:focus-visible),
+  .nav-link:focus:not(:focus-visible),
+  .filter-btn:focus:not(:focus-visible) {
+    outline: none;
+  }
+  
+  .btn:focus-visible,
+  .nav-link:focus-visible,
+  .filter-btn:focus-visible {
+    outline: 3px solid var(--color-secondary-500, #e94560);
+    outline-offset: 2px;
+  }
+}
+
+/* Legacy Browser Warnings */
+.legacy-browser-warning {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #f59e0b;
+  color: #000;
+  padding: 1rem;
+  text-align: center;
+  z-index: 10000;
+  font-weight: bold;
+}
+
+/* Show warning for very old browsers */
+@supports not (display: flex) {
+  .legacy-browser-warning {
+    display: block;
+  }
+}
+
+/* Internet Explorer specific warning */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .ie-warning {
+    display: block !important;
+    background: #dc2626;
+    color: white;
+  }
+}
+
+/* Optimize for slow connections */
+@media (prefers-reduced-data: reduce) {
+  /* Disable background images and effects */
+  .hero::before,
+  .hero::after,
+  .hero-decoration {
+    display: none;
+  }
+  
+  /* Simplify gradients */
+  .btn-primary {
+    background: var(--color-secondary-500, #e94560);
+  }
+  
+  .btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Remove shadows */
+  .card,
+  .feature-card,
+  .pal-card,
+  .btn {
+    box-shadow: none;
+  }
+}

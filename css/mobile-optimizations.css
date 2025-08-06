@@ -1,0 +1,216 @@
+/* Mobile-Specific Optimizations for Palmon World */
+
+/* Enhanced Mobile Navigation */
+@media (max-width: 768px) {
+    .mobile-nav {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+    
+    .mobile-nav .nav-link {
+        font-size: 1.1rem;
+        padding: 1rem;
+        border-radius: 0.75rem;
+        margin-bottom: 0.5rem;
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-nav .nav-link:hover,
+    .mobile-nav .nav-link:focus {
+        background: rgba(233, 69, 96, 0.2);
+        transform: translateX(8px);
+    }
+}
+
+/* Mobile-First Grid Adjustments */
+@media (max-width: 640px) {
+    .pal-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+/* Touch-Friendly Interactions */
+@media (max-width: 768px) {
+    .btn {
+        min-height: 44px;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .filter-btn {
+        min-height: 40px;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .pal-card,
+    .hero-card,
+    .feature-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Mobile Typography Optimizations */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: clamp(1.5rem, 8vw, 2.5rem);
+        line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+        font-size: clamp(1rem, 4vw, 1.25rem);
+        line-height: 1.4;
+    }
+    
+    h1 {
+        font-size: clamp(1.75rem, 6vw, 2.25rem);
+    }
+    
+    h2 {
+        font-size: clamp(1.5rem, 5vw, 1.875rem);
+    }
+    
+    h3 {
+        font-size: clamp(1.25rem, 4vw, 1.5rem);
+    }
+}
+
+/* Mobile Search Optimizations */
+@media (max-width: 768px) {
+    .search-input {
+        font-size: 16px; /* Prevents zoom on iOS */
+        padding: 1rem 1.5rem;
+    }
+    
+    .filter-controls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    
+    .filter-group {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+/* Mobile Performance Optimizations */
+@media (max-width: 768px) {
+    /* Reduce animations on mobile for better performance */
+    .pal-card:hover,
+    .hero-card:hover,
+    .feature-card:hover {
+        transform: translateY(-2px);
+    }
+    
+    /* Optimize backdrop filters for mobile */
+    .header {
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+}
+
+/* Mobile Accessibility Improvements */
+@media (max-width: 768px) {
+    /* Larger focus indicators for touch devices */
+    .pal-card:focus-visible,
+    .hero-card:focus-visible,
+    .feature-card:focus-visible {
+        outline: 3px solid var(--color-secondary-500);
+        outline-offset: 4px;
+    }
+    
+    /* Better spacing for touch targets */
+    .nav-link {
+        margin-bottom: 0.25rem;
+    }
+    
+    .filter-btn {
+        margin: 0.25rem;
+    }
+}
+
+/* Mobile-Specific Loading States */
+@media (max-width: 768px) {
+    .search-input.loading {
+        background-size: 150% 100%;
+        animation-duration: 1s;
+    }
+    
+    .filter-btn.loading {
+        transform: scale(0.95);
+    }
+}
+
+/* Mobile Landscape Optimizations */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        padding: 2rem 1rem;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .hero-title {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+        margin-bottom: 1rem;
+    }
+    
+    .hero-subtitle {
+        font-size: clamp(1rem, 3vw, 1.125rem);
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* High DPI Display Optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .pal-card-image img,
+    .lore-image img,
+    .pal-slot img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Dark Mode Optimizations for Mobile */
+@media (prefers-color-scheme: dark) and (max-width: 768px) {
+    .mobile-nav {
+        background: rgba(22, 33, 62, 0.95);
+        border-left-color: rgba(74, 74, 106, 0.8);
+    }
+    
+    .search-input {
+        background: rgba(22, 33, 62, 0.8);
+        border-color: rgba(74, 74, 106, 0.6);
+    }
+}
+
+/* Reduced Motion for Mobile */
+@media (prefers-reduced-motion: reduce) and (max-width: 768px) {
+    .mobile-nav .nav-link {
+        animation: none;
+        transform: none;
+        transition: background-color 0.2s ease;
+    }
+    
+    .pal-card,
+    .hero-card,
+    .feature-card {
+        transition: box-shadow 0.2s ease;
+    }
+}

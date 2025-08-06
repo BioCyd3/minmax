@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Lore of Palmon</title>
+    
+    <!-- Critical CSS for above-the-fold content -->
+    <link rel="stylesheet" href="css/critical.css">
+    
+    <!-- Preload optimized bundle -->
+    <link rel="preload" href="css/optimized-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/optimized-bundle.css"></noscript>
+    
+    <!-- Font optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+</head>
+<body>
+
+    <header class="header">
+        <a href="./index.html" class="logo">
+            <img src="./images/game_logo.png" alt="Palmon World Logo">
+            <h1>Palmon World</h1>
+        </a>
+        
+        <nav class="nav" aria-label="Main navigation">
+            <a href="./index.html" class="nav-link">Home</a>
+            <a href="./tierlist.html" class="nav-link">Tier List</a>
+            <a href="./palbook.html" class="nav-link">Palbook</a>
+            <a href="./synergy.html" class="nav-link">Synergy Guide</a>
+            <a href="./teamcomps-pve.html" class="nav-link">PvE Comps</a>
+            <a href="./teamcomps-pvp.html" class="nav-link">PvP Comps</a>
+            <a href="./counters.html" class="nav-link">Counters</a>
+            <a href="./lore.html" class="nav-link active">Lore</a>
+        </nav>
+        
+        <button class="mobile-nav-toggle" aria-label="Toggle mobile navigation" aria-expanded="false" aria-controls="mobile-nav">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+    </header>
+    
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+        <button class="mobile-nav-close" aria-label="Close mobile navigation">×</button>
+        <a href="./index.html" class="nav-link" style="--index: 0">Home</a>
+        <a href="./tierlist.html" class="nav-link" style="--index: 1">Tier List</a>
+        <a href="./palbook.html" class="nav-link" style="--index: 2">Palbook</a>
+        <a href="./synergy.html" class="nav-link" style="--index: 3">Synergy Guide</a>
+        <a href="./teamcomps-pve.html" class="nav-link" style="--index: 4">PvE Comps</a>
+        <a href="./teamcomps-pvp.html" class="nav-link" style="--index: 5">PvP Comps</a>
+        <a href="./counters.html" class="nav-link" style="--index: 6">Counters</a>
+        <a href="./lore.html" class="nav-link" style="--index: 7">Lore</a>
+    </nav>
+
+    <main class="container" id="main-content">
+        <header class="page-header">
+            <h1>The Lore of Palmon</h1>
+            <p class="page-description">Discover the rich stories and backgrounds of every Palmon in the world.</p>
+        </header>
+        
+        <section class="search-section" aria-labelledby="search-heading">
+            <h2 id="search-heading" class="sr-only">Search Palmon Lore</h2>
+            <div class="search-container">
+                <label for="search-lore" class="sr-only">Search for a Palmon by name</label>
+                <div class="search-input-with-icon">
+                    <input type="text" 
+                           id="search-lore" 
+                           placeholder="Search for a Palmon..." 
+                           class="search-input"
+                           aria-label="Search Palmon by name"
+                           aria-describedby="search-help">
+                </div>
+                <div id="search-help" class="sr-only">Type to search for Palmon by name. Results will update automatically as you type.</div>
+            </div>
+        </section>
+        
+        <section class="lore-section" aria-labelledby="lore-heading">
+            <h2 id="lore-heading" class="sr-only">Palmon Lore Entries</h2>
+            <div id="lore-container" role="region" aria-label="Palmon lore entries">
+                <!-- Lore entries will be inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Paste the generated lore data here
+        const loreData = [
+            { "Hero Name": "Flouffant", "Type": "Earth", "Rarity": "SR", "Lore": "Flouffant are gentle spirits of the meadow, born from ancient seeds that slumbered for a thousand years. Their soft, leafy bodies are always covered in morning dew, which they use to heal ailing plants. They are shy creatures, often mistaken for oversized dandelions, but they hold a deep connection to the earth's vitality. It is said that where a Flouffant makes its home, crops will never fail and flowers will bloom year-round, a testament to their innate \"Nature's Blessing.\"" },
+            { "Hero Name": "Graffitty", "Type": "Earth", "Rarity": "SR", "Lore": "An urban evolution of a more reclusive mountain dweller, Graffitty have adapted to thrive in the sprawling camps and ruins built by others. With paws stained by berry juice and colored clay, they express themselves through intricate murals, often leading prospectors to rich ore veins with their art. Though they can fill almost any role in a camp, their true passion is mining, using their \"Deft Paws\" to unearth gems and minerals that others overlook." },
+            { "Hero Name": "Herculeaf", "Type": "Earth", "Rarity": "SR", "Lore": "Legends say the first Herculeaf was a great bear that slept for a century at the foot of the World Tree, awakening as a guardian of the forest. These powerful, gentle giants possess immense strength, capable of uprooting dying trees with a single swipe. They understand the cycle of life and death in the woods, willingly lending their \"Bear-y Strong\" arms to sawing lumber for respectful builders, ensuring that for every tree taken, a new one is planted in its place." },
+            { "Hero Name": "Spinchilla", "Type": "Earth", "Rarity": "SR", "Lore": "These chinchilla-like Pals are born under a lucky star, though they wouldn't know it. They are naturally clumsy, often tripping over their own feet and tumbling head over heels down mine shafts. However, this \"Lucky Klutz\" nature invariably leads them to stumble upon undiscovered veins of ore and precious gems. Their dizzying \"Whirling Leaves\" attack is less a trained technique and more a panicked, flailing reaction that somehow works." },
+            { "Hero Name": "Axollium", "Type": "Earth", "Rarity": "SSR", "Lore": "An ancient and amphibious Palmon, Axollium spends most of its life in the deepest, most pristine underground grottos where Dreamium naturally grows. They are the sworn guardians of this precious resource, viewing its extraction as a sacred ritual. When threatened, this otherwise placid creature becomes a \"Savage Scallion,\" using its razor-sharp tail and leaves to defend its home with a ferocity that has surprised many would-be thieves." },
+            { "Hero Name": "Bruiseberry", "Type": "Earth", "Rarity": "SSR", "Lore": "Born from the toughest vine on the sunniest hill, Bruiseberry is a natural brawler. From a young age, they engage in playful but intense wrestling matches, believing that strength is earned through constant challenge. Their fists, hardened by punching trees and rocks, can deliver a devastating \"Fruit Punch-Up.\" Their \"Tireless\" spirit makes them exceptional trainers, inspiring Armigo to push past their limits and become champions." },
+            { "Hero Name": "Cerverdant", "Type": "Earth", "Rarity": "SSR", "Lore": "The undisputed king of the ancient forests, Cerverdant's antlers are said to chart the constellations. It is a majestic and noble creature whose presence brings tranquility and growth. As a sign of its royal authority, it bestows \"Verdant Grace\" upon its earthen subjects, empowering them with the forest's own strength. When it allows its lumber to be harvested, the \"Verdant Bounty\" is always unnaturally rich, as if the woods themselves are offering a gift." },
+            { "Hero Name": "Lendanear", "Type": "Water", "Rarity": "SSR", "Lore": "These rare Pals are manifestations of pure compassion, often appearing near battlefields or hospitals. They cannot bear to see others suffer, and their \"Tender Care\" is legendary, capable of knitting flesh and bone with a gentle touch. In battle, they don't seek to harm but to protect, instinctively sensing which of their allies is in the most danger and granting them a \"Rejuvenate\" blessing to shield them from harm." },
+            { "Hero Name": "Terrastudo", "Type": "Earth", "Rarity": "SSR", "Lore": "Terrastudo are not merely turtle-like; they are living pieces of the earth's crust, slowly roaming the mountains and valleys. Their shells are made of compressed stone and ore, so tough they can be used as a \"Drillshell\" for mining. When angered, a Terrastudo will retreat into its shell and begin a \"Tectonic Spin,\" becoming a destructive pinball of geologic fury that reshapes the landscape." },
+            { "Hero Name": "Baboom", "Type": "Earth", "Rarity": "UR", "Lore": "Wise and powerful, Baboom are the chieftains of Earth Palmon tribes living deep in the jungle. They carry staves of petrified wood, passed down through generations, which are symbols of their authority and channels for their power. A Baboom's leadership is a \"Nature's Gift\" to its allies, granting them primal strength. With a single \"Powerstrike\" from its staff, it can shatter boulders and stun the most formidable foes." },
+            { "Hero Name": "Statchew", "Type": "Earth", "Rarity": "UR", "Lore": "For millennia, these Pals were thought to be nothing more than gargoyle-like statues decorating ancient ruins. They are silent, unmoving guardians, or \"Sentinels,\" who awaken only when the sanctity of their territory is violated. Carved from enchanted stone, they are nearly impervious to harm, and their \"Protective Roar\" can instill a deep, primal fear in enemies, weakening their resolve and their attacks." },
+            { "Hero Name": "Surveilynx", "Type": "Earth", "Rarity": "UR", "Lore": "A product of a secret, militaristic order, Surveilynx are the ultimate special operations agents. They are masters of stealth, intelligence gathering, and tactical combat. Their unique training in \"Elite Drills\" allows them to prepare an entire Armigo defense force in moments. In battle, they are a phantom, using \"Shadow Step\" to teleport between vantage points, striking from the darkness and vanishing before the enemy can react." },
+            { "Hero Name": "Kilohopp", "Type": "Electricity", "Rarity": "SR", "Lore": "These impossibly fluffy rabbit Pals are bundles of pure energy. Their fur constantly builds up a huge electrical charge from hopping around, a phenomenon known as \"Static Fluff.\" While they can release this energy in a defensive \"Power Surge,\" they are much happier working at power plants, joyfully running on giant wheels to charge entire camps with their boundless enthusiasm." },
+            { "Hero Name": "Rotorlotor", "Type": "Electricity", "Rarity": "SSR", "Lore": "Believed to have been created by a master merchant who wished for a living money-maker, Rotorlotor are obsessed with commerce. They spin their bodies at \"Full Tilt,\" generating not only lift but a strange energy that seems to attract wealth, boosting a Shop's profits. Their \"Thunderstorm\" attack is a side effect of their spinning, flinging off excess energy and occasionally stunning those who interrupt their business." },
+            { "Hero Name": "Thunderclawd", "Type": "Electricity", "Rarity": "SSR", "Lore": "Grumpy, territorial, and crackling with power, Thunderclawd are like living storm clouds confined to a crab-like shell. They are drawn to high places during storms to absorb lightning, which makes them even more cantankerous. When their territory is invaded, they rise up and unleash a \"Dark Cloud\" of chain lightning, punishing anyone foolish enough to get close. Their \"Ionized\" bodies make them perfect, if moody, generators." },
+            { "Hero Name": "Abuzzinian", "Type": "Electricity", "Rarity": "UR", "Lore": "Abuzzinian are not from this plane of existence. They are shadow-beings from a realm of twilight and electricity, capable of stepping between worlds. This \"Phantomstep\" makes them almost impossible to hit, as they exist slightly out of phase with reality. They hunt by pulling their prey into a brief vision of their chaotic home dimension, a \"Nightstorm\" of terror that can paralyze the mind and body." },
+            { "Hero Name": "Barkplug", "Type": "Electricity", "Rarity": "UR", "Lore": "This Pal is a perfect fusion of loyal beast and living technology. Its bark is tuned to a specific resonant frequency that causes an \"Ion Disruption,\" shattering the molecular bonds of armor and leaving foes vulnerable. The \"Overcharge\" it unleashes is the culmination of energy channeled directly from its core, a devastating blast that can short-circuit a target's nervous system." },
+            { "Hero Name": "Mantleray", "Type": "Electricity", "Rarity": "UR", "Lore": "These majestic creatures soar not through water, but through the sky, hunting on currents of static electricity. They are elegant and silent predators, gliding effortlessly until they are above their prey. Then, with a \"Stinging Spark\" of malice, they drop a cluster of \"Electric Burst\" bombs, each one a concentrated ball of lightning that detonates with incredible force." },
+            { "Hero Name": "Emboa", "Type": "Fire", "Rarity": "SR", "Lore": "Emboa are serpent-like Pals that make their homes in the searing heat of volcanic vents, their scales tempered to a metallic sheen. They are ambush predators, coiling their bodies to build up immense heat and pressure. When they strike, they are \"Heating Up,\" a blur of motion that ends in a concussive, fiery impact. Their affinity for heat makes them natural smelters." },
+            { "Hero Name": "Incineraptor", "Type": "Fire", "Rarity": "SSR", "Lore": "With an \"Eagle Eye\" that can spot a gold coin from a mile in the sky, Incineraptor are noble hunters and born treasure seekers. They build their nests atop the highest, most inaccessible mountain peaks, lining them with the gems and precious metals they find. They view the world as a giant treasure map and will lend their aid to those they deem worthy, often leading them to riches beyond imagining." },
+            { "Hero Name": "Vulcanid", "Type": "Fire", "Rarity": "SSR", "Lore": "Named after the ancient god of the forge, Vulcanids are the loyal companions of master blacksmiths. They are said to have fire in their blood and loyalty in their hearts. A Vulcanid's bite can heat metal to a malleable temperature, and they happily work the bellows with their powerful lungs. They see a \"Trial By Fire\" as the ultimate test of worth, for both steel and spirit." },
+            { "Hero Name": "Wyvierno", "Type": "Fire", "Rarity": "SSR", "Lore": "These small, feisty wyverns have a \"Fiery Heart\" that burns with the power of a volcano. They are practitioners of draconic magic, viewing it as an art form. Instead of brute force, they prefer a \"Scorching Sweep\" of their breath, inflicting a magical burn that continues to sear their enemies long after the initial attack. They are essential in alchemy for their ability to heat concoctions to the perfect temperature." },
+            { "Hero Name": "Blazeal", "Type": "Fire", "Rarity": "UR", "Lore": "Blazeal are stoic warriors who meditate in the heart of bonfires, their spirits and bodies becoming \"Tempered Steel.\" They believe in discipline and the purity of combat, meeting every challenge with unwavering resolve. Their attacks, \"Hyah!\" and \"Huuuah!\", are not just battle cries but focused releases of their immense inner energy, honed by a lifetime of training." },
+            { "Hero Name": "Hoofrit", "Type": "Fire", "Rarity": "UR", "Lore": "A terrifying fusion of a mighty bull and a fire demon, Hoofrit is a being of pure rage and power. Its \"Hard-Horned\" skull can shatter castle walls, and its \"Blazing Volley\" is a legendary technique where it targets and eliminates an enemy's leaders in the back row, sowing chaos and fear. They are seen as symbols of unstoppable force, true frontline berserkers." },
+            { "Hero Name": "Magmolin", "Type": "Fire", "Rarity": "UR", "Lore": "Magmolin are ancient, elemental beings born from the planet's molten core. Their scales are plates of shifting obsidian, and magma flows through their veins. Their connection to the earth is so profound that their mere presence doubles the efficiency of all nearby forges, as if the metal itself yearns to be shaped by its master. A \"Lava Shock\" from a Magmolin is a direct attack from the planet itself, a pillar of volcanic might." },
+            { "Hero Name": "Auktyke", "Type": "Water", "Rarity": "SR", "Lore": "Hailing from a remote, frozen archipelago, Auktyke are members of a proud royal lineage. They carry themselves with a princely air, though their battle experience is often limited. Their \"Frost Resist\" comes from generations of living in the extreme cold. Though they dream of glory, their attacks are more dignified than damaging, befitting a young noble still learning the art of war." },
+            { "Hero Name": "Maximito", "Type": "Water", "Rarity": "SSR", "Lore": "The origin of the Maximito is a paradox; they are tiny elephants who possess the strength and wisdom of their giant ancestors. They are master architects and engineers, the \"Big Little Builder\" of Palmon society. Their greatest gift is their \"Elephantine Blessing,\" a protective aura they bestow upon the weakest member of their group, embodying the principle that the strong must protect the vulnerable." },
+            { "Hero Name": "Meowdame", "Type": "Water", "Rarity": "SSR", "Lore": "Meowdame are whimsical, enigmatic cat-Pals that walk between the material world and the world of dreams. They are considered \"Miracle-Makers,\" as good fortune follows in their wake. They have a strange affinity for lost and forgotten items, often leading their companions to caches of resources left behind by Bullymon. A \"Starlight Blessing\" from a Meowdame is a wink of luck from the universe itself." },
+            { "Hero Name": "Platyputz", "Type": "Water", "Rarity": "SSR", "Lore": "These kind-hearted and slightly goofy Pals are the ultimate survivors. Their minds are simple, giving them a \"Blunt Sense\" that dulls pain and makes them incredibly resilient. They carry a pouch filled with an assortment of seemingly random junk, but when a friend is in need, they always manage to pull out \"Just the Thing\"—be it a healing salve, a tool, or a \"Bubble Shield\" to protect an ally from a fatal blow." },
+            { "Hero Name": "Snowkami", "Type": "Water", "Rarity": "SSR", "Lore": "A true wolf-spirit of the north, a \"Kami\" of the blizzard. Snowkami are solitary hunters who embody the silent, beautiful lethality of winter. Their \"Wolfy Will\" is unbreakable, forged in the harshest of environments. Their \"Glacial Howl\" is not a sound but a wave of absolute cold, instantly freezing the blood in their victims' veins, preserving them as ice statues in the snow." },
+            { "Hero Name": "Squeezel", "Type": "Water", "Rarity": "SSR", "Lore": "Hyperactive and single-minded, the Squeezel is a living pressure washer. Its entire body is a biological weapon system designed to do one thing: fire its \"Aqua Cannon.\" It consumes vast amounts of water, compressing it internally until it can be released in a series of devastating, armor-piercing blasts. Its \"Water Surge\" passive is the result of it fine-tuning its own internal mechanisms for maximum destructive power." },
+            { "Hero Name": "Dolphriend", "Type": "Water", "Rarity": "UR", "Lore": "Legends of heroic sailors tell of a dolphin that defended ships from krakens and pirates, eventually being granted a humanoid form to act as a permanent guardian of the seas. This is Dolphriend. A \"Tidal Guard\" by oath, he is a friend to all who travel the waves. His \"Rush Wave\" attack is powered by the might of the ocean itself, an unstoppable crash of water and heroic strength." },
+            { "Hero Name": "Fingenue", "Type": "Water", "Rarity": "UR", "Lore": "These graceful mermaid-Pals are the prima donnas of the ocean depths. Their enchanting songs can calm raging storms or, when angered, summon giant \"Waterspout\" vortexes to crush enemy ships. They are beloved by the sea itself, which grants them \"Ocean's Favor,\" amplifying the power of their water magic. They are beautiful, powerful, and notoriously dramatic." },
+            { "Hero Name": "Lucidina", "Type": "Water", "Rarity": "UR", "Lore": "A beautiful but terrifying Palmon from the deepest ocean trenches, Lucidina is a creature of illusion and nightmares. It lures its prey with a hypnotic light, pulling their consciousness into a dream of \"Torment\" where their deepest fears are made real. As the victim's mind shatters, Lucidina strikes in the real world. Its \"Dream Shadow\" nature makes it an elusive phantom, a hunter that kills without being seen." },
+            { "Hero Name": "Ninjump", "Type": "Water", "Rarity": "UR", "Lore": "Born in hidden swamps and trained in the ancient art of ninjutsu, Ninjump are masters of stealth and water-based combat. They live by the creed to \"Flow Like a River, Strike Like a Waterfall.\" Their movements are silent and fluid, their attacks sudden and overwhelming. They can fling shuriken of pressurized water with deadly accuracy, capable of dispatching multiple foes or focusing their assault on a single, powerful target." }
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('lore-container');
+            const searchInput = document.getElementById('search-lore');
+
+            function getImagePath(heroName) {
+                if (heroName === 'Lucidina') return './images/Profile-Lucindina.png';
+                return `./images/Profile-${heroName}.png`;
+            }
+
+            function createLoreEntry(pal) {
+                return `
+                    <div class="lore-entry" data-name="${pal['Hero Name'].toLowerCase()}">
+                        <div class="lore-image">
+                            <img src="${getImagePath(pal['Hero Name'])}" alt="${pal['Hero Name']}" loading="lazy">
+                        </div>
+                        <div class="lore-content">
+                            <h3 class="type-${pal.Type}">${pal['Hero Name']}</h3>
+                            <p class="lore-subtitle"><span class="rarity-${pal.Rarity.toLowerCase()}-text">${pal.Rarity}</span> Rarity Palmon</p>
+                            <p class="lore-text">${pal.Lore}</p>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Initial render
+            container.innerHTML = loreData.map(createLoreEntry).join('');
+
+            // Search functionality
+            searchInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                const entries = document.querySelectorAll('.lore-entry');
+                
+                entries.forEach(entry => {
+                    if (entry.dataset.name.includes(searchTerm)) {
+                        entry.classList.remove('hidden');
+                    } else {
+                        entry.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+
+    <footer class="footer" role="contentinfo">
+        <p>&copy; 2024 Palmon World. All rights reserved.</p>
+    </footer>
+
+    <!-- Load performance optimization script first -->
+    <script src="scripts/performance.js"></script>
+    <script src="scripts/navigation.js"></script>
+    
+    <!-- Lazy load animations script -->
+    <script>
+        // Lazy load animations script after initial render
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            setTimeout(() => {
+                const script = document.createElement('script');
+                script.src = 'scripts/animations.js';
+                script.async = true;
+                document.head.appendChild(script);
+            }, 200);
+        }
+    </script>
+</body>
+</html>

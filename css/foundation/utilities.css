@@ -1,0 +1,403 @@
+/* Typography and Color Utility Combinations */
+
+/* Enhanced Text Styling Utilities */
+
+/* Text with Background Combinations */
+.text-on-primary {
+  color: var(--color-neutral-50);
+  background-color: var(--color-primary-500);
+}
+
+.text-on-secondary {
+  color: var(--color-neutral-50);
+  background-color: var(--color-secondary-500);
+}
+
+.text-on-dark {
+  color: var(--color-neutral-50);
+  background-color: var(--color-neutral-900);
+}
+
+.text-on-light {
+  color: var(--color-neutral-900);
+  background-color: var(--color-neutral-50);
+}
+
+/* High Contrast Text Utilities */
+.text-high-contrast {
+  color: var(--color-neutral-50);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.text-low-contrast {
+  color: var(--color-neutral-400);
+}
+
+/* Gaming-specific Text Effects */
+.text-glow-primary {
+  color: var(--color-primary-400);
+  text-shadow: 0 0 10px var(--color-primary-500);
+}
+
+.text-glow-secondary {
+  color: var(--color-secondary-400);
+  text-shadow: 0 0 10px var(--color-secondary-500);
+}
+
+.text-glow-success {
+  color: var(--color-success-400);
+  text-shadow: 0 0 8px var(--color-success-500);
+}
+
+.text-glow-warning {
+  color: var(--color-warning-400);
+  text-shadow: 0 0 8px var(--color-warning-500);
+}
+
+.text-glow-error {
+  color: var(--color-error-400);
+  text-shadow: 0 0 8px var(--color-error-500);
+}
+
+/* Text Gradient Effects */
+.text-gradient-primary {
+  background: linear-gradient(135deg, var(--color-primary-400), var(--color-primary-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: var(--font-weight-bold);
+}
+
+.text-gradient-secondary {
+  background: linear-gradient(135deg, var(--color-secondary-400), var(--color-secondary-600));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: var(--font-weight-bold);
+}
+
+.text-gradient-rainbow {
+  background: linear-gradient(135deg, 
+    var(--color-error-500), 
+    var(--color-warning-500), 
+    var(--color-success-500), 
+    var(--color-info-500), 
+    var(--color-secondary-500)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: var(--font-weight-bold);
+}
+
+/* Rarity Text Styling with Enhanced Effects */
+.text-rarity-sr-enhanced {
+  color: var(--rarity-sr);
+  font-weight: var(--font-weight-bold);
+  text-shadow: 0 0 8px rgba(74, 144, 226, 0.6);
+  letter-spacing: 0.05em;
+}
+
+.text-rarity-ssr-enhanced {
+  color: var(--rarity-ssr);
+  font-weight: var(--font-weight-bold);
+  text-shadow: 0 0 8px rgba(144, 19, 254, 0.6);
+  letter-spacing: 0.05em;
+}
+
+.text-rarity-ur-enhanced {
+  color: var(--rarity-ur);
+  font-weight: var(--font-weight-bold);
+  text-shadow: 0 0 8px rgba(233, 69, 96, 0.6);
+  letter-spacing: 0.05em;
+}
+
+/* Type Text Styling with Enhanced Effects */
+.text-type-earth-enhanced {
+  color: var(--type-earth);
+  font-weight: var(--font-weight-bold);
+  text-shadow: 0 0 6px rgba(122, 92, 62, 0.6);
+}
+
+.text-type-fire-enhanced {
+  color: var(--type-fire);
+  font-weight: var(--font-weight-bold);
+  text-shadow: 0 0 6px rgba(208, 69, 38, 0.6);
+}
+
+.text-type-water-enhanced {
+  color: var(--type-water);
+  font-weight: var(--font-weight-bold);
+  text-shadow: 0 0 6px rgba(52, 136, 179, 0.6);
+}
+
+.text-type-electricity-enhanced {
+  color: var(--type-electricity);
+  font-weight: var(--font-weight-bold);
+  text-shadow: 0 0 6px rgba(245, 166, 35, 0.6);
+}
+
+/* Semantic Text with Icons */
+.text-success-with-icon::before {
+  content: "✓ ";
+  color: var(--color-success-500);
+  font-weight: var(--font-weight-bold);
+}
+
+.text-warning-with-icon::before {
+  content: "⚠ ";
+  color: var(--color-warning-500);
+  font-weight: var(--font-weight-bold);
+}
+
+.text-error-with-icon::before {
+  content: "✗ ";
+  color: var(--color-error-500);
+  font-weight: var(--font-weight-bold);
+}
+
+.text-info-with-icon::before {
+  content: "ℹ ";
+  color: var(--color-info-500);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Typography Scale Combinations */
+.heading-primary {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-secondary-500);
+  margin-bottom: var(--space-6);
+  letter-spacing: -0.025em;
+}
+
+.heading-secondary {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  color: var(--color-primary-400);
+  margin-bottom: var(--space-4);
+}
+
+.heading-tertiary {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-snug);
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+}
+
+.body-emphasis {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text);
+}
+
+.body-muted {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-muted);
+}
+
+.caption-emphasis {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Interactive Text States */
+.text-interactive {
+  color: var(--color-secondary-500);
+  cursor: pointer;
+  transition: color var(--duration-200) var(--ease-out);
+}
+
+.text-interactive:hover {
+  color: var(--color-secondary-400);
+}
+
+.text-interactive:active {
+  color: var(--color-secondary-600);
+}
+
+.text-interactive:focus {
+  color: var(--color-secondary-400);
+  outline: 2px solid var(--color-secondary-500);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Link Variants */
+.link-primary {
+  color: var(--color-primary-500);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  transition: all var(--duration-200) var(--ease-out);
+}
+
+.link-primary:hover {
+  color: var(--color-primary-400);
+  text-decoration: underline;
+}
+
+.link-secondary {
+  color: var(--color-secondary-500);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  transition: all var(--duration-200) var(--ease-out);
+}
+
+.link-secondary:hover {
+  color: var(--color-secondary-400);
+  text-decoration: underline;
+}
+
+.link-subtle {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-weight: var(--font-weight-normal);
+  transition: all var(--duration-200) var(--ease-out);
+}
+
+.link-subtle:hover {
+  color: var(--color-text);
+  text-decoration: underline;
+}
+
+/* Badge Text Styles */
+.badge-text {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: var(--line-height-tight);
+}
+
+.badge-text-primary {
+  color: var(--color-primary-50);
+  background-color: var(--color-primary-500);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+.badge-text-secondary {
+  color: var(--color-secondary-50);
+  background-color: var(--color-secondary-500);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+.badge-text-success {
+  color: var(--color-success-50);
+  background-color: var(--color-success-500);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+.badge-text-warning {
+  color: var(--color-warning-50);
+  background-color: var(--color-warning-500);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+.badge-text-error {
+  color: var(--color-error-50);
+  background-color: var(--color-error-500);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+/* Accessibility Enhancements */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.focus-visible:focus-visible {
+  outline: 2px solid var(--color-secondary-500);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .text-muted,
+  .text-subtle {
+    color: var(--color-text);
+  }
+  
+  .text-gradient-primary,
+  .text-gradient-secondary,
+  .text-gradient-rainbow {
+    -webkit-text-fill-color: var(--color-text);
+    background: none;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .text-interactive,
+  .link-primary,
+  .link-secondary,
+  .link-subtle {
+    transition: none;
+  }
+  
+  .text-glow-primary,
+  .text-glow-secondary,
+  .text-glow-success,
+  .text-glow-warning,
+  .text-glow-error,
+  .text-rarity-sr-enhanced,
+  .text-rarity-ssr-enhanced,
+  .text-rarity-ur-enhanced,
+  .text-type-earth-enhanced,
+  .text-type-fire-enhanced,
+  .text-type-water-enhanced,
+  .text-type-electricity-enhanced {
+    text-shadow: none;
+  }
+}
+
+/* Print Optimizations */
+@media print {
+  .text-glow-primary,
+  .text-glow-secondary,
+  .text-glow-success,
+  .text-glow-warning,
+  .text-glow-error {
+    text-shadow: none;
+    color: black;
+  }
+  
+  .text-gradient-primary,
+  .text-gradient-secondary,
+  .text-gradient-rainbow {
+    -webkit-text-fill-color: black;
+    background: none;
+  }
+  
+  .badge-text-primary,
+  .badge-text-secondary,
+  .badge-text-success,
+  .badge-text-warning,
+  .badge-text-error {
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+  }
+}

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete UR Palmon Tier List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <style>
+        :root {
+            --color-s-plus: #E91E63;
+            --color-s: #9C27B0;
+            --color-a: #2196F3;
+            --bg-dark: #121212;
+            --bg-card: #1E1E1E;
+            --text-primary: #F5F5F5;
+            --text-secondary: #B3B3B3;
+            --border-color: #333333;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 2rem;
+            line-height: 1.7;
+        }
+
+        .tier-list-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .tier-list-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .tier-list-header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tier-section {
+            margin-bottom: 4rem;
+        }
+
+        .tier-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid;
+            display: inline-block;
+        }
+
+        #s-plus-tier .tier-title { border-color: var(--color-s-plus); color: var(--color-s-plus); }
+        #s-tier .tier-title { border-color: var(--color-s); color: var(--color-s); }
+        #a-tier .tier-title { border-color: var(--color-a); color: var(--color-a); }
+
+        .pal-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .pal-card {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            border: 2px solid var(--border-color);
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pal-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pal-card.tier-s-plus { border-color: var(--color-s-plus); }
+        .pal-card.tier-s { border-color: var(--color-s); }
+        .pal-card.tier-a { border-color: var(--color-a); }
+
+        .pal-card.tier-s-plus:hover { box-shadow: 0 5px 25px rgba(233, 30, 99, 0.3); }
+        .pal-card.tier-s:hover { box-shadow: 0 5px 25px rgba(156, 39, 176, 0.3); }
+
+        .card-header {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .card-header h3 {
+            font-size: 1.75rem;
+            margin: 0 0 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .pal-attributes {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .pal-attributes span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .pal-attributes i {
+            font-size: 1.1rem;
+        }
+
+        /* Icon Colors */
+        .fa-fire { color: #FF6B6B; }
+        .fa-droplet { color: #4D96FF; }
+        .fa-leaf { color: #6BCB77; }
+        .fa-bolt-lightning { color: #FFD93D; }
+        .fa-shield-halved { color: #a4b0be; }
+        .fa-angles-up { color: #f0932b; }
+        .fa-star { color: #FFD700; }
+
+        .card-body {
+            flex-grow: 1;
+        }
+
+        .card-body h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-body p, .card-body ul {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        
+        .card-body ul { list-style: none; padding-left: 0; }
+        .card-body ul li { 
+            position: relative; 
+            padding-left: 1.2em;
+            margin-bottom: 0.5em;
+        }
+        .card-body ul li:before {
+            content: '›';
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: -2px;
+            font-size: 1.2em;
+        }
+        .card-body strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 1rem; }
+            .tier-list-header h1 { font-size: 2rem; }
+            .tier-title { font-size: 1.8rem; }
+            .pal-cards-container { grid-template-columns: 1fr; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="tier-list-header">
+        <h1>Complete UR Palmon Tier List</h1>
+        <p>A detailed whitepaper-level analysis of all Ultra Rare Pals, including skills, star upgrades, team compositions, strategic value, and investment priority.</p>
+    </header>
+
+    <main>
+        <!-- S+ TIER -->
+        <section class="tier-section" id="s-plus-tier">
+            <h2 class="tier-title">S+ Tier: Meta-Defining Game Changers</h2>
+            <div class="pal-cards-container">
+                <div class="pal-card tier-s-plus">
+                    <div class="card-header">
+                        <h3>Barkplug</h3>
+                        <div class="pal-attributes">
+                            <span><i class="fa-solid fa-bolt-lightning"></i> Electricity</span>
+                            <span>UR</span>
+                            <span><i class="fa-solid fa-shield-halved"></i> Front Row</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h4>Summary</h4>
+                        <p>The ultimate offensive force multiplier. Barkplug fundamentally changes every fight by making your entire team more powerful.</p>
+                        
+                        <h4>Skill Breakdown</h4>
+                        <ul>
+                            <li><strong>Passive (Ion Disruption):</strong> The source of its power. All enemies suffer a permanent <strong>-20% Defense debuff</strong>.</li>
+                            <li><strong>Rage (Overcharge):</strong> Deals 2331% damage and can Paralyze a key target.</li>
+                        </ul>
+                        
+                        <h4>Strategic Analysis</h4>
+                        <ul>
+                            <li><strong>Synergies:</strong> Pairs with everyone, especially high-damage AoE pals like <strong>Mantleray</strong> or single-target nukers like <strong>Lucidina</strong>.</li>
+                            <li><strong>Counters:</strong> Vulnerable to focus fire and back-row assassins like <strong>Hoofrit</strong>.</li>
+                        </ul>
+
+                        <h4><i class="fa-solid fa-star"></i> Star Upgrade Path & Investment Value</h4>
+                        <p><strong>Upgrades:</strong> Stars increase the Defense Reduction of its basic attack (up to +10%).</p>
+                        <p><strong>Verdict:</strong> <strong>Extremely High Value.</strong> Every star directly enhances its core role as a debuffer, making even its basic attacks contribute to the team's overall damage amplification. A prime investment target.</p>
+                    </div>
+                </div>
+                <div class="pal-card tier-s-plus">
+                    <div class="card-header">
+                        <h3>Statchew</h3>
+                        <div class="pal-attributes">
+                            <span><i class="fa-solid fa-leaf"></i> Earth</span>
+                            <span>UR</span>
+                            <span><i class="fa-solid fa-shield-halved"></i> Front Row</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h4>Summary</h4>
+                        <p>The ultimate defensive anchor. Statchew's purpose is to make your front line unbreakable, enabling any strategy.</p>
+                        
+                        <h4>Skill Breakdown</h4>
+                        <ul>
+                            <li><strong>Passive (Sentinel):</strong> Its cornerstone ability. All allied front-row Pals take a constant <strong>-20% damage</strong>.</li>
+                            <li><strong>Rage (Protective Roar):</strong> Cripples enemy front-row damage with a -13.5% damage debuff.</li>
+                        </ul>
+                        
+                        <h4>Strategic Analysis</h4>
+                        <ul>
+                            <li><strong>Synergies:</strong> Protects fragile back-liners and makes other front-line bruisers like <strong>Dolphriend</strong> incredibly durable.</li>
+                            <li><strong>Counters:</strong> Bypassed by back-row assassins (<strong>Hoofrit</strong>). Defense shred from <strong>Barkplug</strong> can soften it.</li>
+                        </ul>
+
+                        <h4><i class="fa-solid fa-star"></i> Star Upgrade Path & Investment Value</h4>
+                        <p><strong>Upgrades:</strong> Stars provide a colossal increase to its basic attack damage (up to +270%).</p>
+                        <p><strong>Verdict:</strong> <strong>Very High Value.</strong> While its base kit is defensive, stars transform Statchew into a terrifying damage-dealing tank. This makes him a dual-threat that enemies cannot ignore. An excellent, game-changing investment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- S TIER -->
+        <section class="tier-section" id="s-tier">
+            <h2 class="tier-title">S Tier: Elite Role-Players & Strategic Pillars</h2>
+            <div class="pal-cards-container">
+                <div class="pal-card tier-s">
+                    <div class="card-header">
+                        <h3>Lucidina</h3>
+                        <div class="pal-attributes">
+                            <span><i class="fa-solid fa-droplet"></i> Water</span>
+                            <span>UR</span>
+                            <span><i class="fa-solid fa-angles-up"></i> Back Row</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h4>Summary</h4>
+                        <p>The queen of single-target elimination, designed to remove the most dangerous enemy with extreme prejudice.</p>
+                        
+                        <h4>Skill Breakdown</h4>
+                        <ul>
+                            <li><strong>Rage (Torment):</strong> Deals a staggering 2590% damage and makes the target receive <strong>+10% more damage</strong>.</li>
+                            <li><strong>Passive (Dream Shadow):</strong> A devastating <strong>+30% Crit Rate</strong>.</li>
+                        </ul>
+
+                        <h4><i class="fa-solid fa-star"></i> Star Upgrade Path & Investment Value</h4>
+                        <p><strong>Upgrades:</strong> Stars grant additional Crit Rate (up to +10%).</p>
+                        <p><strong>Verdict:</strong> <strong>High Value.</strong> Each star makes her core function as a hyper-carry even more consistent and deadly. A fantastic investment for players who need a reliable boss-killer.</p>
+                    </div>
+                </div>
+                <div class="pal-card tier-s">
+                    <div class="card-header">
+                        <h3>Hoofrit</h3>
+                        <div class="pal-attributes">
+                            <span><i class="fa-solid fa-fire"></i> Fire</span>
+                            <span>UR</span>
+                            <span><i class="fa-solid fa-shield-halved"></i> Front Row</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h4>Summary</h4>
+                        <p>The premier back-row assassin, bypassing tanks to neutralize the enemy's vulnerable core.</p>
+                        
+                        <h4>Skill Breakdown</h4>
+                        <ul>
+                            <li><strong>Rage (Blazing Volley):</strong> Game-winning skill. Deals 2497.5% damage to the enemy's <strong>back row</strong> with a 60% stun chance.</li>
+                            <li><strong>Passive (Hard-Horned):</strong> Gains <strong>+30% max HP</strong>.</li>
+                        </ul>
+
+                        <h4><i class="fa-solid fa-star"></i> Star Upgrade Path & Investment Value</h4>
+                        <p><strong>Upgrades:</strong> Stars grant additional HP (up to +10%).</p>
+                        <p><strong>Verdict:</strong> <strong>High Value.</strong> More HP directly enhances its ability to survive on the front line, making it more likely to successfully execute its game-winning Rage skill. A very safe and effective investment.</p>
+                    </div>
+                </div>
+                <div class="pal-card tier-s">
+                    <div class="card-header">
+                        <h3>Surveilynx</h3>
+                        <div class="pal-attributes">
+                            <span><i class="fa-solid fa-leaf"></i> Earth</span>
+                            <span>UR</span>
+                            <span><i class="fa-solid fa-shield-halved"></i> Front Row</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h4>Summary</h4>
+                        <p>A unique strategic pillar whose true power lies in bolstering your entire camp's defense system.</p>
+                        
+                        <h4>Skill Breakdown</h4>
+                        <ul>
+                            <li><strong>Passive (Elite Drills):</strong> Its S-Tier purpose. Allows Quick Training of 1000 Armigo/day and gives all defending Armigo <strong>+20% Attack</strong>.</li>
+                            <li><strong>Rage (Shadow Step):</strong> A solid 1387.5% damage fan-shaped AoE for clearing waves.</li>
+                        </ul>
+
+                        <h4><i class="fa-solid fa-star"></i> Star Upgrade Path & Investment Value</h4>
+                        <p><strong>Upgrades:</strong> Stars grant bonus Attack to your Armigo (up to +10%).</p>
+                        <p><strong>Verdict:</strong> <strong>Extremely High Value.</strong> Like Incineraptor, investing in Surveilynx is an investment in a core game system. Each star directly strengthens your base defense, a permanent and powerful upgrade.</p>
+                    </div>
+                </div>
+                 <div class="pal-card tier-s">
+                    <div class="card-header">
+                        <h3>Fingenue</h3>
+                        <div class="pal-attributes">
+                            <span><i class="fa-solid fa-droplet"></i> Water</span>
+                            <span>UR</span>
+                            <span><i class="fa-solid fa-angles-up"></i> Back Row</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h4>Summary</h4>
+                        <p>A pure and devastatingly effective back-line AoE damage dealer whose power scales incredibly well.</p>
+                        
+                        <h4>Skill Breakdown</h4>
+                        <ul>
+                            <li><strong>Passive (Ocean's Favor):</strong> A rare and powerful <strong>+30% final damage dealt</strong> multiplier.</li>
+                            <li><strong>Rage (Waterspout):</strong> A large 1803.75% AoE damage nuke.</li>
+                        </ul>
+
+                        <h4><i class="fa-solid fa-star"></i> Star Upgrade Path & Investment Value</h4>
+                        <p><strong>Upgrades:</strong> Stars grant additional Final Damage (up to +10%).</p>
+                        <p><strong>Verdict:</strong> <strong>Extremely High Value.</strong> Final Damage is the best damage stat in most games. Stacking it via stars makes Fingenue one of the highest-scaling damage dealers available. A top-tier investment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- A TIER -->
+        <section class="tier-section" id="a-tier">
+            <h2 class="tier-title">A Tier: Elite Combat Powerhouses</h2>
+            <div class="pal-cards-container">
+                 <div class="pal-card tier-a">
+                    <div class="card-header">
+                        <h3>Magmolin</h3>
+                        <div class="pal-attributes">
+                            <span><i class="fa-solid fa-fire"></i> Fire</span>
+                            <span>UR</span>
+                            <span><i class="fa-solid fa-shield-halved"></i> Front Row</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h4>Summary</h4>
+                        <p>A front-line tank with one of the most powerful single-target nukes in the game and a useful economic bonus.</p>
+                        
+                        <h4>Skill Breakdown</h4>
+                        <ul>
+                            <li><strong>Rage (Lava Shock):</strong> An incredible <strong>2775% damage</strong> to a single enemy.</li>
+                            <li><strong>Passive (Tempered Steel):</strong> Gains <strong>+30% HP</strong> and doubles the Steel output of all Camp Furnaces.</li>
+                        </ul>
+
+                        <h4><i class="fa-solid fa-star"></i> Star Upgrade Path & Investment Value</h4>
+                        <p><strong>Upgrades:</strong> Stars grant additional HP (up to +10%).</p>
+                        <p><strong>Verdict:</strong> <strong>High Value.</strong> As a front-liner, more HP is critical for survival. Living longer means it's more likely to unleash its devastating Rage skill. The Furnace bonus is a great perk.</p>
+                    </div>
+                </div>
+                <div class="pal-card tier-a">
+                    <div class="card-header">
+                        <h3>Ninjump</h3>
+                        <div class="pal-attributes">
+                            <span><i class="fa-solid fa-droplet"></i> Water</span>
+                            <span>UR</span>
+                            <span><i class="fa-solid fa-shield-halved"></i> Front Row</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h4>Summary</h4>
+                        <p>A straightforward and highly effective front-line damage dealer that excels at clearing waves.</p>
+                        
+                        <h4>Skill Breakdown</h4>
+                        <ul>
+                             <li><strong>Passive (Tidal Strike):</strong> A simple and effective <strong>+30% Attack</strong> boost.</li>
+                             <li><strong>Rage (Strike Like a Waterfall):</strong> Flings 3 shuriken in a fan, each dealing 1248.75% damage.</li>
+                        </ul>
+
+                        <h4><i class="fa-solid fa-star"></i> Star Upgrade Path & Investment Value</h4>
+                        <p><strong>Upgrades:</strong> Stars grant additional Attack (up to +10%).</p>
+                        <p><strong>Verdict:</strong> <strong>High Value.</strong> It's a pure damage dealer. More attack from stars directly enhances its one and only job. A reliable and strong investment.</p>
+                    </div>
+                </div>
+                 <div class="pal-card tier-a">
+                    <div class="card-header">
+                        <h3>Blazeal</h3>
+                        <div class="pal-attributes">
+                            <span><i class="fa-solid fa-fire"></i> Fire</span>
+                            <span>UR</span>
+                            <span><i class="fa-solid fa-shield-halved"></i> Front Row</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h4>Summary</h4>
+                        <p>A pure damage machine, designed to blast through enemy lines with a powerful wave of fire.</p>
+                        
+                        <h4>Skill Breakdown</h4>
+                        <ul>
+                            <li><strong>Passive (Tempered Steel):</strong> A clean <strong>+30% Attack</strong> buff.</li>
+                            <li><strong>Rage (Huuuah!):</strong> Releases a wave dealing 1665% damage to all enemies in its path.</li>
+                        </ul>
+
+                        <h4><i class="fa-solid fa-star"></i> Star Upgrade Path & Investment Value</h4>
+                        <p><strong>Upgrades:</strong> Stars grant additional Attack (up to +10%).</p>
+                        <p><strong>Verdict:</strong> <strong>High Value.</strong> Just like Ninjump, investing in Blazeal's stars directly boosts its raw power. If you need a fire-type damage powerhouse, he's a great investment.</p>
+                    </div>
+                </div>
+                <div class="pal-card tier-a">
+                    <div class="card-header">
+                        <h3>Dolphriend</h3>
+                        <div class="pal-attributes">
+                            <span><i class="fa-solid fa-droplet"></i> Water</span>
+                            <span>UR</span>
+                            <span><i class="fa-solid fa-shield-halved"></i> Front Row</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h4>Summary</h4>
+                        <p>A premier front-line bruiser specializing in neutralizing the enemy's biggest threat with damage and control.</p>
+                        
+                        <h4>Skill Breakdown</h4>
+                        <ul>
+                            <li><strong>Rage (Rush Wave):</strong> Huge 2109% damage nuke with a 70% chance to <strong>stun for 3s</strong>.</li>
+                            <li><strong>Passive (Tidal Guard):</strong> Gains <strong>+30% max HP</strong>.</li>
+                        </ul>
+
+                        <h4><i class="fa-solid fa-star"></i> Star Upgrade Path & Investment Value</h4>
+                        <p><strong>Upgrades:</strong> Stars grant additional HP (up to +10%).</p>
+                        <p><strong>Verdict:</strong> <strong>High Value.</strong> More HP increases its durability and ensures it can perform its role as a disruptive bruiser effectively. A solid investment for a reliable front-liner.</p>
+                    </div>
+                </div>
+                 <div class="pal-card tier-a">
+                    <div class="card-header">
+                        <h3>Baboom</h3>
+                        <div class="pal-attributes">
+                            <span><i class="fa-solid fa-leaf"></i> Earth</span>
+                            <span>UR</span>
+                            <span><i class="fa-solid fa-shield-halved"></i> Front Row</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h4>Summary</h4>
+                        <p>A very effective tanky bruiser with a powerful stun and the potential to lead mono-Earth teams.</p>
+                        
+                        <h4>Skill Breakdown</h4>
+                        <ul>
+                            <li><strong>Rage (Powerstrike):</strong> A high-damage 2220% strike with a 70% chance to <strong>stun for 2s</strong>.</li>
+                            <li><strong>Passive (Nature's Gift):</strong> Grants all Earth Palmon Attack. (Note: Data shows 0%, likely a typo for a scaling value).</li>
+                        </ul>
+
+                        <h4><i class="fa-solid fa-star"></i> Star Upgrade Path & Investment Value</h4>
+                        <p><strong>Upgrades:</strong> Stars grant additional Defense (up to +10%).</p>
+                        <p><strong>Verdict:</strong> <strong>Good Value.</strong> More defense makes it a better front-line anchor, increasing its survivability so it can reliably stun key targets. Its value skyrockets if the passive is fixed/buffed.</p>
+                    </div>
+                </div>
+                <div class="pal-card tier-a">
+                    <div class="card-header">
+                        <h3>Abuzzinian</h3>
+                        <div class="pal-attributes">
+                            <span><i class="fa-solid fa-bolt-lightning"></i> Electricity</span>
+                            <span>UR</span>
+                            <span><i class="fa-solid fa-angles-up"></i> Back Row</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h4>Summary</h4>
+                        <p>A slippery back-line disruptor that relies on Evasion and multi-target paralysis to cause chaos.</p>
+                        
+                        <h4>Skill Breakdown</h4>
+                        <ul>
+                            <li><strong>Passive (Phantomstep):</strong> Gains a massive <strong>+30% Evasion</strong>, making it hard to hit.</li>
+                            <li><strong>Rage (Nightstorm):</strong> Hits 3 random enemies for 1387.5% damage with a chance to Paralyze for 3.5s.</li>
+                        </ul>
+
+                        <h4><i class="fa-solid fa-star"></i> Star Upgrade Path & Investment Value</h4>
+                        <p><strong>Upgrades:</strong> Stars provide a large increase to its basic attack damage (up to +270%).</p>
+                        <p><strong>Verdict:</strong> <strong>Medium Value.</strong> While more damage is always good, it doesn't enhance its primary strengths of survivability (Evasion) or control (Paralysis chance). A decent investment, but lower priority than URs who get core stats from stars.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

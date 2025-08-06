@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Test - Palmon World</title>
+    
+    <!-- Critical CSS inlined for above-the-fold content -->
+    <style data-critical>
+        /* Critical CSS - Above-the-fold content only */
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        html{line-height:1.15;-webkit-text-size-adjust:100%}
+        body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background-color:#1a1a2e;color:#e0e0e0;line-height:1.6}
+        :root{--color-bg:#1a1a2e;--color-surface:#16213e;--color-primary-500:#0f3460;--color-primary-700:#0a2749;--color-primary-800:#081f3a;--color-primary-900:#051220;--color-secondary-400:#f05670;--color-secondary-500:#e94560;--color-secondary-600:#d63851;--color-text:#e0e0e0;--color-border:#4a4a6a;--color-border-light:#5a5a7a;--space-2:0.5rem;--space-3:0.75rem;--space-4:1rem;--space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-12:3rem;--space-16:4rem;--space-24:6rem;--font-size-base:1rem;--font-size-lg:1.125rem;--font-size-xl:1.25rem;--font-size-2xl:1.5rem;--font-size-3xl:1.875rem;--font-size-4xl:2.25rem;--font-size-6xl:3.75rem;--font-weight-medium:500;--font-weight-semibold:600;--font-weight-bold:700;--font-weight-extrabold:800;--line-height-tight:1.25;--line-height-relaxed:1.625;--radius-lg:0.75rem;--radius-xl:1rem;--radius-2xl:1.5rem;--radius-full:9999px;--shadow-lg:0 10px 15px -3px rgb(0 0 0 / 0.1);--shadow-xl:0 20px 25px -5px rgb(0 0 0 / 0.1);--shadow-2xl:0 25px 50px -12px rgb(0 0 0 / 0.25);--duration-150:150ms;--duration-200:200ms;--duration-300:300ms;--duration-500:500ms;--ease-out:cubic-bezier(0,0,0.2,1)}
+        .container{max-width:1200px;margin:0 auto;padding:0 var(--space-4)}
+        .header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(26,26,46,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--color-border);padding:var(--space-4) var(--space-6);display:flex;align-items:center;justify-content:space-between}
+        .logo{display:flex;align-items:center;gap:var(--space-3);text-decoration:none;color:var(--color-text);font-weight:var(--font-weight-bold);font-size:var(--font-size-xl)}
+        .logo img{height:40px;width:auto}
+        .nav{display:flex;gap:var(--space-2)}
+        .nav-link{padding:var(--space-2) var(--space-4);border-radius:var(--radius-full);text-decoration:none;color:var(--color-text);font-weight:var(--font-weight-medium);transition:all var(--duration-200) var(--ease-out);background:transparent;border:1px solid transparent}
+        .nav-link:hover,.nav-link:focus{background:rgba(233,69,96,0.1);border-color:var(--color-secondary-500);color:var(--color-secondary-400)}
+        .mobile-nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:var(--space-2);color:var(--color-text)}
+        .hamburger{display:flex;flex-direction:column;gap:4px}
+        .hamburger span{width:24px;height:2px;background:currentColor;transition:all var(--duration-300) var(--ease-out)}
+        .hero{position:relative;padding:var(--space-24) var(--space-6);margin-top:var(--space-8);margin-bottom:var(--space-16);background:linear-gradient(135deg,var(--color-primary-900) 0%,var(--color-primary-700) 50%,var(--color-primary-800) 100%);border-radius:var(--radius-2xl);overflow:hidden;box-shadow:var(--shadow-2xl);border:1px solid var(--color-border-light)}
+        .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 20% 80%,rgba(233,69,96,0.15) 0%,transparent 50%),radial-gradient(circle at 80% 20%,rgba(15,52,96,0.15) 0%,transparent 50%),linear-gradient(135deg,rgba(0,0,0,0.3) 0%,rgba(15,52,96,0.2) 100%);z-index:1}
+        .hero-content{position:relative;z-index:2;text-align:center;max-width:800px;margin:0 auto}
+        .hero-title{font-size:clamp(var(--font-size-3xl),5vw,var(--font-size-6xl));color:#fff;text-shadow:2px 2px 8px rgba(0,0,0,0.8);margin-bottom:var(--space-6);font-weight:var(--font-weight-extrabold);line-height:var(--line-height-tight);background:linear-gradient(135deg,#fff 0%,rgba(233,69,96,0.9) 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-fill-color:transparent;position:relative}
+        .hero-title::after{content:'Performance Test Page';position:absolute;top:0;left:0;right:0;color:#fff;text-shadow:2px 2px 8px rgba(0,0,0,0.8);z-index:-1;background:none;-webkit-background-clip:initial;-webkit-text-fill-color:initial}
+        .hero-subtitle{font-size:clamp(var(--font-size-lg),2.5vw,var(--font-size-2xl));color:rgba(255,255,255,0.9);text-shadow:1px 1px 4px rgba(0,0,0,0.7);max-width:600px;margin:0 auto var(--space-8) auto;line-height:var(--line-height-relaxed);font-weight:var(--font-weight-medium)}
+        .performance-stats{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-6);margin:var(--space-8) 0}
+        .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:var(--space-4)}
+        .stat-item{text-align:center;padding:var(--space-4)}
+        .stat-value{font-size:var(--font-size-2xl);font-weight:var(--font-weight-bold);color:var(--color-secondary-500)}
+        .stat-label{color:var(--color-text);margin-top:var(--space-2)}
+        @media (max-width:768px){.nav{display:none}.mobile-nav-toggle{display:block}.hero{padding:var(--space-16) var(--space-4);margin-bottom:var(--space-12);border-radius:var(--radius-xl)}.hero-title{font-size:clamp(var(--font-size-2xl),4vw,var(--font-size-4xl));margin-bottom:var(--space-5)}.hero-subtitle{font-size:clamp(var(--font-size-base),2vw,var(--font-size-xl));margin-bottom:var(--space-6)}}
+    </style>
+    
+    <!-- Preload optimized bundle -->
+    <link rel="preload" href="css/optimized-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/optimized-bundle.css"></noscript>
+    
+    <!-- Font loading optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+</head>
+<body>
+
+    <header class="header">
+        <a href="./index.html" class="logo">
+            <img src="./images/game_logo.png" alt="Palmon World Logo">
+            <h1>Palmon World</h1>
+        </a>
+        
+        <nav class="nav" aria-label="Main navigation">
+            <a href="./index.html" class="nav-link">Home</a>
+            <a href="./tierlist.html" class="nav-link">Tier List</a>
+            <a href="./palbook.html" class="nav-link">Palbook</a>
+            <a href="./synergy.html" class="nav-link">Synergy Guide</a>
+            <a href="./teamcomps-pve.html" class="nav-link">PvE Comps</a>
+            <a href="./teamcomps-pvp.html" class="nav-link">PvP Comps</a>
+            <a href="./counters.html" class="nav-link">Counters</a>
+            <a href="./lore.html" class="nav-link">Lore</a>
+        </nav>
+        
+        <button class="mobile-nav-toggle" aria-label="Toggle mobile navigation">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+    </header>
+
+    <main class="container" id="main-content">
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Performance Test Page</h1>
+                <p class="hero-subtitle">Testing optimized CSS loading and performance enhancements.</p>
+            </div>
+        </section>
+
+        <section class="performance-stats">
+            <h2>Performance Metrics</h2>
+            <div class="stat-grid">
+                <div class="stat-item">
+                    <div class="stat-value" id="dom-load-time">-</div>
+                    <div class="stat-label">DOM Load Time (ms)</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="css-load-time">-</div>
+                    <div class="stat-label">CSS Load Time (ms)</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="first-paint">-</div>
+                    <div class="stat-label">First Paint (ms)</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="largest-contentful-paint">-</div>
+                    <div class="stat-label">LCP (ms)</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="cumulative-layout-shift">-</div>
+                    <div class="stat-label">CLS Score</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="connection-type">-</div>
+                    <div class="stat-label">Connection</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="performance-stats">
+            <h2>Optimization Features</h2>
+            <ul style="color: var(--color-text); line-height: 1.8;">
+                <li>✅ Critical CSS inlined for above-the-fold content</li>
+                <li>✅ Non-critical CSS lazy loaded with preload</li>
+                <li>✅ Font loading optimized with font-display: swap</li>
+                <li>✅ Animations lazy loaded based on motion preferences</li>
+                <li>✅ Connection-aware resource loading</li>
+                <li>✅ Reduced motion support for accessibility</li>
+                <li>✅ CSS bundle size optimized and minified</li>
+                <li>✅ Resource preloading for critical assets</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Load performance optimization script first -->
+    <script src="scripts/performance.js"></script>
+    <script src="scripts/navigation.js"></script>
+    
+    <!-- Performance measurement script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Measure performance metrics
+            const measurePerformance = () => {
+                // DOM Load Time
+                const domLoadTime = performance.timing.domContentLoadedEventEnd - performance.timing.navigationStart;
+                document.getElementById('dom-load-time').textContent = domLoadTime;
+
+                // CSS Load Time (approximate)
+                const cssLoadTime = performance.timing.loadEventEnd - performance.timing.domContentLoadedEventEnd;
+                document.getElementById('css-load-time').textContent = cssLoadTime;
+
+                // Performance API metrics
+                if ('getEntriesByType' in performance) {
+                    const paintEntries = performance.getEntriesByType('paint');
+                    const firstPaint = paintEntries.find(entry => entry.name === 'first-paint');
+                    const firstContentfulPaint = paintEntries.find(entry => entry.name === 'first-contentful-paint');
+                    
+                    if (firstPaint) {
+                        document.getElementById('first-paint').textContent = Math.round(firstPaint.startTime);
+                    }
+                }
+
+                // LCP (if supported)
+                if ('PerformanceObserver' in window) {
+                    try {
+                        const observer = new PerformanceObserver((list) => {
+                            const entries = list.getEntries();
+                            const lastEntry = entries[entries.length - 1];
+                            document.getElementById('largest-contentful-paint').textContent = Math.round(lastEntry.startTime);
+                        });
+                        observer.observe({ entryTypes: ['largest-contentful-paint'] });
+                    } catch (e) {
+                        document.getElementById('largest-contentful-paint').textContent = 'N/A';
+                    }
+                }
+
+                // CLS (if supported)
+                if ('PerformanceObserver' in window) {
+                    try {
+                        let clsValue = 0;
+                        const observer = new PerformanceObserver((list) => {
+                            for (const entry of list.getEntries()) {
+                                if (!entry.hadRecentInput) {
+                                    clsValue += entry.value;
+                                }
+                            }
+                            document.getElementById('cumulative-layout-shift').textContent = clsValue.toFixed(3);
+                        });
+                        observer.observe({ entryTypes: ['layout-shift'] });
+                    } catch (e) {
+                        document.getElementById('cumulative-layout-shift').textContent = 'N/A';
+                    }
+                }
+
+                // Connection type
+                if ('connection' in navigator) {
+                    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+                    document.getElementById('connection-type').textContent = connection.effectiveType || 'Unknown';
+                } else {
+                    document.getElementById('connection-type').textContent = 'Unknown';
+                }
+            };
+
+            // Measure after a short delay to ensure all resources are loaded
+            setTimeout(measurePerformance, 100);
+        });
+    </script>
+</body>
+</html>

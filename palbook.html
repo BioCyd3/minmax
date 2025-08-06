@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Palmon Reference Guide - All Palmon Database</title>
+    
+    <!-- Critical CSS for above-the-fold content -->
+    <link rel="stylesheet" href="css/critical.css">
+    
+    <!-- Preload optimized bundle -->
+    <link rel="preload" href="css/optimized-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/optimized-bundle.css"></noscript>
+    
+    <!-- Font optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+</head>
+<body>
+
+    <header class="header">
+        <a href="./index.html" class="logo">
+            <img src="./images/game_logo.png" alt="Palmon World Logo">
+            <h1>Palmon World</h1>
+        </a>
+        
+        <nav class="nav" aria-label="Main navigation">
+            <a href="./index.html" class="nav-link">Home</a>
+            <a href="./tierlist.html" class="nav-link">Tier List</a>
+            <a href="./palbook.html" class="nav-link">Palbook</a>
+            <a href="./synergy.html" class="nav-link">Synergy Guide</a>
+            <a href="./teamcomps-pve.html" class="nav-link">PvE Comps</a>
+            <a href="./teamcomps-pvp.html" class="nav-link">PvP Comps</a>
+            <a href="./counters.html" class="nav-link">Counters</a>
+            <a href="./lore.html" class="nav-link">Lore</a>
+        </nav>
+        
+        <button class="mobile-nav-toggle" aria-label="Toggle mobile navigation" aria-expanded="false" aria-controls="mobile-nav">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+    </header>
+    
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+        <button class="mobile-nav-close" aria-label="Close mobile navigation">×</button>
+        <a href="./index.html" class="nav-link" style="--index: 0">Home</a>
+        <a href="./tierlist.html" class="nav-link" style="--index: 1">Tier List</a>
+        <a href="./palbook.html" class="nav-link" style="--index: 2">Palbook</a>
+        <a href="./synergy.html" class="nav-link" style="--index: 3">Synergy Guide</a>
+        <a href="./teamcomps-pve.html" class="nav-link" style="--index: 4">PvE Comps</a>
+        <a href="./teamcomps-pvp.html" class="nav-link" style="--index: 5">PvP Comps</a>
+        <a href="./counters.html" class="nav-link" style="--index: 6">Counters</a>
+        <a href="./lore.html" class="nav-link" style="--index: 7">Lore</a>
+    </nav>
+
+    <main class="container" id="main-content">
+        <header class="page-header">
+            <h1>Complete Palmon Reference Guide</h1>
+            <p class="page-description">Complete database of all Palmon with detailed information, stats, skills, and tier rankings. Browse and filter through all available Palmon by name, type, or rarity to find comprehensive details about each character.</p>
+        </header>
+
+        <section class="search-section" aria-labelledby="search-heading">
+            <h2 id="search-heading" class="sr-only">Search and Filter Palmon</h2>
+            <div class="search-container">
+                <label for="search-bar" class="sr-only">Search Palmon by name</label>
+                <div class="search-input-with-icon">
+                    <input type="text" 
+                           id="search-bar" 
+                           placeholder="Search by name..." 
+                           class="search-input"
+                           aria-label="Search Palmon by name"
+                           aria-describedby="search-results-count search-help">
+                </div>
+                <div class="search-results-count" 
+                     id="search-results-count" 
+                     aria-live="polite" 
+                     aria-atomic="true">Showing all Palmon</div>
+                <div id="search-help" class="sr-only">Type to search for Palmon by name. Results will update automatically as you type.</div>
+            </div>
+
+            <div class="filter-controls" role="region" aria-labelledby="filter-heading">
+                <h3 id="filter-heading" class="sr-only">Filter Options</h3>
+                <fieldset class="filter-group">
+                    <legend class="filter-group-label">Type:</legend>
+                    <button class="filter-btn type-earth" 
+                            data-filter-type="type" 
+                            data-filter-value="Earth"
+                            aria-pressed="false"
+                            aria-describedby="type-help">Earth</button>
+                    <button class="filter-btn type-fire" 
+                            data-filter-type="type" 
+                            data-filter-value="Fire"
+                            aria-pressed="false"
+                            aria-describedby="type-help">Fire</button>
+                    <button class="filter-btn type-water" 
+                            data-filter-type="type" 
+                            data-filter-value="Water"
+                            aria-pressed="false"
+                            aria-describedby="type-help">Water</button>
+                    <button class="filter-btn type-electricity" 
+                            data-filter-type="type" 
+                            data-filter-value="Electricity"
+                            aria-pressed="false"
+                            aria-describedby="type-help">Electricity</button>
+                </fieldset>
+                <fieldset class="filter-group">
+                    <legend class="filter-group-label">Rarity:</legend>
+                    <button class="filter-btn rarity-ur" 
+                            data-filter-type="rarity" 
+                            data-filter-value="UR"
+                            aria-pressed="false"
+                            aria-describedby="rarity-help">UR</button>
+                    <button class="filter-btn rarity-ssr" 
+                            data-filter-type="rarity" 
+                            data-filter-value="SSR"
+                            aria-pressed="false"
+                            aria-describedby="rarity-help">SSR</button>
+                    <button class="filter-btn rarity-sr" 
+                            data-filter-type="rarity" 
+                            data-filter-value="SR"
+                            aria-pressed="false"
+                            aria-describedby="rarity-help">SR</button>
+                </fieldset>
+                <div class="filter-group">
+                    <button class="filter-btn reset" 
+                            id="reset-filters"
+                            aria-label="Reset all filters">Reset All</button>
+                </div>
+                <div id="type-help" class="sr-only">Filter Palmon by their elemental type. Only one type can be selected at a time.</div>
+                <div id="rarity-help" class="sr-only">Filter Palmon by their rarity level. Only one rarity can be selected at a time.</div>
+            </div>
+        </section>
+
+        <section class="palmon-grid-section" aria-labelledby="grid-heading">
+            <h2 id="grid-heading" class="sr-only">Palmon Results</h2>
+            <div id="pal-grid" 
+                 class="pal-grid" 
+                 role="region" 
+                 aria-label="Palmon cards grid" 
+                 aria-describedby="search-results-count"
+                 aria-live="polite">
+                <!-- Palmon cards will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <p>&copy; 2024 Palmon World. All rights reserved.</p>
+        <p class="footer-accessibility">
+            <a href="#main-content" class="footer-link">Back to top</a> | 
+            <span>Keyboard navigation: Use Tab to navigate, Arrow keys to move between cards</span>
+        </p>
+    </footer>
+
+    <!-- Load error handler first -->
+    <script src="scripts/error-handler.js"></script>
+    <!-- Load performance optimization script first -->
+    <script src="scripts/performance.js"></script>
+    
+    <!-- Preload critical data -->
+    <link rel="preload" href="data/palbook-data.js" as="script">
+    
+    <!-- Load essential scripts -->
+    <script src="data/palbook-data.js"></script>
+    <script src="scripts/palbook.js"></script>
+    <script src="scripts/navigation.js"></script>
+    
+    <!-- Lazy load animations script -->
+    <script>
+        // Lazy load animations script after initial render
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            setTimeout(() => {
+                const script = document.createElement('script');
+                script.src = 'scripts/animations.js';
+                script.async = true;
+                document.head.appendChild(script);
+            }, 200);
+        }
+    </script>
+
+</body>
+</html>

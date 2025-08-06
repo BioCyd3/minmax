@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Counters Guide</title>
+    
+    <!-- Critical CSS for above-the-fold content -->
+    <link rel="stylesheet" href="css/critical.css">
+    
+    <!-- Preload optimized bundle -->
+    <link rel="preload" href="css/optimized-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/optimized-bundle.css"></noscript>
+    
+    <!-- Font optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+</head>
+<body>
+
+    <header class="header">
+        <a href="./index.html" class="logo">
+            <img src="./images/game_logo.png" alt="Palmon World Logo">
+            <h1>Palmon World</h1>
+        </a>
+        
+        <nav class="nav" aria-label="Main navigation">
+            <a href="./index.html" class="nav-link">Home</a>
+            <a href="./tierlist.html" class="nav-link">Tier List</a>
+            <a href="./palbook.html" class="nav-link">Palbook</a>
+            <a href="./synergy.html" class="nav-link">Synergy Guide</a>
+            <a href="./teamcomps-pve.html" class="nav-link">PvE Comps</a>
+            <a href="./teamcomps-pvp.html" class="nav-link">PvP Comps</a>
+            <a href="./counters.html" class="nav-link active">Counters</a>
+            <a href="./lore.html" class="nav-link">Lore</a>
+        </nav>
+        
+        <button class="mobile-nav-toggle" aria-label="Toggle mobile navigation" aria-expanded="false" aria-controls="mobile-nav">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+    </header>
+    
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+        <button class="mobile-nav-close" aria-label="Close mobile navigation">×</button>
+        <a href="./index.html" class="nav-link" style="--index: 0">Home</a>
+        <a href="./tierlist.html" class="nav-link" style="--index: 1">Tier List</a>
+        <a href="./palbook.html" class="nav-link" style="--index: 2">Palbook</a>
+        <a href="./synergy.html" class="nav-link" style="--index: 3">Synergy Guide</a>
+        <a href="./teamcomps-pve.html" class="nav-link" style="--index: 4">PvE Comps</a>
+        <a href="./teamcomps-pvp.html" class="nav-link" style="--index: 5">PvP Comps</a>
+        <a href="./counters.html" class="nav-link" style="--index: 6">Counters</a>
+        <a href="./lore.html" class="nav-link" style="--index: 7">Lore</a>
+    </nav>
+
+    <main class="container" id="main-content">
+        <header class="page-header">
+            <h1>Strategic Counters Guide</h1>
+            <p class="page-description">Master the art of counter-picking and strategic team building to dominate your opponents.</p>
+        </header>
+        
+        <div class="intro">
+            <h2>The Art of the Counter-Pick</h2>
+            <p>In high-level play, victory isn't just about who has the strongest Palmon, but who has the right answer to the opponent's strategy. A well-chosen counter can dismantle a team that is, on paper, much stronger. This guide breaks down how to counter specific threats and common strategies you'll face.</p>
+        </div>
+
+        <h2>Fundamental Principles</h2>
+
+        <div class="strategy-guide">
+            <h3>Principle 1: Type Advantage</h3>
+            <p>The most basic form of countering is Type Advantage. Dealing 20% increased damage and taking 20% reduced damage is a significant edge. While a Pal's abilities and rarity are more important, you should always consider type matchups when building a team to face a specific opponent.</p>
+            <div class="type-chart-container">
+                <figure>
+                    <img src="./images/chart-type-advantage.png" alt="Type Advantage Chart">
+                    <figcaption>Water > Fire > Earth > Electricity > Water</figcaption>
+                </figure>
+            </div>
+            <p><strong>Remember:</strong> A powerful UR with a type disadvantage will almost always defeat a weak SR with an advantage. Type is a tie-breaker, not a trump card.</p>
+        </div>
+
+        <div class="strategy-guide">
+            <h3>Principle 2: Role-Based Countering</h3>
+            <ul>
+                <li><strong>Countering Heavy Tanks (e.g., Statchew):</strong> Don't try to brute force them. Use Pals with Defense Shred (<strong>Barkplug</strong>), sustained damage-over-time effects, or simply ignore the frontline and assassinate their back row with Pals like <strong>Hoofrit</strong>.</li>
+                <li><strong>Countering Glass Cannons (e.g., Lucidina, Mantleray):</strong> You must survive their initial burst. Use team-wide damage reduction (<strong>Statchew</strong>), clutch shields on your vulnerable allies (<strong>Platyputz</strong>), or use a faster assassin to eliminate them before they can use their Rage Skill (<strong>Snowkami</strong>).</li>
+                <li><strong>Countering Crowd Control (e.g., Abuzzinian, Snowkami):</strong> This is the hardest strategy to counter. You can try to burst them down before they act, use your own faster CC Pal, or rely on a durable team that can survive the control duration and fight back afterwards.</li>
+            </ul>
+        </div>
+        
+        <h2>Specific Palmon Counters</h2>
+        
+        <!-- S-TIER COUNTERS -->
+        <h2>S-Tier Threats</h2>
+        <div class="counter-card">
+            <h3><img src="./images/Profile-Statchew.png" alt="Statchew"> Countering Statchew</h3>
+            <div class="threat-analysis"><strong>Threat Analysis:</strong> Statchew's 'Sentinel' passive gives a permanent, unconditional 20% damage reduction to the entire front row. This single-handedly neuters brute-force strategies and makes his frontline nearly indestructible.</div>
+            <div class="counter-section"><h4>Solutions</h4><ul class="solution-list">
+                <li><strong>The Hard Counter: Barkplug.</strong> Barkplug's 'Ion Disruption' passive reduces all enemy defense by 20%. This perfectly cancels out Statchew's buff and brings the fight back to a level playing field. It is the single best answer.</li>
+                <li><strong>The Strategic Counter: Hoofrit.</strong> If you can't break the front door down, use the window. Hoofrit's Rage Skill completely ignores the frontline and targets the squishy back row, making Statchew's protection irrelevant.</li>
+                <li><strong>The Brute Force Counter: Lucidina.</strong> If you stack enough damage buffs on an elite nuker like Lucidina, you can still punch through Statchew's defenses. Her 'Torment' skill, which makes a target take 10% more damage before the nuke hits, is perfect for this.</li>
+            </ul></div>
+        </div>
+        <div class="counter-card">
+            <h3><img src="./images/Profile-Barkplug.png" alt="Barkplug"> Countering Barkplug</h3>
+            <div class="threat-analysis"><strong>Threat Analysis:</strong> Barkplug's 'Ion Disruption' passive reduces your entire team's defense by 20%, making your Pals extremely fragile. He is the ultimate offensive force multiplier.</div>
+            <div class="counter-section"><h4>Solutions</h4><ul class="solution-list">
+                <li><strong>The Hard Counter: Statchew.</strong> The meta revolves around these two. Statchew's 20% damage reduction for your frontline directly cancels out Barkplug's 20% defense shred, making your tanks durable again.</li>
+                <li><strong>The "Kill it First" Counter: Single-Target Nukers.</strong> Barkplug is in the front row and vulnerable. A powerful, fast-charging nuker like <strong>Dolphriend</strong> or <strong>Snowkami</strong> can target and eliminate him before his team can capitalize on his powerful debuff.</li>
+            </ul></div>
+        </div>
+        <div class="counter-card">
+            <h3><img src="./images/Profile-Magmolin.png" alt="Magmolin"> Countering Magmolin</h3>
+            <div class="threat-analysis"><strong>Threat Analysis:</strong> Magmolin's power is twofold. His passive provides a game-breaking global 100% boost to Steel production, giving his owner a massive economic lead. In combat, he's a top-tier tanky nuker with a huge HP pool and a devastating single-target Rage Skill.</div>
+            <div class="counter-section"><h4>Solutions</h4><ul class="solution-list">
+                <li><strong>The Economic Counter: None.</strong> You cannot counter his passive. If your opponent has Magmolin and you don't, you are at a permanent resource disadvantage. The only solution is to get your own.</li>
+                <li><strong>The Combat Counter: Crowd Control & Burst.</strong> In a fight, treat him like any other powerful tank. Use a control Pal like <strong>Snowkami</strong> to Freeze him, or a stunner like <strong>Dolphriend</strong>. His Type is Fire, making him vulnerable to strong Water nukers like <strong>Lucidina</strong>.</li>
+            </ul></div>
+        </div>
+        <div class="counter-card">
+            <h3><img src="./images/Profile-Abuzzinian.png" alt="Abuzzinian"> Countering Abuzzinian</h3>
+            <div class="threat-analysis"><strong>Threat Analysis:</strong> Abuzzinian is incredibly disruptive. His 'Phantomstep' passive gives him 30% Evasion, making him hard to kill with single-target nukes. His 'Nightstorm' Rage Skill can paralyze up to three of your Pals, preventing them from using their skills.</div>
+            <div class="counter-section"><h4>Solutions</h4><ul class="solution-list">
+                <li><strong>The AoE Counter: Area Damage.</strong> Evasion doesn't work as well against skills that hit a large area. Pals like <strong>Fingenue</strong> ('Waterspout') or <strong>Terrastudo</strong> ('Tectonic Spin') can reliably damage Abuzzinian without needing to land a precise hit.</li>
+                <li><strong>The Multi-Hit Counter: Overwhelming Attacks.</strong> Pals who attack multiple times, like <strong>Squeezel</strong> or <strong>Ninjump</strong>, have more chances to get past the Evasion check. While some hits might miss, others are likely to land.</li>
+                <li><strong>The "Faster is Better" Counter: Faster CC.</strong> Use your own control Pal like <strong>Snowkami</strong> to try and Freeze Abuzzinian before he can use his paralyzing storm. This turns into a speed race to see who can disable the other first.</li>
+            </ul></div>
+        </div>
+
+        <!-- A-TIER COUNTERS -->
+        <h2>A-Tier Threats</h2>
+        <div class="counter-card">
+            <h3><img src="./images/Profile-Platyputz.png" alt="Platyputz"> Countering Platyputz</h3>
+            <div class="threat-analysis"><strong>Threat Analysis:</strong> Platyputz is the best SSR tank. He's naturally durable with 20% damage reduction, and his 'Bubble Shield' is a fight-changing ability that can save a key ally from certain death.</div>
+            <div class="counter-section"><h4>Solutions</h4><ul class="solution-list">
+                <li><strong>The Overwhelm Counter: AoE Damage.</strong> His shield only protects one ally. If you damage the entire enemy team with powerful AoE skills, you can often kill a different target or put the whole team in danger, making his single save less impactful.</li>
+                <li><strong>The Bait-and-Switch Counter: Timed Burst.</strong> Bait out the shield by bringing one of your allies low. Wait for the 6-second shield to expire, then unleash your true nuke (like from <strong>Lucidina</strong> or <strong>Squeezel</strong>) on the now-vulnerable target.</li>
+            </ul></div>
+        </div>
+        <div class="counter-card">
+            <h3><img src="./images/Profile-Snowkami.png" alt="Snowkami"> Countering Snowkami</h3>
+            <div class="threat-analysis"><strong>Threat Analysis:</strong> Snowkami is the premier single-target control Pal. His 'Glacial Howl' can take your most important Pal out of the fight for 2.5 seconds, which is often a death sentence in PvP.</div>
+            <div class="counter-section"><h4>Solutions</h4><ul class="solution-list">
+                <li><strong>The Speed Counter: A Faster Snowkami.</strong> If you have your own Snowkami, this matchup often comes down to which one uses their skill first.</li>
+                <li><strong>The Durability Counter: A Hyper-Tanky Team.</strong> A team built around <strong>Statchew</strong> or with multiple tanks might be able to survive having one member frozen for a few seconds and recover.</li>
+                <li><strong>The Spread Counter: Redundancy.</strong> If you have multiple high-threat damage dealers (e.g., both <strong>Hoofrit</strong> and <strong>Lucidina</strong>), he can only freeze one of them. The other is free to execute your game plan.</li>
+            </ul></div>
+        </div>
+        <div class="counter-card">
+            <h3><img src="./images/Profile-Hoofrit.png" alt="Hoofrit"> Countering Hoofrit</h3>
+            <div class="threat-analysis"><strong>Threat Analysis:</strong> Hoofrit's Rage Skill, 'Blazing Volley,' is a PvP nightmare that deals massive damage directly to your back row, often one-shotting your core damage dealers and supports.</div>
+            <div class="counter-section"><h4>Solutions</h4><ul class="solution-list">
+                <li><strong>The Control Counter: Snowkami.</strong> Freeze Hoofrit before he can launch his devastating volley. A frozen Pal is a useless Pal.</li>
+                <li><strong>The Reactive Counter: Platyputz.</strong> Platyputz's 'Bubble Shield' will almost always land on the ally Hoofrit is targeting, allowing them to survive the nuke.</li>
+                <li><strong>The Evasion Counter: Abuzzinian.</strong> Placing a high-evasion Pal like Abuzzinian in the back row can cause Hoofrit's entire Rage Skill to miss, completely wasting his turn.</li>
+            </ul></div>
+        </div>
+        <div class="counter-card">
+            <h3><img src="./images/Profile-Lucindina.png" alt="Lucidina"> Countering Lucidina</h3>
+            <div class="threat-analysis"><strong>Threat Analysis:</strong> Lucidina is the game's ultimate executioner. Her 'Torment' skill applies a vulnerability debuff then hits for massive damage, ensuring a kill on almost any target she chooses.</div>
+            <div class="counter-section"><h4>Solutions</h4><ul class="solution-list">
+                <li><strong>The Proactive Counter: Faster Control.</strong> Just like with Hoofrit, the best solution is to disable her before she can act. A faster <strong>Snowkami</strong> or <strong>Dolphriend</strong> stun can shut her down completely.</li>
+                <li><strong>The Sacrificial Counter: Bait Tank.</strong> Place your absolute tankiest Pal, like <strong>Statchew</strong>, directly in front of her. She might still kill him, but it will take her longer and waste her powerful nuke on a defensive unit instead of your core DPS.</li>
+            </ul></div>
+        </div>
+        <div class="counter-card">
+            <h3><img src="./images/Profile-Dolphriend.png" alt="Dolphriend"> Countering Dolphriend</h3>
+            <div class="threat-analysis"><strong>Threat Analysis:</strong> A very straightforward and effective front-line bruiser. He's tanky due to his HP passive, and his Rage Skill combines high damage with a long, reliable stun.</div>
+            <div class="counter-section"><h4>Solutions</h4><ul class="solution-list">
+                <li><strong>The Type Counter: Electricity Nukers.</strong> As a Water type, Dolphriend is vulnerable to Electricity. A powerful nuke from <strong>Barkplug</strong> can often eliminate him quickly.</li>
+                <li><strong>The Control Counter: Freeze > Stun.</strong> Snowkami's Freeze is a perfect answer, as it prevents Dolphriend from charging or using his own stun skill.</li>
+            </ul></div>
+        </div>
+        <div class="counter-card">
+            <h3><img src="./images/Profile-Baboom.png" alt="Baboom"> Countering Baboom</h3>
+            <div class="threat-analysis"><strong>Threat Analysis:</strong> Baboom is the leader of mono-Earth teams. His passive buffs all Earth allies, and he brings a powerful single-target stun and nuke.</div>
+            <div class="counter-section"><h4>Solutions</h4><ul class="solution-list">
+                <li><strong>The Synergy-Break Counter: AoE Damage.</strong> His power is diminished if his Earth allies are dead. Use strong AoE Pals to weaken or kill his teammates, isolating him and rendering his leadership passive less effective.</li>
+                <li><strong>The Type Counter: Fire Assassins.</strong> As an Earth Pal, he is weak to Fire. <strong>Hoofrit</strong> is an excellent choice, as he can target and potentially one-shot Baboom, decapitating the enemy's strategy.</li>
+            </ul></div>
+        </div>
+        <div class="counter-card">
+            <h3><img src="./images/Profile-Incineraptor.png" alt="Incineraptor"> Countering Incineraptor</h3>
+            <div class="threat-analysis"><strong>Threat Analysis:</strong> Similar to Magmolin, Incineraptor's main threat is economic, granting his owner a huge advantage in resource and material gain. In combat, he's a standard back-line damage dealer with a line AoE.</div>
+            <div class="counter-section"><h4>Solutions</h4><ul class="solution-list">
+                <li><strong>The Economic Counter: None.</strong> You cannot counter his passive in a fight. The solution is to get your own or focus on winning fights to offset the resource difference.</li>
+                <li><strong>The Combat Counter: Standard Backline Pressure.</strong> Treat him like any other back-row damage dealer. He's vulnerable to assassins like <strong>Hoofrit</strong> and can be disabled by control effects.</li>
+            </ul></div>
+        </div>
+        <div class="counter-card">
+            <h3><img src="./images/Profile-Cerverdant.png" alt="Cerverdant"> Countering Cerverdant</h3>
+            <div class="threat-analysis"><strong>Threat Analysis:</strong> Cerverdant is the engine of mono-Earth teams. His 'Verdant Grace' skill provides a massive 30% attack buff to all Earth allies, turning a decent team into a powerhouse. His personal damage is low; his power is in enabling others.</div>
+            <div class="counter-section"><h4>Solutions</h4><ul class="solution-list">
+                <li><strong>The "Kill the Engine" Counter: Assassination.</strong> Cerverdant is a high-priority target. Since he's often in the back, use an assassin like <strong>Hoofrit</strong> to eliminate him before he can use his buff. This cripples the entire enemy team's damage output.</li>
+                <li><strong>The Disruption Counter: AoE CC.</strong> A well-timed multi-target paralysis from <strong>Abuzzinian</strong> can prevent the buff from ever going off.</li>
+            </ul></div>
+        </div>
+        <div class="counter-card">
+            <h3><img src="./images/Profile-Surveilynx.png" alt="Surveilynx"> Countering Surveilynx</h3>
+            <div class="threat-analysis"><strong>Threat Analysis:</strong> His power is almost entirely strategic, boosting his owner's Camp Defense and Armigo training. In a direct fight, he is an unremarkable front-line AoE damage dealer for a UR.</div>
+            <div class="counter-section"><h4>Solutions</h4><ul class="solution-list">
+                <li><strong>The Combat Counter: Standard Tactics.</strong> He has no special combat passives. Treat him as a generic damage dealer. He is weak to Fire, making <strong>Magmolin</strong> or <strong>Hoofrit</strong> effective against him. Any strong tank can wall him, and any strong nuker can kill him.</li>
+            </ul></div>
+        </div>
+        
+        <!-- B-TIER COUNTERS -->
+        <h2>B-Tier Threats</h2>
+        <div class="counter-card">
+            <h3><img src="./images/Profile-Squeezel.png" alt="Squeezel"> Countering Squeezel / Bruiseberry / Vulcanid</h3>
+            <div class="threat-analysis"><strong>Threat Analysis:</strong> These Pals are straightforward, single-target SSR nukers. Their goal is to charge their Rage Skill and delete one of your Pals with a high-damage attack. They are one-trick ponies, but the trick is effective if unchecked.</div>
+            <div class="counter-section"><h4>Solutions</h4><ul class="solution-list">
+                <li><strong>The Tank Counter: A Proper Tank.</strong> A well-built tank like <strong>Platyputz</strong> or <strong>Statchew</strong> can usually survive their initial nuke.</li>
+                <li><strong>The Control Counter: Stun or Freeze.</strong> Any form of crowd control will interrupt their damage. <strong>Snowkami</strong> is particularly effective.</li>
+            </ul></div>
+        </div>
+        <div class="counter-card">
+            <h3><img src="./images/Profile-Blazeal.png" alt="Blazeal"> Countering Blazeal / Ninjump / Fingenue / Terrastudo</h3>
+            <div class="threat-analysis"><strong>Threat Analysis:</strong> This group consists of "stat stick" damage dealers. They have self-buffs or straightforward AoE/single-target damage skills with no special utility. They are a threat simply because they deal good damage.</div>
+            <div class="counter-section"><h4>Solutions</h4><ul class="solution-list">
+                <li><strong>The "Hit Harder" Counter: Superior DPS.</strong> These Pals bring no tricks, so the fight comes down to numbers. A-tier and S-tier damage dealers will simply outperform and defeat them.</li>
+                <li><strong>The Generic Counter: Focus Fire.</strong> Identify the biggest damage threat among them and have your team focus them down. They have no special defensive mechanics to save them.</li>
+            </ul></div>
+        </div>
+        <div class="counter-card">
+            <h3><img src="./images/Profile-Maximito.png" alt="Maximito"> Countering Maximito / Axollium</h3>
+            <div class="threat-analysis"><strong>Threat Analysis:</strong> These are utility-focused SSRs. Maximito provides a clutch damage reduction shield, while Axollium has an AoE with an Accuracy debuff. They are annoying but rarely the primary threat.</div>
+            <div class="counter-section"><h4>Solutions</h4><ul class="solution-list">
+                <li><strong>The Priority Counter: Ignore Them (Initially).</strong> Their damage is not high enough to be a primary threat. Focus on killing the enemy's main damage dealers first. Once the real threats are gone, you can clean up these utility Pals.</li>
+            </ul></div>
+        </div>
+
+        <!-- C, D, F-TIER COUNTERS -->
+        <h2>C, D, and F-Tier (Low-Priority Targets)</h2>
+        <div class="counter-card">
+            <h3><img src="./images/Profile-Lendanear.png" alt="Lendanear"> Countering Lendanear, Rotorlotor, Wyvierno, Meowdame, Thunderclawd</h3>
+            <div class="threat-analysis"><strong>Threat Analysis:</strong> These C-Tier SSRs have unreliable kits (random targeting, low-impact buffs) or poor damage profiles. They are not considered significant threats in a competitive environment. Their main value is often in their non-combat worker skills.</div>
+            <div class="counter-section"><h4>Solutions</h4><ul class="solution-list">
+                <li><strong>Solution: Ignore This Target.</strong> In any serious battle, your opponent will have much bigger threats on the field. Wasting a powerful Rage Skill on a C-Tier Pal is a strategic mistake. Focus fire on their A-Tier and S-Tier Pals. These can be cleaned up last.</li>
+            </ul></div>
+        </div>
+        <div class="counter-card">
+            <h3><img src="./images/Profile-Flouffant.png" alt="Flouffant"> Countering All SR Pals (Flouffant, Graffitty, Herculeaf, Spinchilla, Kilohopp, Emboa, Auktyke)</h3>
+            <div class="threat-analysis"><strong>Threat Analysis:</strong> SR-rarity Pals are fundamentally outclassed due to their low base stats. They pose absolutely no threat to a well-built team of SSR and UR Pals, regardless of their skills.</div>
+            <div class="counter-section"><h4>Solutions</h4><ul class="solution-list">
+                <li><strong>Solution: They are not a threat.</strong> If you see an SR Pal in an enemy's PvP lineup, they are either a new player or they have made a grave mistake. Do not target them. Eliminate every other SSR and UR on the enemy team first. Any AoE damage will likely kill them incidentally.</li>
+            </ul></div>
+        </div>
+
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <p>&copy; 2024 Palmon World. All rights reserved.</p>
+    </footer>
+
+    <!-- Load performance optimization script first -->
+    <script src="scripts/performance.js"></script>
+    <script src="scripts/navigation.js"></script>
+    
+    <!-- Lazy load animations script -->
+    <script>
+        // Lazy load animations script after initial render
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            setTimeout(() => {
+                const script = document.createElement('script');
+                script.src = 'scripts/animations.js';
+                script.async = true;
+                document.head.appendChild(script);
+            }, 200);
+        }
+    </script>
+</body>
+</html>

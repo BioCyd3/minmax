@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Mode Test - Palmon World</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <a href="./index.html" class="logo">
+            <img src="./images/game_logo.png" alt="Palmon World Logo">
+            <h1>Palmon World</h1>
+        </a>
+        
+        <nav class="nav" aria-label="Main navigation">
+            <a href="./index.html" class="nav-link">Home</a>
+            <a href="./tierlist.html" class="nav-link">Tier List</a>
+            <a href="./palbook.html" class="nav-link">Palbook</a>
+            <a href="./synergy.html" class="nav-link">Synergy Guide</a>
+            <a href="./teamcomps-pve.html" class="nav-link">PvE Comps</a>
+            <a href="./teamcomps-pvp.html" class="nav-link">PvP Comps</a>
+            <a href="./counters.html" class="nav-link">Counters</a>
+            <a href="./lore.html" class="nav-link">Lore</a>
+        </nav>
+        
+        <button class="mobile-nav-toggle" aria-label="Toggle mobile navigation" aria-expanded="false" aria-controls="mobile-nav">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+    </header>
+    
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+        <button class="mobile-nav-close" aria-label="Close mobile navigation">×</button>
+        <a href="./index.html" class="nav-link" style="--index: 0">Home</a>
+        <a href="./tierlist.html" class="nav-link" style="--index: 1">Tier List</a>
+        <a href="./palbook.html" class="nav-link" style="--index: 2">Palbook</a>
+        <a href="./synergy.html" class="nav-link" style="--index: 3">Synergy Guide</a>
+        <a href="./teamcomps-pve.html" class="nav-link" style="--index: 4">PvE Comps</a>
+        <a href="./teamcomps-pvp.html" class="nav-link" style="--index: 5">PvP Comps</a>
+        <a href="./counters.html" class="nav-link" style="--index: 6">Counters</a>
+        <a href="./lore.html" class="nav-link" style="--index: 7">Lore</a>
+    </nav>
+
+    <main class="container" id="main-content">
+        <h1>Dark Mode Test Page</h1>
+        
+        <div style="padding: var(--space-8);">
+            <h2>Dark Mode Verification</h2>
+            <p>This page tests that dark mode is properly enforced across all elements.</p>
+            
+            <div class="card" style="margin: var(--space-6) 0;">
+                <h3>Sample Card</h3>
+                <p>This is a sample card to test dark mode styling. All text should be light colored on dark backgrounds.</p>
+                <ul>
+                    <li>List item 1</li>
+                    <li>List item 2</li>
+                    <li>List item 3</li>
+                </ul>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" placeholder="Search test..." class="search-input">
+            </div>
+
+            <div class="filter-controls">
+                <div class="filter-group">
+                    <span class="filter-group-label">Type:</span>
+                    <button class="filter-btn type-earth">Earth</button>
+                    <button class="filter-btn type-fire">Fire</button>
+                    <button class="filter-btn type-water">Water</button>
+                    <button class="filter-btn type-electricity">Electricity</button>
+                </div>
+                <div class="filter-group">
+                    <span class="filter-group-label">Rarity:</span>
+                    <button class="filter-btn rarity-ur">UR</button>
+                    <button class="filter-btn rarity-ssr">SSR</button>
+                    <button class="filter-btn rarity-sr">SR</button>
+                </div>
+            </div>
+            
+            <div class="pal-grid">
+                <div class="pal-card">
+                    <div class="pal-card-image">
+                        <img src="https://via.placeholder.com/150x150/0f3460/e0e0e0?text=Test" alt="Test Pal">
+                    </div>
+                    <div class="pal-card-body">
+                        <div class="card-header">
+                            <h3>Test Pal</h3>
+                            <span class="tier-badge tier-s">S</span>
+                        </div>
+                        <div class="pal-info">
+                            <span>Rarity: <strong class="rarity-ur-text">UR</strong></span>
+                            <span>Type: <strong class="type-fire">Fire</strong></span>
+                            <span>Row: <strong>Front</strong></span>
+                        </div>
+                        <div class="explanation">
+                            <p>This is a test explanation to verify dark mode text colors.</p>
+                        </div>
+                        <div class="roles-jobs">
+                            <p><strong>Role[s]:</strong> DPS, Tank</p>
+                            <p><strong>Job Tag(s):</strong> Combat, Mining</p>
+                        </div>
+                        <div class="skills">
+                            <h4>Skills</h4>
+                            <ul>
+                                <li><strong>Test Skill 1:</strong> This is a test skill description.</li>
+                                <li><strong>Test Skill 2 (Rage):</strong> This is a rage skill description.</li>
+                                <li><strong>Test Skill 3 (Passive):</strong> This is a passive skill description.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: var(--space-8);">
+                <h2>Color Test</h2>
+                <p>Background should be dark (#1a1a2e), text should be light (#e0e0e0)</p>
+                <p>Current computed styles:</p>
+                <div id="color-info" style="font-family: monospace; background: rgba(0,0,0,0.3); padding: var(--space-4); border-radius: var(--radius-md);"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="scripts/navigation.js"></script>
+    <script>
+        // Display computed color values
+        document.addEventListener('DOMContentLoaded', () => {
+            const body = document.body;
+            const computedStyle = window.getComputedStyle(body);
+            const bgColor = computedStyle.backgroundColor;
+            const textColor = computedStyle.color;
+            
+            document.getElementById('color-info').innerHTML = `
+                Background Color: ${bgColor}<br>
+                Text Color: ${textColor}<br>
+                Status: ${bgColor.includes('26, 33, 46') || bgColor.includes('#1a1a2e') ? '✅ Dark background detected' : '❌ Light background detected'}<br>
+                Text Status: ${textColor.includes('224, 224, 224') || textColor.includes('#e0e0e0') ? '✅ Light text detected' : '❌ Dark text detected'}
+            `;
+        });
+    </script>
+</body>
+</html>

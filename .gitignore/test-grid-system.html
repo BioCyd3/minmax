@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid System Test - Palmon World</title>
+    <link rel="stylesheet" href="css/foundation/tokens.css">
+    <link rel="stylesheet" href="css/layouts/grid.css">
+    <link rel="stylesheet" href="css/layouts/responsive.css">
+    <style>
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: var(--font-family-sans);
+            margin: 0;
+            padding: var(--space-4);
+        }
+        
+        .demo-card {
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-4);
+            text-align: center;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .demo-section {
+            margin-bottom: var(--space-8);
+        }
+        
+        .demo-title {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-4);
+            color: var(--color-secondary-500);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center; color: var(--color-secondary-500); margin-bottom: var(--space-8);">
+            Responsive Grid System Test
+        </h1>
+        
+        <!-- Basic Grid System -->
+        <div class="demo-section">
+            <h2 class="demo-title">Basic Grid Columns</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="demo-card">Column 1</div>
+                <div class="demo-card">Column 2</div>
+                <div class="demo-card">Column 3</div>
+                <div class="demo-card">Column 4</div>
+            </div>
+        </div>
+        
+        <!-- Auto-fit Grid -->
+        <div class="demo-section">
+            <h2 class="demo-title">Auto-fit Grid (Pal Cards Style)</h2>
+            <div class="grid-pal-cards">
+                <div class="demo-card">Pal Card 1</div>
+                <div class="demo-card">Pal Card 2</div>
+                <div class="demo-card">Pal Card 3</div>
+                <div class="demo-card">Pal Card 4</div>
+                <div class="demo-card">Pal Card 5</div>
+            </div>
+        </div>
+        
+        <!-- Feature Cards Grid -->
+        <div class="demo-section">
+            <h2 class="demo-title">Feature Cards Layout</h2>
+            <div class="feature-grid">
+                <div class="demo-card">Feature 1</div>
+                <div class="demo-card">Feature 2</div>
+                <div class="demo-card">Feature 3</div>
+            </div>
+        </div>
+        
+        <!-- Responsive Spacing -->
+        <div class="demo-section">
+            <h2 class="demo-title">Responsive Spacing</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-4 md:gap-6 lg:gap-8">
+                <div class="demo-card p-2 sm:p-4 md:p-6">Responsive Padding</div>
+                <div class="demo-card p-2 sm:p-4 md:p-6">Responsive Padding</div>
+            </div>
+        </div>
+        
+        <!-- Flexbox Layout -->
+        <div class="demo-section">
+            <h2 class="demo-title">Responsive Flexbox</h2>
+            <div class="flex flex-col sm:flex-row gap-4 items-center justify-between">
+                <div class="demo-card flex-1">Flex Item 1</div>
+                <div class="demo-card flex-1">Flex Item 2</div>
+                <div class="demo-card flex-1">Flex Item 3</div>
+            </div>
+        </div>
+        
+        <!-- Hero Layout -->
+        <div class="demo-section">
+            <h2 class="demo-title">Hero Section Layout</h2>
+            <div class="hero-grid">
+                <div class="demo-card">Hero Content</div>
+                <div class="demo-card">Hero Image</div>
+            </div>
+        </div>
+        
+        <!-- Team Grid -->
+        <div class="demo-section">
+            <h2 class="demo-title">Team Composition Grid</h2>
+            <div class="team-grid">
+                <div class="demo-card">Team 1</div>
+                <div class="demo-card">Team 2</div>
+                <div class="demo-card">Team 3</div>
+            </div>
+        </div>
+        
+        <!-- Tier List Layout -->
+        <div class="demo-section">
+            <h2 class="demo-title">Tier List Layout</h2>
+            <div class="tier-grid">
+                <div class="tier-row">
+                    <div class="demo-card" style="width: 60px; background: var(--tier-s);">S</div>
+                    <div class="tier-cards">
+                        <div class="demo-card">Pal 1</div>
+                        <div class="demo-card">Pal 2</div>
+                        <div class="demo-card">Pal 3</div>
+                    </div>
+                </div>
+                <div class="tier-row">
+                    <div class="demo-card" style="width: 60px; background: var(--tier-a);">A</div>
+                    <div class="tier-cards">
+                        <div class="demo-card">Pal 4</div>
+                        <div class="demo-card">Pal 5</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Responsive Visibility -->
+        <div class="demo-section">
+            <h2 class="demo-title">Responsive Visibility</h2>
+            <div class="grid grid-cols-1 gap-4">
+                <div class="demo-card show-mobile md:hidden" style="background: var(--color-error-500);">
+                    Mobile Only (< 768px)
+                </div>
+                <div class="demo-card hidden md:block lg:hidden" style="background: var(--color-warning-500);">
+                    Tablet Only (768px - 1023px)
+                </div>
+                <div class="demo-card hidden lg:block" style="background: var(--color-success-500);">
+                    Desktop Only (≥ 1024px)
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Custom Tier List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <style>
+        :root {
+            --color-s-plus: #E91E63;
+            --color-s: #9C27B0;
+            --color-a: #2196F3;
+            --color-b: #00BCD4;
+            --color-c: #607D8B;
+            --bg-dark: #121212;
+            --bg-card: #1E1E1E;
+            --text-primary: #F5F5F5;
+            --text-secondary: #B3B3B3;
+            --border-color: #333333;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 2rem;
+            line-height: 1.7;
+        }
+
+        .tier-list-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .tier-list-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .tier-list-header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tier-section {
+            margin-bottom: 4rem;
+        }
+
+        .tier-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid;
+            display: inline-block;
+        }
+
+        #s-plus-tier .tier-title { border-color: var(--color-s-plus); color: var(--color-s-plus); }
+        #s-tier .tier-title { border-color: var(--color-s); color: var(--color-s); }
+        #a-tier .tier-title { border-color: var(--color-a); color: var(--color-a); }
+        #b-tier .tier-title { border-color: var(--color-b); color: var(--color-b); }
+        #c-tier .tier-title { border-color: var(--color-c); color: var(--color-c); }
+
+        .pal-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .pal-card {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            border: 2px solid var(--border-color);
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pal-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Add the correct tier class to each card for the colored border */
+        .pal-card.tier-s-plus { border-color: var(--color-s-plus); }
+        .pal-card.tier-s { border-color: var(--color-s); }
+        .pal-card.tier-a { border-color: var(--color-a); }
+        .pal-card.tier-b { border-color: var(--color-b); }
+        .pal-card.tier-c { border-color: var(--color-c); }
+
+        .pal-card.tier-s-plus:hover { box-shadow: 0 5px 25px rgba(233, 30, 99, 0.3); }
+        .pal-card.tier-s:hover { box-shadow: 0 5px 25px rgba(156, 39, 176, 0.3); }
+
+        .card-header {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .card-header h3 {
+            font-size: 1.75rem;
+            margin: 0 0 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .pal-attributes {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .pal-attributes span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .pal-attributes i {
+            font-size: 1.1rem;
+        }
+
+        /* --- ICON GUIDE --- */
+        /* You can find more icons at fontawesome.com */
+        /* Examples: */
+        .fa-fire { color: #FF6B6B; }       /* Type: Fire */
+        .fa-droplet { color: #4D96FF; }    /* Type: Water */
+        .fa-leaf { color: #6BCB77; }       /* Type: Nature */
+        .fa-bolt { color: #FFD93D; }     /* Type: Electric */
+        .fa-sun { color: #F8C471; }        /* Type: Light */
+        .fa-moon { color: #C39BD3; }       /* Type: Dark */
+        .fa-shield-halved { color: #a4b0be; } /* Role: Tank / Front */
+        .fa-angles-up { color: #f0932b; }  /* Role: DPS / Back */
+        .fa-hammer { color: #99A3A4; }     /* Role: Worker */
+        .fa-star { color: #FFD700; }       /* Section: Stars */
+        .fa-question { color: #7f8c8d; }   /* Placeholder */
+
+
+        .card-body {
+            flex-grow: 1;
+        }
+
+        .card-body h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-body p, .card-body ul {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+        
+        .card-body ul { list-style: none; padding-left: 0; }
+        .card-body ul li { 
+            position: relative; 
+            padding-left: 1.2em;
+            margin-bottom: 0.5em;
+        }
+        .card-body ul li:before {
+            content: '›';
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: -2px;
+            font-size: 1.2em;
+        }
+        .card-body strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 1rem; }
+            .tier-list-header h1 { font-size: 2rem; }
+            .tier-title { font-size: 1.8rem; }
+            .pal-cards-container { grid-template-columns: 1fr; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="tier-list-header">
+        <h1>[Your Game] Tier List</h1>
+        <p>[A brief description of your tier list, what it covers, and its purpose.]</p>
+    </header>
+
+    <main>
+        <!-- S+ TIER -->
+        <section class="tier-section" id="s-plus-tier">
+            <h2 class="tier-title">S+ Tier</h2>
+            <div class="pal-cards-container">
+                <!-- Add S+ Tier cards here by copying the template below -->
+            </div>
+        </section>
+
+        <!-- S TIER -->
+        <section class="tier-section" id="s-tier">
+            <h2 class="tier-title">S Tier</h2>
+            <div class="pal-cards-container">
+                <!-- Add S Tier cards here -->
+            </div>
+        </section>
+
+        <!-- A TIER -->
+        <section class="tier-section" id="a-tier">
+            <h2 class="tier-title">A Tier</h2>
+            <div class="pal-cards-container">
+
+                <!-- 
+                    CARD TEMPLATE - START
+                    Instructions:
+                    1. Copy this entire block, from <!-- CARD TEMPLATE - START --> to <!-- CARD TEMPLATE - END -->.
+                    2. Paste it inside the `.pal-cards-container` of the desired tier.
+                    3. Change the class `tier-a` to the correct tier (e.g., `tier-s-plus`, `tier-b`, etc.).
+                    4. Replace all bracketed text like `[Hero Name]` with your information.
+                    5. For icons, change the Font Awesome class (e.g., change `fa-question` to `fa-fire`). See the CSS for examples.
+                -->
+                <div class="pal-card tier-a">
+                    <div class="card-header">
+                        <h3>[Hero Name]</h3>
+                        <div class="pal-attributes">
+                            <span><i class="fa-solid fa-question"></i> [Type/Element]</span>
+                            <span>[Rarity]</span>
+                            <span><i class="fa-solid fa-shield-halved"></i> [Role/Row]</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h4>Summary</h4>
+                        <p>[Brief one-line summary of the hero's role and why they are in this tier.]</p>
+                        
+                        <h4>Skill Breakdown</h4>
+                        <ul>
+                            <li><strong>[Skill 1 Name]:</strong> [Description of the skill.]</li>
+                            <li><strong>[Skill 2 Name]:</strong> [Description of the skill.]</li>
+                            <li><strong>[Passive Skill Name]:</strong> [Description of the skill.]</li>
+                        </ul>
+                        
+                        <h4>Strategic Analysis</h4>
+                        <ul>
+                            <li><strong>Synergies:</strong> [Heroes or strategies that work well with this one.]</li>
+                            <li><strong>Counters:</strong> [What this hero is weak against or who counters them.]</li>
+                        </ul>
+
+                        <h4><i class="fa-solid fa-star"></i> Star Upgrade Path & Investment Value</h4>
+                        <p><strong>Upgrades:</strong> [Describe what star levels provide.]</p>
+                        <p><strong>Verdict:</strong> [Your analysis on whether investing is high, medium, or low value and why.]</p>
+                    </div>
+                </div>
+                <!-- CARD TEMPLATE - END -->
+
+
+            </div>
+        </section>
+
+        <!-- B TIER -->
+        <section class="tier-section" id="b-tier">
+            <h2 class="tier-title">B Tier</h2>
+            <div class="pal-cards-container">
+                <!-- Add B Tier cards here -->
+            </div>
+        </section>
+
+        <!-- C TIER -->
+        <section class="tier-section" id="c-tier">
+            <h2 class="tier-title">C Tier</h2>
+            <div class="pal-cards-container">
+                <!-- Add C Tier cards here -->
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

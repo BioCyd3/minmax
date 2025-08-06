@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Card System Test</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-8);
+        }
+        
+        .test-section {
+            margin-bottom: var(--space-12);
+        }
+        
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-6);
+            margin-top: var(--space-6);
+        }
+        
+        .section-title {
+            font-size: var(--font-size-2xl);
+            color: var(--color-secondary-500);
+            margin-bottom: var(--space-4);
+            border-bottom: 2px solid var(--color-primary-500);
+            padding-bottom: var(--space-2);
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1 style="text-align: center; color: var(--color-secondary-500); margin-bottom: var(--space-8);">Enhanced Card System Test</h1>
+        
+        <div class="test-section">
+            <h2 class="section-title">Enhanced Pal Cards with Rarity Borders</h2>
+            <div class="test-grid">
+                <!-- SR Rarity Card -->
+                <div class="pal-card" data-type="Earth" data-rarity="SR">
+                    <div class="pal-card-image">
+                        <img src="./images/Profile-Flouffant.png" alt="Flouffant" loading="lazy">
+                    </div>
+                    <div class="pal-card-body">
+                        <div class="card-header">
+                            <h3>Flouffant</h3>
+                            <span class="tier-badge tier-d">D</span>
+                        </div>
+                        <div class="pal-info">
+                            <span>Rarity: <strong class="rarity-sr-text">SR</strong></span>
+                            <span>Type: <strong class="type-Earth">Earth</strong></span>
+                            <span>Row: <strong>Worker</strong></span>
+                        </div>
+                        <div class="explanation">
+                            <p>A generic SR with an AoE skill. Completely irrelevant in a competitive context.</p>
+                        </div>
+                        <div class="roles-jobs">
+                            <p><strong>Role[s]:</strong> DPS, Worker</p>
+                            <p><strong>Job Tag(s):</strong> Harvester, Healer</p>
+                        </div>
+                        <div class="skills">
+                            <h4>Skills</h4>
+                            <ul>
+                                <li><strong>Entangle:</strong> Deals 208% damage to a single enemy.</li>
+                                <li><strong>Summon Thorns (Rage):</strong> Deals 960% damage to enemies.</li>
+                                <li><strong>Nature's Blessing (Passive):</strong> Crop output +35% when working a Planting job.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SSR Rarity Card -->
+                <div class="pal-card" data-type="Fire" data-rarity="SSR">
+                    <div class="pal-card-image">
+                        <img src="./images/Profile-Vulcanid.png" alt="Vulcanid" loading="lazy">
+                    </div>
+                    <div class="pal-card-body">
+                        <div class="card-header">
+                            <h3>Vulcanid</h3>
+                            <span class="tier-badge tier-b">B</span>
+                        </div>
+                        <div class="pal-info">
+                            <span>Rarity: <strong class="rarity-ssr-text">SSR</strong></span>
+                            <span>Type: <strong class="type-Fire">Fire</strong></span>
+                            <span>Row: <strong>Worker</strong></span>
+                        </div>
+                        <div class="explanation">
+                            <p>A simple but effective single-target nuker and a top-tier worker.</p>
+                        </div>
+                        <div class="roles-jobs">
+                            <p><strong>Role[s]:</strong> DPS (Single Target), Worker</p>
+                            <p><strong>Job Tag(s):</strong> Smelting</p>
+                        </div>
+                        <div class="skills">
+                            <h4>Skills</h4>
+                            <ul>
+                                <li><strong>Blazing Bite:</strong> Deals 325% damage to a single enemy.</li>
+                                <li><strong>Trial By Fire (Rage):</strong> Deals 1500% damage to a single enemy.</li>
+                                <li><strong>Hot Diggity Dog (Passive):</strong> Steel output +60% when working a Smelting job.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UR Rarity Card -->
+                <div class="pal-card" data-type="Electricity" data-rarity="UR">
+                    <div class="pal-card-image">
+                        <img src="./images/Profile-Barkplug.png" alt="Barkplug" loading="lazy">
+                    </div>
+                    <div class="pal-card-body">
+                        <div class="card-header">
+                            <h3>Barkplug</h3>
+                            <span class="tier-badge tier-s">S</span>
+                        </div>
+                        <div class="pal-info">
+                            <span>Rarity: <strong class="rarity-ur-text">UR</strong></span>
+                            <span>Type: <strong class="type-Electricity">Electricity</strong></span>
+                            <span>Row: <strong>Front</strong></span>
+                        </div>
+                        <div class="explanation">
+                            <p>The best offensive support in the game. Makes your whole team hit harder.</p>
+                        </div>
+                        <div class="roles-jobs">
+                            <p><strong>Role[s]:</strong> DPS, Debuff, CC</p>
+                            <p><strong>Job Tag(s):</strong> Charging</p>
+                        </div>
+                        <div class="skills">
+                            <h4>Skills</h4>
+                            <ul>
+                                <li><strong>Maelstrom Bolt:</strong> Unleashes a chain of lightning that strikes up to 5 enemy targets, dealing 281.2% damage to each target.</li>
+                                <li><strong>Overcharge (Rage):</strong> Deals 2331% damage to a single enemy. Has a 20% chance to paralyze the target, preventing them from casting Rage Skills for 3s.</li>
+                                <li><strong>Ion Disruption (Passive):</strong> All enemy DEF -20%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2 class="section-title">Feature Cards</h2>
+            <div class="test-grid">
+                <div class="feature-card">
+                    <h3>Comprehensive Tier Lists</h3>
+                    <p>Discover the best Pals for every situation with our in-depth tier lists, updated regularly.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Team Building Guides</h3>
+                    <p>Master the art of synergy and build unstoppable teams for both PvP and PvE content.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Complete Palbook</h3>
+                    <p>Explore detailed information on every Pal, including their skills, stats, and lore.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2 class="section-title">Card Variants</h2>
+            <div class="test-grid">
+                <div class="card card-elevated">
+                    <h3>Elevated Card</h3>
+                    <p>This card has elevated styling with enhanced shadows and background.</p>
+                </div>
+                <div class="card card-flat">
+                    <h3>Flat Card</h3>
+                    <p>This card has minimal shadows for a flatter appearance.</p>
+                </div>
+                <div class="card card-interactive">
+                    <h3>Interactive Card</h3>
+                    <p>This card provides enhanced interactive feedback on hover and click.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2 class="section-title">Loading State</h2>
+            <div class="test-grid">
+                <div class="pal-card card-loading" data-type="Water" data-rarity="SSR">
+                    <div class="pal-card-image">
+                        <img src="./images/Profile-Maximito.png" alt="Loading..." loading="lazy">
+                    </div>
+                    <div class="pal-card-body">
+                        <div class="card-header">
+                            <h3>Loading...</h3>
+                            <span class="tier-badge tier-b">B</span>
+                        </div>
+                        <div class="pal-info">
+                            <span>Rarity: <strong class="rarity-ssr-text">SSR</strong></span>
+                            <span>Type: <strong class="type-Water">Water</strong></span>
+                        </div>
+                        <div class="explanation">
+                            <p>Loading card content...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

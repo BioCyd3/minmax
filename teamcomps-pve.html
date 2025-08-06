@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PvE Team Compositions Guide</title>
+    
+    <!-- Critical CSS for above-the-fold content -->
+    <link rel="stylesheet" href="css/critical.css">
+    
+    <!-- Preload optimized bundle -->
+    <link rel="preload" href="css/optimized-bundle.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/optimized-bundle.css"></noscript>
+    
+    <!-- Font optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+</head>
+<body>
+
+    <header class="header">
+        <a href="./index.html" class="logo">
+            <img src="./images/game_logo.png" alt="Palmon World Logo">
+            <h1>Palmon World</h1>
+        </a>
+        
+        <nav class="nav" aria-label="Main navigation">
+            <a href="./index.html" class="nav-link">Home</a>
+            <a href="./tierlist.html" class="nav-link">Tier List</a>
+            <a href="./palbook.html" class="nav-link">Palbook</a>
+            <a href="./synergy.html" class="nav-link">Synergy Guide</a>
+            <a href="./teamcomps-pve.html" class="nav-link active">PvE Comps</a>
+            <a href="./teamcomps-pvp.html" class="nav-link">PvP Comps</a>
+            <a href="./counters.html" class="nav-link">Counters</a>
+            <a href="./lore.html" class="nav-link">Lore</a>
+        </nav>
+        
+        <button class="mobile-nav-toggle" aria-label="Toggle mobile navigation" aria-expanded="false" aria-controls="mobile-nav">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+    </header>
+    
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+        <button class="mobile-nav-close" aria-label="Close mobile navigation">×</button>
+        <a href="./index.html" class="nav-link" style="--index: 0">Home</a>
+        <a href="./tierlist.html" class="nav-link" style="--index: 1">Tier List</a>
+        <a href="./palbook.html" class="nav-link" style="--index: 2">Palbook</a>
+        <a href="./synergy.html" class="nav-link" style="--index: 3">Synergy Guide</a>
+        <a href="./teamcomps-pve.html" class="nav-link" style="--index: 4">PvE Comps</a>
+        <a href="./teamcomps-pvp.html" class="nav-link" style="--index: 5">PvP Comps</a>
+        <a href="./counters.html" class="nav-link" style="--index: 6">Counters</a>
+        <a href="./lore.html" class="nav-link" style="--index: 7">Lore</a>
+    </nav>
+
+    <main class="container">
+        <h1>PvE Team Composition Guide</h1>
+        
+        <section class="intro">
+            <h2>PvE Team Building Principles</h2>
+            <p>Player vs. Environment (PvE) content demands teams that can sustain themselves through long fights, clear waves of enemies efficiently, and overcome powerful bosses. Unlike PvP, which often favors pure burst damage, PvE rewards strategic depth, survivability, and synergy.</p>
+            
+            <div class="principles">
+                <div class="principle">
+                    <h3>Survivability is Key</h3>
+                    <p>Tanks that protect the whole team (like <strong>Statchew</strong>) and clutch healers/shielders (like <strong>Platyputz</strong>) are invaluable for surviving tough boss mechanics and attrition.</p>
+                </div>
+                <div class="principle">
+                    <h3>AoE for Trash Mobs</h3>
+                    <p>Efficiently clearing waves of weaker enemies is crucial. Pals with reliable Area of Effect (AoE) skills save time and protect your team from being overwhelmed.</p>
+                </div>
+                <div class="principle">
+                    <h3>Synergy > Raw Power</h3>
+                    <p>A well-constructed mono-element team built around a buffer like <strong>Cerverdant</strong> (for Earth) or <strong>Baboom</strong> will often outperform a random assortment of powerful URs.</p>
+                </div>
+                <div class="principle">
+                    <h3>Control the Fight</h3>
+                    <p>Crowd Control (CC) like Stun (from <strong>Dolphriend</strong> or <strong>Hoofrit</strong>) and Freeze (from <strong>Snowkami</strong>) are just as critical in PvE to interrupt powerful boss attacks and disable dangerous elite enemies.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="intro">
+            <h2>Team Composition Tiers</h2>
+            <p>The following team compositions are ranked by their effectiveness in PvE content, considering both power level and accessibility for different player investment levels.</p>
+            
+            <div class="principles">
+                <div class="principle">
+                    <h3>S-Tier: Meta Dominance</h3>
+                    <p>These teams represent the absolute pinnacle of PvE performance, featuring multiple UR Pals with game-changing passives and synergies.</p>
+                </div>
+                <div class="principle">
+                    <h3>A-Tier: Specialized Excellence</h3>
+                    <p>Focused strategies that excel in specific content types or leverage powerful mono-element synergies for consistent performance.</p>
+                </div>
+                <div class="principle">
+                    <h3>B-Tier: Practical Efficiency</h3>
+                    <p>Resource-focused teams designed for farming and daily activities, balancing combat effectiveness with utility benefits.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Comp 1 -->
+        <article class="team-comp">
+            <h3 data-tier="S">Team 1: The Indomitable Fortress (Generalist)</h3>
+            <p>This team is the pinnacle of "good stuff" composition. It leverages the two most powerful team-wide passives in the game to create a massive statistical advantage before the fight even begins. It's incredibly durable, cripples enemy defenses, and has top-tier control and damage to handle any situation.</p>
+            
+            <div class="team-layout">
+                <div class="team-row">
+                    <h4>Front Row (2)</h4>
+                    <ul class="pal-list">
+                        <li><strong>Statchew (UR)</strong><span>Role: Main Tank, Team Damage Reduction</span></li>
+                        <li><strong>Barkplug (UR)</strong><span>Role: Off-Tank, Team DEF Shred</span></li>
+                    </ul>
+                </div>
+                <div class="team-row">
+                    <h4>Back Row (3)</h4>
+                    <ul class="pal-list">
+                        <li><strong>Abuzzinian (UR)</strong><span>Role: Dodge Tank, Multi-Target CC</span></li>
+                        <li><strong>Lucidina (UR)</strong><span>Role: Elite Single-Target Deletion</span></li>
+                        <li><strong>Hoofrit (UR)</strong><span>Role: Backline Assassin, Stun</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="strategy-section">
+                <h4>Strategy Breakdown</h4>
+                <p>Statchew's 'Sentinel' passive reduces all incoming damage to the front row by 20%, while Barkplug's 'Ion Disruption' passive reduces all enemy DEF by 20%. This combo makes your team both incredibly tanky and hit significantly harder. Hoofrit immediately pressures the enemy backline. Lucidina targets and eliminates the single most dangerous threat. Abuzzinian survives with high evasion and locks down multiple enemies with Paralysis, preventing them from using their Rage Skills. It's a symphony of overwhelming power and control.</p>
+                
+                <h4>Budget / Alternative Options</h4>
+                <div class="budget-options">
+                    <p>This is a "whale" team. To replicate its function on a budget:</p>
+                    <ul>
+                        <li>Replace <strong>Statchew</strong> with <strong>Platyputz (SSR)</strong> for his personal tankiness and clutch shield.</li>
+                        <li>Replace <strong>Barkplug</strong> with a durable debuffer like <strong>Axollium (SSR)</strong>. You lose the powerful DEF shred, but gain an Accuracy debuff.</li>
+                        <li>Replace <strong>Lucidina</strong> with <strong>Squeezel (SSR)</strong> or <strong>Bruiseberry (SSR)</strong> for strong single-target burst.</li>
+                         <li>Replace <strong>Hoofrit</strong> with <strong>Snowkami (SSR)</strong> to focus on single-target assassination with Freeze instead of backline pressure.</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <!-- Team Comp 2 -->
+        <article class="team-comp">
+            <h3 data-tier="A">Team 2: The Mono-Earth Quake Squad</h3>
+            <p>This composition focuses on the powerful synergies available to Earth-type Pals. It's a slower, more methodical team that becomes an unstoppable grinding machine, boasting incredible durability and ramping damage thanks to its powerful, stacking buffs.</p>
+            
+            <div class="team-layout">
+                <div class="team-row">
+                    <h4>Front Row (2)</h4>
+                    <ul class="pal-list">
+                        <li><strong>Statchew (UR)</strong><span>Role: Main Tank, Team-wide DR</span></li>
+                        <li><strong>Baboom (UR)</strong><span>Role: Leader, DPS, Stun</span></li>
+                    </ul>
+                </div>
+                <div class="team-row">
+                    <h4>Back Row (3)</h4>
+                    <ul class="pal-list">
+                        <li><strong>Cerverdant (SSR)</strong><span>Role: CORE BUFF SUPPORT</span></li>
+                        <li><strong>Terrastudo (SSR)</strong><span>Role: AoE Damage</span></li>
+                        <li><strong>Axollium (SSR)</strong><span>Role: AoE Damage, Debuff</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="strategy-section">
+                <h4>Strategy Breakdown</h4>
+                <p>This team is all about buffs. Baboom provides a passive +15% Attack to all Earth allies just for being in the lineup. Cerverdant's Rage Skill gives a temporary but massive +30% Attack buff to all Earth allies. These two buffs stack, turning even the SSRs into damage powerhouses. Statchew holds the line, making the front nearly invincible. Terrastudo and Axollium provide the AoE needed to sweep through enemy formations.</p>
+                
+                <h4>Budget / Alternative Options</h4>
+                <div class="budget-options">
+                    <p>Cerverdant is the irreplaceable core of this team.</p>
+                    <ul>
+                        <li>Replace <strong>Statchew</strong> with another tough Earth Pal, though no one replicates his team-wide passive. <strong>Platyputz (SSR)</strong> is a good generic tank replacement.</li>
+                        <li>If you lack <strong>Baboom</strong>, move <strong>Terrastudo</strong> to the front row and add another Earth DPS like <strong>Bruiseberry (SSR)</strong> to the back.</li>
+                        <li>Any Earth SSR can fill the DPS slots if you are missing Terrastudo or Axollium. The key is to have Earth Pals to benefit from the buffs.</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <!-- Team Comp 3 -->
+        <article class="team-comp">
+            <h3 data-tier="B">Team 3: The Resource Maximizer (Farming)</h3>
+            <p>This team isn't designed for the absolute hardest PvE content. Instead, its purpose is to maximize your resource gains from daily activities like clearing the map of Bullymon and completing Intel Quests. It's a long-term investment team that accelerates your camp's growth.</p>
+            
+            <div class="team-layout">
+                <div class="team-row">
+                    <h4>Front Row (2)</h4>
+                    <ul class="pal-list">
+                        <li><strong>Platyputz (SSR)</strong><span>Role: Tank, Survivability</span></li>
+                        <li><strong>Blazeal (UR)</strong><span>Role: AoE Damage, Fast Clearing</span></li>
+                    </ul>
+                </div>
+                <div class="team-row">
+                    <h4>Back Row (3)</h4>
+                    <ul class="pal-list">
+                        <li><strong>Meowdame (SSR)</strong><span>Role: CORE - Bullymon Loot Bonus</span></li>
+                        <li><strong>Incineraptor (SSR)</strong><span>Role: CORE - Intel Quest Bonus</span></li>
+                        <li><strong>Magmolin (UR)</strong><span>Role: Damage & Global Steel Buff</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="strategy-section">
+                <h4>Strategy Breakdown</h4>
+                <p>The strategy is simple: win fights while earning more loot. Meowdame's passive grants 75% extra Gold, Lumber, and Steel from Bullymon. Incineraptor's passive provides bonus treasure from Intel Quests. These two are the reason to run the team. The other three slots are filled with Pals who are both strong in combat and provide excellent passive benefits. Platyputz ensures the team can auto-battle without dying. Blazeal provides fast AoE clears. Magmolin is a powerhouse fighter who also provides a 100% global boost to your Steel production, making him the ultimate multi-tasker.</p>
+                
+                <h4>Budget / Alternative Options</h4>
+                <div class="budget-options">
+                    <p>The core of this team, <strong>Meowdame</strong> and <strong>Incineraptor</strong>, are SSRs and thus fairly accessible. The other slots are flexible.</p>
+                    <ul>
+                        <li>Replace <strong>Blazeal</strong> or <strong>Magmolin</strong> with any strong AoE damage dealer you have, like <strong>Terrastudo (SSR)</strong> or <strong>Fingenue (UR)</strong>.</li>
+                        <li>The tank slot can be filled by any durable Pal. <strong>Statchew (UR)</strong> is a luxury upgrade.</li>
+                        <li>Fill empty slots with other Pals who have valuable camp passives, like <strong>Cerverdant (SSR)</strong> for his logging skill or <strong>Bruiseberry (SSR)</strong> for his training skill.</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <section class="intro">
+            <h2>Building Your Own Teams</h2>
+            <p>While these compositions represent proven strategies, the best team is one that fits your playstyle and available Pals. Use these examples as templates, but don't be afraid to experiment with substitutions based on your roster.</p>
+            
+            <div class="principles">
+                <div class="principle">
+                    <h3>Start with Core Synergies</h3>
+                    <p>Identify 2-3 Pals that work well together, then build around them. A strong core is better than five random powerful Pals.</p>
+                </div>
+                <div class="principle">
+                    <h3>Consider Your Content</h3>
+                    <p>Different PvE content may require different approaches. Boss fights need more control, while farming benefits from AoE and speed.</p>
+                </div>
+                <div class="principle">
+                    <h3>Upgrade Gradually</h3>
+                    <p>Start with budget versions using SSR Pals, then gradually upgrade to UR versions as you acquire them. The team structure remains the same.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer" role="contentinfo">
+        <p>&copy; 2024 Palmon World. All rights reserved.</p>
+    </footer>
+
+    <!-- Load performance optimization script first -->
+    <script src="scripts/performance.js"></script>
+    <script src="scripts/navigation.js"></script>
+    
+    <!-- Lazy load animations script -->
+    <script>
+        // Lazy load animations script after initial render
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            setTimeout(() => {
+                const script = document.createElement('script');
+                script.src = 'scripts/animations.js';
+                script.async = true;
+                document.head.appendChild(script);
+            }, 200);
+        }
+    </script>
+</body>
+</html>

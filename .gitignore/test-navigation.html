@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Test - Palmon World</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <a href="./index.html" class="logo">
+            <img src="./images/game_logo.png" alt="Palmon World Logo">
+            <h1>Palmon World</h1>
+        </a>
+        
+        <nav class="nav" aria-label="Main navigation">
+            <a href="./index.html" class="nav-link">Home</a>
+            <a href="./tierlist.html" class="nav-link">Tier List</a>
+            <a href="./palbook.html" class="nav-link">Palbook</a>
+            <a href="./synergy.html" class="nav-link">Synergy Guide</a>
+            <a href="./teamcomps-pve.html" class="nav-link">PvE Comps</a>
+            <a href="./teamcomps-pvp.html" class="nav-link">PvP Comps</a>
+            <a href="./counters.html" class="nav-link">Counters</a>
+            <a href="./lore.html" class="nav-link">Lore</a>
+        </nav>
+        
+        <button class="mobile-nav-toggle" aria-label="Toggle mobile navigation" aria-expanded="false" aria-controls="mobile-nav">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+    </header>
+    
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+        <button class="mobile-nav-close" aria-label="Close mobile navigation">×</button>
+        <a href="./index.html" class="nav-link" style="--index: 0">Home</a>
+        <a href="./tierlist.html" class="nav-link" style="--index: 1">Tier List</a>
+        <a href="./palbook.html" class="nav-link" style="--index: 2">Palbook</a>
+        <a href="./synergy.html" class="nav-link" style="--index: 3">Synergy Guide</a>
+        <a href="./teamcomps-pve.html" class="nav-link" style="--index: 4">PvE Comps</a>
+        <a href="./teamcomps-pvp.html" class="nav-link" style="--index: 5">PvP Comps</a>
+        <a href="./counters.html" class="nav-link" style="--index: 6">Counters</a>
+        <a href="./lore.html" class="nav-link" style="--index: 7">Lore</a>
+    </nav>
+
+    <main class="container" id="main-content">
+        <div style="padding: var(--space-8); text-align: center;">
+            <h1>Navigation Test Page</h1>
+            <p>This page tests the enhanced navigation component.</p>
+            
+            <div style="margin-top: var(--space-8);">
+                <h2>Test Instructions:</h2>
+                <ul style="text-align: left; max-width: 600px; margin: 0 auto;">
+                    <li><strong>Desktop:</strong> Hover over navigation links to see smooth transitions and effects</li>
+                    <li><strong>Mobile:</strong> Resize window to mobile size and test hamburger menu</li>
+                    <li><strong>Keyboard:</strong> Use Tab to navigate and arrow keys to move between nav items</li>
+                    <li><strong>Accessibility:</strong> Test with screen reader and keyboard-only navigation</li>
+                    <li><strong>Active State:</strong> Current page should be highlighted in navigation</li>
+                </ul>
+            </div>
+            
+            <div style="margin-top: var(--space-8);">
+                <h2>Features Implemented:</h2>
+                <ul style="text-align: left; max-width: 600px; margin: 0 auto;">
+                    <li>✅ Modern header with backdrop blur effects</li>
+                    <li>✅ Responsive mobile navigation with hamburger menu</li>
+                    <li>✅ Smooth hover transitions and animations</li>
+                    <li>✅ Active page indicators</li>
+                    <li>✅ Keyboard navigation support</li>
+                    <li>✅ Focus states for accessibility</li>
+                    <li>✅ Skip to content link</li>
+                    <li>✅ ARIA labels and semantic markup</li>
+                    <li>✅ Reduced motion support</li>
+                    <li>✅ High contrast mode support</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <script src="scripts/navigation.js"></script>
+</body>
+</html>

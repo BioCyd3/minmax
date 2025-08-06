@@ -1,0 +1,579 @@
+/* Typography System */
+
+/* Font Face Declarations */
+/* Add custom font loading here if needed */
+
+/* Base Typography */
+html {
+  font-size: 16px; /* Base font size for rem calculations */
+}
+
+body {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+  letter-spacing: 0.01em;
+}
+
+/* Heading Styles */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+  letter-spacing: -0.025em;
+}
+
+h1 {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-secondary-500);
+  margin-bottom: var(--space-6);
+}
+
+h2 {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-secondary-500);
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-2);
+  border-bottom: 2px solid var(--color-primary-500);
+}
+
+h3 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+}
+
+h4 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+}
+
+h5 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+}
+
+h6 {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Paragraph and Text */
+p {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-4);
+  color: var(--color-text);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* Text Size Utilities */
+.text-xs { font-size: var(--font-size-xs); }
+.text-sm { font-size: var(--font-size-sm); }
+.text-base { font-size: var(--font-size-base); }
+.text-lg { font-size: var(--font-size-lg); }
+.text-xl { font-size: var(--font-size-xl); }
+.text-2xl { font-size: var(--font-size-2xl); }
+.text-3xl { font-size: var(--font-size-3xl); }
+.text-4xl { font-size: var(--font-size-4xl); }
+.text-5xl { font-size: var(--font-size-5xl); }
+.text-6xl { font-size: var(--font-size-6xl); }
+
+/* Font Weight Utilities */
+.font-light { font-weight: var(--font-weight-light); }
+.font-normal { font-weight: var(--font-weight-normal); }
+.font-medium { font-weight: var(--font-weight-medium); }
+.font-semibold { font-weight: var(--font-weight-semibold); }
+.font-bold { font-weight: var(--font-weight-bold); }
+.font-extrabold { font-weight: var(--font-weight-extrabold); }
+
+/* Line Height Utilities */
+.leading-tight { line-height: var(--line-height-tight); }
+.leading-snug { line-height: var(--line-height-snug); }
+.leading-normal { line-height: var(--line-height-normal); }
+.leading-relaxed { line-height: var(--line-height-relaxed); }
+.leading-loose { line-height: var(--line-height-loose); }
+
+/* Text Color Utilities - Basic */
+.text-primary { color: var(--color-primary-500); }
+.text-secondary { color: var(--color-secondary-500); }
+.text-muted { color: var(--color-text-muted); }
+.text-subtle { color: var(--color-text-subtle); }
+.text-white { color: #ffffff; }
+.text-black { color: #000000; }
+.text-current { color: currentColor; }
+.text-transparent { color: transparent; }
+
+/* Semantic Text Colors */
+.text-success { color: var(--color-success-500); }
+.text-warning { color: var(--color-warning-500); }
+.text-error { color: var(--color-error-500); }
+.text-info { color: var(--color-info-500); }
+
+/* Enhanced Typography Utilities */
+
+/* Display Text Styles */
+.display-1 {
+  font-size: var(--font-size-6xl);
+  font-weight: var(--font-weight-extrabold);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.05em;
+}
+
+.display-2 {
+  font-size: var(--font-size-5xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.025em;
+}
+
+.display-3 {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-snug);
+  letter-spacing: -0.025em;
+}
+
+/* Body Text Variants */
+.body-large {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  font-weight: var(--font-weight-normal);
+}
+
+.body-small {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  font-weight: var(--font-weight-normal);
+}
+
+.caption {
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-normal);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Label Styles */
+.label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+}
+
+.label-large {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+}
+
+.label-small {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-tight);
+}
+
+/* Gaming-specific Typography */
+.gaming-title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-extrabold);
+  line-height: var(--line-height-tight);
+  color: var(--color-secondary-500);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: -0.025em;
+}
+
+.gaming-subtitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  color: var(--color-primary-400);
+  letter-spacing: 0.025em;
+}
+
+.gaming-badge {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Monospace Utilities */
+.font-mono { font-family: var(--font-family-mono); }
+.font-sans { font-family: var(--font-family-sans); }
+
+/* Advanced Typography Utilities */
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+.text-wrap {
+  white-space: normal;
+}
+
+.text-pre {
+  white-space: pre;
+}
+
+.text-pre-line {
+  white-space: pre-line;
+}
+
+.text-pre-wrap {
+  white-space: pre-wrap;
+}
+
+/* Text Overflow */
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-clip {
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
+}
+
+/* Vertical Alignment */
+.align-baseline { vertical-align: baseline; }
+.align-top { vertical-align: top; }
+.align-middle { vertical-align: middle; }
+.align-bottom { vertical-align: bottom; }
+.align-text-top { vertical-align: text-top; }
+.align-text-bottom { vertical-align: text-bottom; }
+.align-sub { vertical-align: sub; }
+.align-super { vertical-align: super; }
+
+/* Text Selection */
+.select-none {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.select-text {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  user-select: text;
+}
+
+.select-all {
+  -webkit-user-select: all;
+  -moz-user-select: all;
+  user-select: all;
+}
+
+.select-auto {
+  -webkit-user-select: auto;
+  -moz-user-select: auto;
+  user-select: auto;
+}
+
+/* Text Alignment */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+
+/* Text Transform */
+.uppercase { text-transform: uppercase; }
+.lowercase { text-transform: lowercase; }
+.capitalize { text-transform: capitalize; }
+.normal-case { text-transform: none; }
+
+/* Text Decoration */
+.underline { text-decoration: underline; }
+.line-through { text-decoration: line-through; }
+.no-underline { text-decoration: none; }
+
+/* Font Style */
+.italic { font-style: italic; }
+.not-italic { font-style: normal; }
+
+/* Letter Spacing */
+.tracking-tighter { letter-spacing: -0.05em; }
+.tracking-tight { letter-spacing: -0.025em; }
+.tracking-normal { letter-spacing: 0em; }
+.tracking-wide { letter-spacing: 0.025em; }
+.tracking-wider { letter-spacing: 0.05em; }
+.tracking-widest { letter-spacing: 0.1em; }
+
+/* Lists */
+ul, ol {
+  margin-bottom: var(--space-4);
+  padding-left: var(--space-6);
+}
+
+li {
+  margin-bottom: var(--space-1);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Code and Preformatted Text */
+code {
+  font-family: var(--font-family-mono);
+  font-size: 0.875em;
+  background-color: var(--color-surface-elevated);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  color: var(--color-secondary-400);
+}
+
+pre {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  background-color: var(--color-surface);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  margin-bottom: var(--space-4);
+  border: 1px solid var(--color-border);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  color: var(--color-text);
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid var(--color-secondary-500);
+  padding-left: var(--space-4);
+  margin: var(--space-6) 0;
+  font-style: italic;
+  color: var(--color-text-muted);
+  background-color: rgba(233, 69, 96, 0.1);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+}
+
+/* Links */
+a {
+  color: var(--color-secondary-500);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  transition: color var(--duration-200) var(--ease-out);
+}
+
+a:hover {
+  color: var(--color-secondary-400);
+  text-decoration: underline;
+}
+
+a:focus {
+  outline: 2px solid var(--color-secondary-500);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Responsive Typography Utilities */
+
+/* Mobile-first responsive text sizes */
+@media (min-width: 640px) {
+  .sm\:text-xs { font-size: var(--font-size-xs); }
+  .sm\:text-sm { font-size: var(--font-size-sm); }
+  .sm\:text-base { font-size: var(--font-size-base); }
+  .sm\:text-lg { font-size: var(--font-size-lg); }
+  .sm\:text-xl { font-size: var(--font-size-xl); }
+  .sm\:text-2xl { font-size: var(--font-size-2xl); }
+  .sm\:text-3xl { font-size: var(--font-size-3xl); }
+  .sm\:text-4xl { font-size: var(--font-size-4xl); }
+  .sm\:text-5xl { font-size: var(--font-size-5xl); }
+  .sm\:text-6xl { font-size: var(--font-size-6xl); }
+}
+
+@media (min-width: 768px) {
+  .md\:text-xs { font-size: var(--font-size-xs); }
+  .md\:text-sm { font-size: var(--font-size-sm); }
+  .md\:text-base { font-size: var(--font-size-base); }
+  .md\:text-lg { font-size: var(--font-size-lg); }
+  .md\:text-xl { font-size: var(--font-size-xl); }
+  .md\:text-2xl { font-size: var(--font-size-2xl); }
+  .md\:text-3xl { font-size: var(--font-size-3xl); }
+  .md\:text-4xl { font-size: var(--font-size-4xl); }
+  .md\:text-5xl { font-size: var(--font-size-5xl); }
+  .md\:text-6xl { font-size: var(--font-size-6xl); }
+}
+
+@media (min-width: 1024px) {
+  .lg\:text-xs { font-size: var(--font-size-xs); }
+  .lg\:text-sm { font-size: var(--font-size-sm); }
+  .lg\:text-base { font-size: var(--font-size-base); }
+  .lg\:text-lg { font-size: var(--font-size-lg); }
+  .lg\:text-xl { font-size: var(--font-size-xl); }
+  .lg\:text-2xl { font-size: var(--font-size-2xl); }
+  .lg\:text-3xl { font-size: var(--font-size-3xl); }
+  .lg\:text-4xl { font-size: var(--font-size-4xl); }
+  .lg\:text-5xl { font-size: var(--font-size-5xl); }
+  .lg\:text-6xl { font-size: var(--font-size-6xl); }
+}
+
+@media (min-width: 1280px) {
+  .xl\:text-xs { font-size: var(--font-size-xs); }
+  .xl\:text-sm { font-size: var(--font-size-sm); }
+  .xl\:text-base { font-size: var(--font-size-base); }
+  .xl\:text-lg { font-size: var(--font-size-lg); }
+  .xl\:text-xl { font-size: var(--font-size-xl); }
+  .xl\:text-2xl { font-size: var(--font-size-2xl); }
+  .xl\:text-3xl { font-size: var(--font-size-3xl); }
+  .xl\:text-4xl { font-size: var(--font-size-4xl); }
+  .xl\:text-5xl { font-size: var(--font-size-5xl); }
+  .xl\:text-6xl { font-size: var(--font-size-6xl); }
+}
+
+/* Responsive Typography Base */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: var(--font-size-3xl);
+  }
+  
+  h2 {
+    font-size: var(--font-size-2xl);
+  }
+  
+  h3 {
+    font-size: var(--font-size-xl);
+  }
+  
+  .display-1 {
+    font-size: var(--font-size-4xl);
+  }
+  
+  .display-2 {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .display-3 {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .gaming-title {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .gaming-subtitle {
+    font-size: var(--font-size-lg);
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1281px) {
+  html {
+    font-size: 18px;
+  }
+  
+  h1 {
+    font-size: var(--font-size-5xl);
+  }
+  
+  h2 {
+    font-size: var(--font-size-4xl);
+  }
+  
+  .display-1 {
+    font-size: var(--font-size-6xl);
+  }
+  
+  .display-2 {
+    font-size: var(--font-size-5xl);
+  }
+  
+  .gaming-title {
+    font-size: var(--font-size-4xl);
+  }
+  
+  .gaming-subtitle {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+/* Fluid Typography (Modern approach using clamp) */
+.text-fluid-sm {
+  font-size: clamp(var(--font-size-xs), 2vw, var(--font-size-sm));
+}
+
+.text-fluid-base {
+  font-size: clamp(var(--font-size-sm), 2.5vw, var(--font-size-base));
+}
+
+.text-fluid-lg {
+  font-size: clamp(var(--font-size-base), 3vw, var(--font-size-lg));
+}
+
+.text-fluid-xl {
+  font-size: clamp(var(--font-size-lg), 3.5vw, var(--font-size-xl));
+}
+
+.text-fluid-2xl {
+  font-size: clamp(var(--font-size-xl), 4vw, var(--font-size-2xl));
+}
+
+.text-fluid-3xl {
+  font-size: clamp(var(--font-size-2xl), 5vw, var(--font-size-3xl));
+}
+
+.text-fluid-4xl {
+  font-size: clamp(var(--font-size-3xl), 6vw, var(--font-size-4xl));
+}
+
+.text-fluid-5xl {
+  font-size: clamp(var(--font-size-4xl), 7vw, var(--font-size-5xl));
+}
+
+.text-fluid-6xl {
+  font-size: clamp(var(--font-size-5xl), 8vw, var(--font-size-6xl));
+}

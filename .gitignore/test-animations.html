@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation System Test - Palmon World</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-8);
+        }
+        
+        .test-section {
+            margin-bottom: var(--space-12);
+            padding: var(--space-6);
+            background-color: var(--color-surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border);
+        }
+        
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-6);
+            margin-top: var(--space-6);
+        }
+        
+        .demo-button {
+            margin: var(--space-2);
+        }
+        
+        .animation-demo {
+            padding: var(--space-4);
+            background-color: var(--color-primary-500);
+            color: var(--color-text);
+            border-radius: var(--radius-md);
+            text-align: center;
+            cursor: pointer;
+            transition: all var(--duration-300) var(--ease-out);
+        }
+        
+        .performance-indicator {
+            position: fixed;
+            top: var(--space-4);
+            right: var(--space-4);
+            background-color: var(--color-success-500);
+            color: white;
+            padding: var(--space-2) var(--space-4);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-sm);
+            z-index: var(--z-index-fixed);
+        }
+    </style>
+</head>
+<body>
+    <div class="performance-indicator" id="fps-counter">FPS: --</div>
+    
+    <div class="test-container">
+        <h1 style="text-align: center; color: var(--color-secondary-500); margin-bottom: var(--space-8);">
+            Animation System Test
+        </h1>
+        
+        <!-- Button Animations Test -->
+        <div class="test-section">
+            <h2>Button Micro-interactions</h2>
+            <p>Test various button states and feedback animations:</p>
+            <div class="test-grid">
+                <button class="btn btn-primary demo-button ripple-effect">Primary Button</button>
+                <button class="btn btn-secondary demo-button ripple-effect">Secondary Button</button>
+                <button class="btn btn-outline demo-button ripple-effect">Outline Button</button>
+                <button class="btn btn-primary demo-button" data-loading="true">Loading Button</button>
+                <button class="btn btn-secondary demo-button btn-pulse">Pulse Button</button>
+                <button class="btn btn-primary demo-button btn-bounce">Bounce Button</button>
+            </div>
+        </div>
+        
+        <!-- Card Animations Test -->
+        <div class="test-section">
+            <h2>Card Hover Effects</h2>
+            <p>Test card interactions and hover animations:</p>
+            <div class="test-grid">
+                <div class="card card-interactive-enhanced">
+                    <h3>Basic Card</h3>
+                    <p>This card has enhanced hover effects with lift and shadow changes.</p>
+                </div>
+                
+                <div class="pal-card" data-rarity="UR" data-type="Fire">
+                    <div class="pal-card-image">
+                        <img src="./images/Profile-Magmolin.png" alt="Test Pal" loading="lazy">
+                    </div>
+                    <div class="pal-card-body">
+                        <div class="card-header">
+                            <h3>Test Pal</h3>
+                            <span class="tier-badge tier-s">S</span>
+                        </div>
+                        <div class="pal-info">
+                            <span><strong>Type:</strong> Fire</span>
+                            <span><strong>Rarity:</strong> UR</span>
+                        </div>
+                        <div class="explanation">
+                            <p>This is a test Pal card with enhanced animations and micro-interactions.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Feature Card</h3>
+                    <p>Enhanced feature card with gradient animation and hover effects.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Form Animations Test -->
+        <div class="test-section">
+            <h2>Form Input Animations</h2>
+            <p>Test form input focus states and validation feedback:</p>
+            <div class="test-grid">
+                <div>
+                    <label for="test-input">Test Input:</label>
+                    <input type="text" id="test-input" class="input-enhanced" placeholder="Type something...">
+                </div>
+                <div>
+                    <label for="test-email">Email (validation test):</label>
+                    <input type="email" id="test-email" class="input-enhanced" placeholder="Enter email..." required>
+                </div>
+                <div>
+                    <label for="test-textarea">Textarea:</label>
+                    <textarea id="test-textarea" class="input-enhanced" placeholder="Enter text..." rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation Animations Test -->
+        <div class="test-section">
+            <h2>Navigation Animations</h2>
+            <p>Test navigation link hover effects:</p>
+            <nav class="nav">
+                <a href="#" class="nav-link nav-item-enhanced">Home</a>
+                <a href="#" class="nav-link nav-item-enhanced active">Active Link</a>
+                <a href="#" class="nav-link nav-item-enhanced">About</a>
+                <a href="#" class="nav-link nav-item-enhanced">Contact</a>
+            </nav>
+        </div>
+        
+        <!-- Loading States Test -->
+        <div class="test-section">
+            <h2>Loading States</h2>
+            <p>Test various loading animations:</p>
+            <div class="test-grid">
+                <div class="loading-skeleton" style="height: 60px; width: 100%;"></div>
+                <div class="loading-dots-enhanced">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="animation-demo loading-pulse">Pulse Loading</div>
+                <div class="animation-demo shimmer">Shimmer Effect</div>
+            </div>
+        </div>
+        
+        <!-- Staggered Animations Test -->
+        <div class="test-section">
+            <h2>Staggered Animations</h2>
+            <p>Test staggered entrance animations:</p>
+            <div class="stagger-container test-grid" id="stagger-demo">
+                <div class="card stagger-item">Item 1</div>
+                <div class="card stagger-item">Item 2</div>
+                <div class="card stagger-item">Item 3</div>
+                <div class="card stagger-item">Item 4</div>
+                <div class="card stagger-item">Item 5</div>
+                <div class="card stagger-item">Item 6</div>
+            </div>
+            <button class="btn btn-primary" onclick="restartStagger()">Restart Animation</button>
+        </div>
+        
+        <!-- Performance Test -->
+        <div class="test-section">
+            <h2>Performance Test</h2>
+            <p>Test animation performance with multiple elements:</p>
+            <div id="performance-test" class="test-grid">
+                <!-- Will be populated by JavaScript -->
+            </div>
+            <button class="btn btn-secondary" onclick="startPerformanceTest()">Start Performance Test</button>
+        </div>
+        
+        <!-- Reduced Motion Test -->
+        <div class="test-section">
+            <h2>Accessibility Test</h2>
+            <p>Test reduced motion preferences (check browser dev tools to simulate):</p>
+            <div class="test-grid">
+                <div class="animation-demo float">Floating Animation</div>
+                <div class="animation-demo heartbeat">Heartbeat Animation</div>
+                <div class="animation-demo gradient-animate">Gradient Animation</div>
+            </div>
+            <p><small>Note: These animations should be disabled when "prefers-reduced-motion: reduce" is set.</small></p>
+        </div>
+    </div>
+    
+    <script src="scripts/animations.js"></script>
+    <script>
+        // FPS Counter
+        let fps = 0;
+        let lastTime = performance.now();
+        let frameCount = 0;
+        
+        function updateFPS() {
+            const currentTime = performance.now();
+            frameCount++;
+            
+            if (currentTime - lastTime >= 1000) {
+                fps = Math.round((frameCount * 1000) / (currentTime - lastTime));
+                document.getElementById('fps-counter').textContent = `FPS: ${fps}`;
+                frameCount = 0;
+                lastTime = currentTime;
+            }
+            
+            requestAnimationFrame(updateFPS);
+        }
+        updateFPS();
+        
+        // Restart stagger animation
+        function restartStagger() {
+            const container = document.getElementById('stagger-demo');
+            const items = container.querySelectorAll('.stagger-item');
+            
+            items.forEach(item => {
+                item.style.animation = 'none';
+                item.offsetHeight; // Trigger reflow
+                item.style.animation = null;
+            });
+        }
+        
+        // Performance test
+        function startPerformanceTest() {
+            const container = document.getElementById('performance-test');
+            container.innerHTML = '';
+            
+            // Create 50 animated elements
+            for (let i = 0; i < 50; i++) {
+                const element = document.createElement('div');
+                element.className = 'card card-interactive-enhanced';
+                element.style.height = '100px';
+                element.textContent = `Card ${i + 1}`;
+                element.addEventListener('mouseenter', () => {
+                    element.style.transform = 'translateY(-6px) scale(1.02)';
+                });
+                element.addEventListener('mouseleave', () => {
+                    element.style.transform = '';
+                });
+                container.appendChild(element);
+            }
+        }
+        
+        // Test form validation
+        document.getElementById('test-email').addEventListener('blur', function() {
+            if (!this.validity.valid) {
+                this.classList.add('error');
+                setTimeout(() => this.classList.remove('error'), 300);
+            }
+        });
+        
+        // Test button feedback
+        document.querySelectorAll('.demo-button').forEach(button => {
+            button.addEventListener('click', function() {
+                if (this.dataset.loading === 'true') {
+                    window.animationSystem.setLoadingState(this, true);
+                    setTimeout(() => {
+                        window.animationSystem.setLoadingState(this, false);
+                        window.animationSystem.showFeedback(this, 'success');
+                    }, 2000);
+                }
+            });
+        });
+        
+        // Log animation system status
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Animation System Status:', {
+                reducedMotion: window.animationSystem.reducedMotion,
+                initialized: !!window.animationSystem
+            });
+        });
+    </script>
+</body>
+</html>
