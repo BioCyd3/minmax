@@ -746,36 +746,42 @@
             }
 
             const tierClass = `tier-${hero['Tier'].charAt(0).toLowerCase()}`;
+            const heroImagePath = `./images/Profile-${hero['Hero Name']}.png`;
 
             return `
                 <div class="hero-card rarity-${hero['Rarity'].toLowerCase()}">
-                    <div class="card-header">
-                        <h3>${hero['Hero Name']}</h3>
-                        <span class="tier-badge ${tierClass}">${hero['Tier']}</span>
+                    <div class="hero-card-image">
+                        <img src="${heroImagePath}" alt="${hero['Hero Name']}" loading="lazy">
                     </div>
-                    <div class="hero-info">
-                        <span><strong>Rarity:</strong> <span class="rarity-${hero['Rarity'].toLowerCase()}-text">${hero['Rarity']}</span></span>
-                        <span><strong>Type:</strong> <span class="type-${hero['Type']}">${hero['Type']}</span></span>
-                        <span><strong>Row:</strong> ${hero['Row']}</span>
-                    </div>
-                    <div class="team-buff">
-                        <strong>Team Buff (${buffName}):</strong> ${buffDesc}
-                    </div>
-                    <div class="explanation">
-                        <p><strong>Quick Explanation:</strong> ${hero['Quick Explanation']}</p>
-                        <p><strong>Detailed Explanation:</strong> ${hero['Detailed Explanation']}</p>
-                    </div>
-                    <div class="roles-jobs">
-                        <p><strong>Role[s]:</strong> ${hero['Role[s]']}</p>
-                        <p><strong>Job Tag(s):</strong> ${hero['Job Tag(s)']}</p>
-                    </div>
-                    <div class="skills">
-                        <h4>Skills</h4>
-                        <ul>
-                            <li><strong>${hero['Skill 1 Name']}:</strong> ${hero['Skill 1 Description']}</li>
-                            <li><strong>${hero['Skill 2 Name']} (Rage):</strong> ${hero['Skill 2 Description']}</li>
-                            <li><strong>${hero['Skill 3 Name']} (Passive):</strong> ${hero['Skill 3 Description']}</li>
-                        </ul>
+                    <div class="hero-card-body">
+                        <div class="card-header">
+                            <h3>${hero['Hero Name']}</h3>
+                            <span class="tier-badge ${tierClass}">${hero['Tier']}</span>
+                        </div>
+                        <div class="hero-info">
+                            <span><strong>Rarity:</strong> <span class="rarity-${hero['Rarity'].toLowerCase()}-text">${hero['Rarity']}</span></span>
+                            <span><strong>Type:</strong> <span class="pal-type ${hero['Type'].toLowerCase()}">${hero['Type']}</span></span>
+                            <span><strong>Row:</strong> ${hero['Row']}</span>
+                        </div>
+                        <div class="team-buff">
+                            <strong>Team Buff (${buffName}):</strong> ${buffDesc}
+                        </div>
+                        <div class="explanation">
+                            <p><strong>Quick Explanation:</strong> ${hero['Quick Explanation']}</p>
+                            <p><strong>Detailed Explanation:</strong> ${hero['Detailed Explanation']}</p>
+                        </div>
+                        <div class="roles-jobs">
+                            <p><strong>Role[s]:</strong> ${hero['Role[s]']}</p>
+                            <p><strong>Job Tag(s):</strong> ${hero['Job Tag(s)']}</p>
+                        </div>
+                        <div class="skills">
+                            <h4>Skills</h4>
+                            <ul>
+                                <li><strong>${hero['Skill 1 Name']}:</strong> ${hero['Skill 1 Description']}</li>
+                                <li><strong>${hero['Skill 2 Name']} (Rage):</strong> ${hero['Skill 2 Description']}</li>
+                                <li><strong>${hero['Skill 3 Name']} (Passive):</strong> ${hero['Skill 3 Description']}</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             `;
